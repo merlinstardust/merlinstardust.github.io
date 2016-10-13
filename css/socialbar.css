@@ -1,0 +1,32 @@
+#socialbar img {
+    border: 0px;
+}
+
+#socialbar li img {
+    width: 32px; 
+    height:32px;
+}
+
+#socialbar li a:hover {
+    position: relative;
+    top: 2px;
+}
+
+#socialbar {
+    padding: 0px;
+    list-style: none outside none;
+    margin: 0px; 
+    position: static;
+}
+
+#socialbar li {
+    display: inline;
+    padding-right: 2px;
+    margin-left: 0em
+}
+
+#socialbar{
+    /*width: 180px;
+    text-align: center;*/
+}
+
