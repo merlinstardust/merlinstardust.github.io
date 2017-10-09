@@ -1,6 +1,6 @@
 var config = {
   history: true,
-  fragments: false,
+  // fragments: false,
 
   dependencies: [
     {src: 'plugin/notes/notes.js', async: true},
