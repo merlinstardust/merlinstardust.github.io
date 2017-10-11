@@ -1,0 +1,21 @@
+iframe {
+  display: block;
+  width: 48rem;
+  max-width: 48rem;
+  height: 100%;
+  max-height: 27rem;
+  border: none;
+  margin: 1rem auto;
+}
+
+@media (min-width: 40rem) {
+  iframe {
+    width: 100%;
+  }
+}
+
+a {
+  display: block;
+  text-align: center;
+  margin-bottom: 2rem;
+}

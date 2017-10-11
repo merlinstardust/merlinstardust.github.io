@@ -3,8 +3,8 @@ var config = {
   // fragments: false,
 
   dependencies: [
-    {src: 'plugin/notes/notes.js', async: true},
-    {src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); }},
+    {src: '/slides/reveal/plugin/notes/notes.js', async: true},
+    {src: '/slides/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); }},
   ],
 };
 
@@ -19,7 +19,7 @@ if (master || following) {
 
   config.dependencies = [
     {src: '//cdn.socket.io/socket.io-1.3.5.js', async: true},
-    {src: 'plugin/multiplex/' + (following ? 'client.js' : 'master.js'), async: true},
+    {src: '/slides/reveal/plugin/multiplex/' + (following ? 'client.js' : 'master.js'), async: true},
   ].concat(config.dependencies);
 }
 
