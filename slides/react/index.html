@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>
-      Agile Dev
+      Learn React
     </title>
 
     <link rel="stylesheet" href="/slides/reveal/css/reveal.css">
@@ -30,6 +30,669 @@
             Learn React
           </h1>
         </section>
+
+        <!-- hour 0 to 1 -->
+        <section> <!-- learn: what is react -->
+          <section>
+            <h1>
+              What is React and why use it?
+            </h1>
+          </section>
+
+          <section>
+            <h2>
+              Simple View Layer
+            </h2>
+            <pre style="font-size: .45em">
+              <code data-trim>
+                <div style={styles.app}>
+                  <div style={styles.currentRooms}>
+                    &lt;RoomsList currentRoom={currentRoom} selectRoom={this.selectRoom} />
+                  </div>
+                  <div style={styles.messages}>
+                    &lt;MessagesList currentRoom={currentRoom} expanded={expanded} />
+                    &lt;Editor currentRoom={currentRoom} currentUser={currentUser} />
+                  </div>
+                </div>
+              </code>
+            </pre>
+            <img width="60%" src="components.png" />
+          </section>
+
+          <section>
+            <h2>
+              Easy to Understand
+            </h2>
+            <img width="50%" src="endlessHtml.png" />
+            <pre style="font-size: .45em">
+              <code data-trim>
+                <div style={styles.app}>
+                  <div style={styles.currentRooms}>
+                    &lt;RoomsList currentRoom={currentRoom} selectRoom={this.selectRoom} />
+                  </div>
+                  <div style={styles.messages}>
+                    &lt;MessagesList currentRoom={currentRoom} expanded={expanded} />
+                    &lt;Editor currentRoom={currentRoom} currentUser={currentUser} />
+                  </div>
+                </div>
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <ul>
+              <li class="fragment">
+                Fast to Update
+              </li>
+              <li class="fragment">
+                Cross Browser Consistency
+              </li>
+              <li class="fragment">
+                Mobile Apps
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>
+              Companies Using It
+            </h2>
+            <ul>
+              <li>
+                <a href="https://reactjs.org/blog/2013/06/05/why-react.html">
+                  Facebook (Creators)
+                </a>
+              </li>
+              <li>
+                <a href="http://devnacho.com/2016/03/20/how-airbnb-uses-react/">
+                  AirBnB
+                </a>
+              </li>
+              <li>
+                <a href="https://medium.com/netflix-techblog/netflix-likes-react-509675426db">
+                  Netflix
+                </a>
+              </li>
+              <li>
+                <a href="https://sophiebits.com/2013/06/09/using-react-to-speed-up-khan-academy.html">
+                  Khan Academy
+                </a>
+              </li>
+              <li>
+                <a href="https://open.nytimes.com/react-relay-and-graphql-under-the-hood-of-the-times-website-redesign-22fb62ea9764">
+                  The New York Times
+                </a>
+              </li>
+            </ul>
+          </section>
+        </section> <!-- /learn: what is react -->
+
+        <section> <!-- do: set up and install -->
+          <section> <!-- node, dev tools, create-react-app -->
+            <h2>
+              Get Started - Install
+            </h2>
+            <ul>
+              <li>
+                Install
+                <a href="https://nodejs.org/en/download/" target="_blank">
+                  Node (click here)
+                </a>
+              </li>
+              <li>
+                Install
+                <a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en" target="_blank">
+                  React Dev Tools (click here)
+                </a>
+                (requires Chrome)
+              </li>
+              <li>
+                Install
+                <a href="https://github.com/facebookincubator/create-react-app#create-react-app" target="_blank">
+                  create-react-app
+                </a>
+                <ul>
+                  <li>
+                    Open Terminal on Mac or Command Prompt on Windows
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <pre>
+              <code data-trim data-noescape>
+                npm install -g create-react-app
+              </code>
+            </pre>
+          </section> <!-- /node, dev tools, create-react-app -->
+
+          <section> <!-- /create and run -->
+            <h2>
+              Get Started - Create and Run
+            </h2>
+              <p>
+                Create a project named react-chat
+              </p>
+            	<pre>
+                <code data-trim data-noescape>
+                  create-react-app react-chat
+              	</code>
+              </pre>
+              <p>
+                Run a project named react-chat
+              </p>
+            	<pre>
+                <code data-trim data-noescape>
+                  cd react-chat
+                  yarn start
+              	</code>
+              </pre>
+            </ul>
+          </section> <!-- /create and run -->
+        </section> <!-- /do: set up and install -->
+
+        <section> <!-- learn: what create-react-app is and an overview of the pieces it creates (10) -->
+          <section>
+            <pre style="font-size: 0.45em">
+              <code data-trim data-noescape style="max-height: 470px">
+                import React, { Component } from 'react';
+                import logo from './logo.svg';
+                import './App.css';
+
+                class App extends Component {
+                  render() {
+                    return (
+                      &lt;div className="App">
+                        &lt;header className="App-header">
+                          &lt;img src={logo} className="App-logo" alt="logo" />
+                          &lt;h1 className="App-title">Welcome to React</h1>
+                        &lt;/header>
+                        &lt;p className="App-intro">
+                          To get started, edit &lt;code>src/App.js&lt;/code> and save to reload.
+                        &lt;/p>
+                      &lt;/div>
+                    );
+                  }
+                }
+
+                export default App;
+              </code>
+            </pre>
+            <aside class="notes">
+              Open dev tools (React and regular)
+            </aside>
+          </section>
+
+          <section>
+            <pre>
+              <code data-trim data-noescape>
+                import React from 'react';
+                import ReactDOM from 'react-dom';
+                import './index.css';
+                import App from './App';
+                import registerServiceWorker from './registerServiceWorker';
+
+                ReactDOM.render(&lt;App />, document.getElementById('root'));
+                registerServiceWorker();
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h2>
+              Other Things
+            </h2>
+            <pre>
+              <code data-trim data-noescape>
+                public/
+                src/
+                  App.css
+                  App.js
+                  App.test.js
+                  index.css
+                  index.js
+                  logo.svg
+                  registerServiceWorker.js
+              </code>
+            </pre>
+            <aside class="notes">
+              <ul>
+                <li>
+                  css and images
+                </li>
+                <li>
+                  tests
+                </li>
+                <li>
+                  service worker - background, offline, push, sync, etc
+                </li>
+                <li>
+                  language support
+                </li>
+              </ul>
+            </aside>
+          </section>
+        </section> <!-- /learn: what create-react-app is and an overview of the pieces it creates (10) -->
+
+        <section> <!-- do: change a few pieces to see how it affects the app and look at devtools (5) -->
+          <section>
+            <h1>
+              Experiment
+            </h1>
+            <aside class="notes">
+              <ul>
+                <li>
+                  change the header text
+                </li>
+                <li>
+                  change the image
+                </li>
+              </ul>
+            </aside>
+          </section>
+        </section> <!-- /do: change a few pieces to see how it affects the app and look at devtools (5) -->
+
+        <section> <!-- learn: raw react and what a component looks like, with basic children info (15) -->
+          <section>
+            learn: raw react and what a component looks like, with basic children info (15)
+          </section>
+
+          <section>
+            <pre>
+              <code data-trim data-noescape>
+                class ComponentName extends React.Component {
+                  render() {
+                    return (
+                      React.createElement(string/class, props, children)
+                    );
+                  }
+                }
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <pre>
+              <code data-trim data-noescape>
+                class Title extends React.Component {
+                  render() {
+                    return (
+                      React.createElement('h1', {}, 'Some Text');
+                    );
+                  }
+                }
+              </code>
+            </pre>
+            <pre class="fragment">
+              <code data-trim data-noescape>
+                &lt;h1>
+                  Some Text
+                &lt;/h1>
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <pre>
+              <code data-trim data-noescape>
+                class Header extends React.Component {
+                  render() {
+                    return (
+                      React.createElement('header', {},
+                        React.createElement(Title, {})
+                      );
+                    );
+                  }
+                }
+              </code>
+            </pre>
+            <pre class="fragment">
+              <code data-trim data-noescape>
+                &lt;header>
+                  &lt;h1>
+                    Some Text
+                  &lt;/h1>
+                &lt;/header>
+              </code>
+            </pre>
+          </section>
+        </section> <!-- /learn: raw react and what a component looks like, with basic children info (15) -->
+
+        <section> <!-- do: create a basic message component (10) -->
+          <section>
+            <h2>
+              Create a Message Component
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+              Create
+            </h2>
+            <ul>
+              <li>
+                div with text
+              </li>
+            </ul>
+            <pre>
+              <code data-trim data-noescape>
+                import './App.css';
+
+                class Message extends React.Component {
+                  render () {
+                    return (
+                      // insert code here
+                    );
+                  }
+                }
+
+                class App extends Component {
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h2>
+              Use the Component
+            </h2>
+            <pre>
+              <code data-trim data-noescape>
+                class App extends Component {
+                  render() {
+                    return (
+                      &lt;div className="App">
+                        // insert code here
+                      &lt;div>
+                    );
+                  }
+                }
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h2>
+              Possible Solution
+            </h2>
+            <pre>
+              <code data-trim data-noescape>
+                class Message extends React.Component {
+                  render () {
+                    return (
+                      &lt;div>
+                        Some text
+                      &lt;/div>
+                    );
+                  }
+                }
+                class App extends Component {
+                  render() {
+                    return (
+                      &lt;div className="App">
+                        React.createElement(Message);
+                      &lt;div>
+                    );
+                  }
+                }
+              </code>
+            </pre>
+          </section>
+        </section> <!-- /do: create a basic message component (10) -->
+        <!-- /hour 0 to 1 -->
+
+        <!-- hour 1 to 2 -->
+        <section> <!-- learn: an overview of jsx (10) -->
+          <section>
+            <h2>
+              JSX
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+              Syntax
+            </h2>
+            <pre>
+              <code data-trim data-noescape>
+                React.createElement('h1', {}, 'Some Text');
+              </code>
+            </pre>
+            <pre>
+              <code data-trim data-noescape>
+                &lt;h1>
+                  Some Text
+                &lt;/h1>
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h2>
+              Good to know
+            </h2>
+            <p>
+              className not class
+            </p>
+            <p>
+              htmlFor not for
+            </p>
+          </section>
+        </section> <!-- /learn: an overview of jsx (10) -->
+
+        <section> <!-- do: replace raw react with jsx (5) -->
+          <section>
+            Replace Raw React
+          </section>
+
+          <section>
+            <pre>
+              <code data-trim data-noescape>
+                import './App.css';
+
+                class Message extends React.Component {
+                  render () {
+                    return (
+                      // insert code here
+                    );
+                  }
+                }
+
+                class App extends Component {
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h2>
+              Add
+            </h2>
+            <ul>
+              <li>
+                an image
+              </li>
+              <li>
+                a span with a name
+              </li>
+              <li>
+                a span with a time
+              </li>
+              <li>
+                a paragraph with the message
+              </li>
+            </ul>
+            <pre>
+              <code data-trim data-noescape>
+                class Message extends React.Component {
+                  render () {
+                    return (
+                      &lt;div>
+                        // insert code here
+                      &lt;/div>
+                    );
+                  }
+                }
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h2>
+              Possible Solution
+            </h2>
+            <pre style="font-size: .45em">
+              <code data-trim data-noescape>
+                class Message extends React.Component {
+                  render () {
+                    return (
+                      &lt;div>
+                        &lt;img src="some_url.png" />
+                        &lt;span>
+                          Some name
+                        &lt;/span>
+                        &lt;span>
+                          Some time
+                        &lt;/span>
+                        &lt;p>
+                          Some message
+                        &lt;/p>
+                      &lt;/div>
+                    );
+                  }
+                }
+              </code>
+            </pre>
+          </section>
+        </section> <!-- /do: replace raw react with jsx (5) -->
+
+        <section> <!-- learn: an overview of imports and exports (10) -->
+          <section>
+            learn: an overview of imports and exports (10)
+          </section>
+        </section> <!-- /learn: an overview of imports and exports (10) -->
+
+        <section> <!-- do: use the message component in the app (5) -->
+          <section>
+            do: use the message component in the app (5)
+          </section>
+        </section> <!-- /do: use the message component in the app (5) -->
+
+        <section> <!-- learn: an overview of props (10) -->
+          <section>
+            learn: an overview of props (10)
+          </section>
+        </section> <!-- /learn: an overview of props (10) -->
+
+        <section> <!-- do: use props in the message component (10) -->
+          <section>
+            do: use props in the message component (10)
+          </section>
+        </section> <!-- /do: use props in the message component (10) -->
+        <!-- /hour 1 to 2 -->
+
+        <!-- hour 2 to 3 -->
+        <section> <!-- learn: destructuring (10) -->
+          <section>
+            learn: destructuring (10)
+          </section>
+        </section> <!-- /learn: destructuring (10) -->
+
+        <section> <!-- do: use destructuring in message component (10) -->
+          <section>
+            do: use destructuring in message component (10)
+          </section>
+        </section> <!-- /do: use destructuring in message component (10) -->
+
+        <section> <!-- learn: about mapping (10) -->
+          <section>
+            learn: about mapping (10)
+          </section>
+        </section> <!-- /learn: about mapping (10) -->
+
+        <section> <!-- do: re-write the mapping function from the challenge (10) -->
+          <section>
+            do: re-write the mapping function from the challenge (10)
+          </section>
+        </section> <!-- /do: re-write the mapping function from the challenge (10) -->
+
+        <section> <!-- break / extra questions (15) -->
+          <section>
+            <h1>
+              Break
+            </h1>
+          </section>
+        </section> <!-- /break / extra questions (15) -->
+        <!-- /hour 2 to 3 -->
+
+        <!-- hour 3 to 4 -->
+        <section> <!-- learn: more about children (10) -->
+          <section>
+            learn: more about children (10)
+          </section>
+        </section> <!-- /learn: more about children (10) -->
+
+        <section> <!-- do: use mapping and children to create a messageslist (15) -->
+          <section>
+            do: use mapping and children to create a messageslist (15)
+          </section>
+        </section> <!-- /do: use mapping and children to create a messageslist (15) -->
+
+        <section> <!-- learn: the next things to build, room, roomslist (5) -->
+          <section>
+            learn: the next things to build, room, roomslist (5)
+          </section>
+        </section> <!-- /learn: the next things to build, room, roomslist (5) -->
+
+        <section> <!-- do: build room and roomslist (15) -->
+          <section>
+            do: build room and roomslist (15)
+          </section>
+        </section> <!-- /do: build room and roomslist (15) -->
+
+        <section> <!-- learn: styling (10) -->
+          <section>
+            learn: styling (10)
+          </section>
+        </section> <!-- /learn: styling (10) -->
+
+        <section> <!-- do: style existing components (10) -->
+          <section>
+            do: style existing components (10)
+          </section>
+        </section> <!-- /do: style existing components (10) -->
+        <!-- /hour 3 to 4 -->
+
+        <!-- hour 4 to 5 -->
+        <section> <!-- learn: conditionals (10) -->
+          <section>
+            learn: conditionals (10)
+          </section>
+        </section> <!-- /learn: conditionals (10) -->
+
+        <section> <!-- do: use conditionals in styling and structure (15) -->
+          <section>
+            do: use conditionals in styling and structure (15)
+          </section>
+        </section> <!-- /do: use conditionals in styling and structure (15) -->
+
+        <section> <!-- learn: proptypes (10) -->
+          <section>
+            learn: proptypes (10)
+          </section>
+        </section> <!-- /learn: proptypes (10) -->
+
+        <section> <!-- do: use proptypes (10) -->
+          <section>
+            do: use proptypes (10)
+          </section>
+        </section> <!-- /do: use proptypes (10) -->
+
+        <section> <!-- end / extra time / extra questions (20) -->
+          <section>
+            <h1>
+              Questions
+            </h1>
+          </section>
+        </section> <!-- /end / extra time / extra questions (20) -->
+        <!-- /hour 4 to 5 -->
 
       </div> <!-- /.slides -->
     </div> <!-- /.reveal -->
