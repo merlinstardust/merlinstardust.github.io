@@ -967,6 +967,7 @@
                 class Message extends React.Component {
                   render () {
                     const {avatarUrl, name, text, timestamp} = this.props;
+                    const time = timestamp.toTimeString().split(' ')[0];
                     return (
                       &lt;div>
                         &lt;img src={avatarUrl} />
@@ -974,7 +975,7 @@
                           {name}
                         &lt;/span>
                         &lt;span>
-                          {timestamp}
+                          {time}
                         &lt;/span>
                         &lt;p>
                           {text}
@@ -1406,6 +1407,7 @@
               <code data-trim data-noescape>
                 class Message extends React.Component {
                   render () {
+                    // existing code
                     return (
                       &lt;div>
                         /* existing code */
@@ -1433,15 +1435,17 @@
               <code data-trim data-noescape>
                 class Message extends React.Component {
                   render () {
+                    const {avatarUrl, name, text, timestamp} = this.props;
+                    const time = timestamp.toTimeString().split(' ')[0];
                     return (
-                      &lt;div>
+                      &lt;div style={styles.container}>
                         &lt;img src={avatarUrl} styles={styles.image} />
                         &lt;div style={styles.rightSide}>
                           &lt;span style={styles.name}>
                             {name}
                           &lt;/span>
                           &lt;span style={styles.time}>
-                            {timestamp}
+                            {time}
                           &lt;/span>
                           &lt;p style={styles.text}>
                             {text}
@@ -1583,25 +1587,311 @@
         <!-- hour 4 to 5 -->
         <section> <!-- learn: conditionals (10) -->
           <section>
-            learn: conditionals (10)
+            <h1>
+              Conditionals
+            </h1>
+          </section>
+
+          <section>
+            <h1>
+              Ternary (?)
+            </h1>
+            <pre>
+              <code data-trim data-noescape>
+                const message = loggedIn ? 'Welcome' : 'Please log in';
+              </code>
+            </pre>
+            <pre>
+              <code data-trim data-noescape>
+                render() {
+                  return (
+                    &lt;div>
+                      {loggedIn ? &lt;App /> : &lt;LoginScreen />}
+                    &lt;/div>
+                  );
+                }
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h1>
+              And Operator (&&)
+            </h1>
+            <pre>
+              <code data-trim data-noescape>
+                render() {
+                  return (
+                    &lt;div>
+                      {loggedIn &&
+                        &lt;Profile />
+                      }
+                    &lt;/div>
+                  );
+                }
+              </code>
+            </pre>
           </section>
         </section> <!-- /learn: conditionals (10) -->
 
         <section> <!-- do: use conditionals in styling and structure (15) -->
           <section>
-            do: use conditionals in styling and structure (15)
+            <h1>
+              Style Conditionally
+            </h1>
+          </section>
+
+          <section>
+            <h2>
+              Bold selected Room
+            </h2>
+            <ul>
+              <li>
+                Add styles (given below)
+              </li>
+              <li>
+                Add selected prop
+              </li>
+              <li>
+                If selected is true, make the Room bold
+              </li>
+            </ul>
+            <pre style="font-size: .45em">
+              <code data-trim data-noescape>
+                class Room extends React.Component {
+                  render() {
+                    // insert code here
+                    return (
+                      &lt;div /* insert code here */>
+                        {name}
+                      &lt;/div>
+                    );
+                  }
+                }
+
+                const styles = {
+                  selected: {
+                    fontWeight: 'bold',
+                  },
+                };
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h2>
+              Possible Solution
+            </h2>
+            <pre style="font-size: .45em">
+              <code data-trim data-noescape>
+                class Room extends React.Component {
+                  render() {
+                    const style = selected ? styles.selected : {};
+                    return (
+                      &lt;div style={style}>
+                        {name}
+                      &lt;/div>
+                    );
+                  }
+                }
+
+                const styles = {
+                  selected: {
+                    fontWeight: 'bold',
+                  },
+                };
+              </code>
+            </pre>
+          </section>
+
+          <section> <!-- make messages expandable -->
+            <h3>
+              Make Messages expandable
+            </h3>
+            <ul style="font-size: 25px">
+              <li>
+                Add styles (given below)
+              </li>
+              <li>
+                If expanded, show the image
+              </li>
+              <li>
+                If expanded, show the time after the name
+              </li>
+              <li>
+                If not expanded, show the time before the name and use both time styles
+              </li>
+              <li>
+                If expanded is true, use styles.text, if false, use styles.textNotExpanded
+              </li>
+            </ul>
+            <pre style="font-size: .45em">
+              <code data-trim data-noescape>
+                class Message extends React.Component {
+                  render () {
+                    // existing code
+                    return (
+                      &lt;div>
+                        /* insert code here */
+                      &lt;/div>
+                    );
+                  }
+                }
+
+                const styles = {
+                  // original styles
+                  textNotExpanded: {
+                    display: 'inline',
+                  },
+                  timeNotExpanded: {
+                    fontSize: '12px',
+                    marginRight: '10px',
+                  },
+                };
+              </code>
+            </pre>
+          </section> <!-- /make messages expandable -->
+
+          <section>
+            <h2>
+              Possible Solution
+            </h2>
+            <pre style="font-size: .45em">
+              <code data-trim data-noescape>
+                class Message extends React.Component {
+                  render () {
+                    const {avatarUrl, name, text, timestamp} = this.props;
+                    const time = timestamp.toTimeString().split(' ')[0];
+
+                    styles.timeMerged = styles.timeNotExpanded;
+                    styles.timeMerged.color = styles.time.color;
+
+                    return (
+                      &lt;div>
+                        {expanded &&
+                          &lt;img src={avatarUrl} styles={styles.image} />
+                        }
+                        &lt;div style={styles.rightSide}>
+                          {! expanded &&
+                            &lt;span style={styles.timeMerged}>
+                              {time}
+                            &lt;/span>
+                          }
+                          &lt;span style={styles.name}>
+                            {name}
+                          &lt;/span>
+                          {expanded &&
+                            &lt;span style={styles.time}>
+                              {time}
+                            &lt;/span>
+                          }
+                          &lt;p style={expanded ? styles.text : styles.textNotExpanded}>
+                            {text}
+                          &lt;/p>
+                        &lt;/div>
+                      &lt;/div>
+                    );
+                  }
+                }
+
+                const styles = {
+                  // original styles
+                  textNotExpanded: {
+                    display: 'inline',
+                  },
+                  timeNotExpanded: {
+                    fontSize: '12px',
+                    marginRight: '10px',
+                  },
+                };
+              </code>
+            </pre>
           </section>
         </section> <!-- /do: use conditionals in styling and structure (15) -->
 
         <section> <!-- learn: proptypes (10) -->
           <section>
-            learn: proptypes (10)
+            <h1>
+              PropTypes
+            </h1>
+          </section>
+
+          <section>
+            <h1>
+              Type Checking
+            </h1>
+            <ul>
+              <li>
+                Number
+              </li>
+              <li>
+                Object
+              </li>
+              <li>
+                String
+              </li>
+              <li>
+                Booleans
+              </li>
+              <li>
+                Array
+              </li>
+              <li>
+                More
+              </li>
+            </ul>
+            <p>
+              <a href="https://reactjs.org/docs/typechecking-with-proptypes.html">
+                Source
+              </a>
+            </p>
           </section>
         </section> <!-- /learn: proptypes (10) -->
 
         <section> <!-- do: use proptypes (10) -->
           <section>
-            do: use proptypes (10)
+            <h1>
+              Use PropTypes
+            </h1>
+          </section>
+
+          <section>
+            <h1>
+              Install PropTypes
+            </h1>
+            <pre>
+              <code data-trim data-noescape>
+                npm install --save prop-types
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h1>
+              Add PropTypes to Message
+            </h1>
+            <ul>
+              <li>
+                Import PropTypes
+              </li>
+              <li>
+                Define PropTypes after Message
+              </li>
+            </ul>
+            <pre>
+              <code data-trim data-noescape>
+                // insert code here
+                import React from 'react';
+
+                class Message extends React.Component {
+                  // existing code
+                }
+
+                Message.propTypes = {
+                  // insert code here
+                };
+              </code>
+            </pre>
           </section>
         </section> <!-- /do: use proptypes (10) -->
 
