@@ -13,10 +13,6 @@
     <link rel="stylesheet" href="/slides/reveal/lib/css/zenburn.css">
 
     <style>
-      .backgrounds > .slide-background.stack:nth-child(even) .slide-background,
-      .backgrounds > .slide-background:nth-child(even):not(.stack) {
-        background-color: rgb(49, 49, 49);
-      }
       .reveal h1,
       .reveal h2,
       .reveal h3,
@@ -56,57 +52,23 @@
 
           <section>
             <h2>
-              Simple View Layer
-            </h2>
-            <pre style="font-size: .45em">
-              <code data-trim>
-                <div style={styles.app}>
-                  <div style={styles.rooms}>
-                    &lt;RoomsList currentRoom={currentRoom} selectRoom={this.selectRoom} />
-                  </div>
-                  <div style={styles.messages}>
-                    &lt;MessagesList currentRoom={currentRoom} expanded={expanded} />
-                    &lt;Editor currentRoom={currentRoom} currentUser={currentUser} />
-                  </div>
-                </div>
-              </code>
-            </pre>
-            <img width="60%" src="components.png" />
-          </section>
-
-          <section>
-            <h2>
-              Easy to Understand
-            </h2>
-            <img width="50%" src="endlessHtml.png" />
-            <pre style="font-size: .45em">
-              <code data-trim>
-                <div style={styles.app}>
-                  <div style={styles.rooms}>
-                    &lt;RoomsList currentRoom={currentRoom} selectRoom={this.selectRoom} />
-                  </div>
-                  <div style={styles.messages}>
-                    &lt;MessagesList currentRoom={currentRoom} expanded={expanded} />
-                    &lt;Editor currentRoom={currentRoom} currentUser={currentUser} />
-                  </div>
-                </div>
-              </code>
-            </pre>
-          </section>
-
-          <section>
-            <h2>
-              Not Pictured
+              Library (and philosophy)
             </h2>
             <ul>
               <li class="fragment">
-                Fast to Update
+                Simple view layer
               </li>
               <li class="fragment">
-                Cross Browser Consistency
+                Cross browser consistency
               </li>
               <li class="fragment">
-                Mobile Apps
+                Fast to update
+              </li>
+              <li class="fragment">
+                Cross browser consistency
+              </li>
+              <li class="fragment">
+                Mobile apps
               </li>
             </ul>
             <aside class="notes">
@@ -121,6 +83,7 @@
                   Android, iOS, even VR
                 </li>
               </ul>
+            </aside>
           </section>
 
           <section>
@@ -156,6 +119,102 @@
             </ul>
           </section>
         </section> <!-- /learn: what is react -->
+
+        <section> <!-- Ruby vs JS -->
+          <section>
+            <h1>
+              Ruby vs JS
+            </h1>
+          </section>
+
+          <section>
+            <h2>
+              Similarities
+            </h2>
+            <ul>
+              <li class="fragment">
+                Mostly object oriented with some functional
+              </li>
+              <li class="fragment">
+                Dynamically typed
+              </li>
+            </ul>
+            <h2 class="fragment">
+              Differences
+            </h2>
+            <ul>
+              <li class="fragment">
+                JS has weak typing; Ruby has strong typing
+              </li>
+              <li class="fragment">
+                JS is browser and server; Ruby is only server
+              </li>
+            </ul>
+          </section>
+
+          <style>
+            .custom pre {
+              width: 100%;
+            }
+
+            .custom table th {
+              text-align: center;
+            }
+          </style>
+          <section class="custom">
+            <h2>
+              Syntax differences
+            </h2>
+            <table>
+              <thead>
+                <th>
+                  Ruby
+                </th>
+                <th>
+                  JS
+                </th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <pre>
+                      <code data-trim data-noescape>
+                        x = 1
+
+                        xs = [1, 2, 3];
+                        xs.map{|x| x * 10}
+
+                        letter_thing = {a: 1, b: 2}
+                        letter_thing[:a]
+
+                        def add(x, y) x + y end
+
+                        require 'Dog'
+                      </code>
+                    </pre>
+                  </td>
+                  <td>
+                    <pre>
+                      <code data-trim data-noescape>
+                        const x = 1;
+
+                        const xs = [1, 2, 3];
+                        xs.map(x => x * 10);
+
+                        const letterThing = {a: 1, b: 2};
+                        letterThing.a;
+
+                        const add = (x, y) => x + y;
+
+                        import Dog from './Dog';
+                      </code>
+                    </pre>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </section>  <!-- /Ruby vs JS -->
 
         <section> <!-- do: set up and install -->
           <section> <!-- node, dev tools, create-react-app -->
@@ -193,6 +252,19 @@
                 npm install -g create-react-app
               </code>
             </pre>
+            <aside class="notes">
+              <ul>
+                <li>
+                  Node - server side JS
+                </li>
+                <li>
+                  npm/yarn - package manager
+                </li>
+                <li>
+                  create-react-app - what it says
+                </li>
+              </ul>
+            </aside>
           </section> <!-- /node, dev tools, create-react-app -->
 
           <section> <!-- /create and run -->
@@ -214,6 +286,9 @@
                 <code data-trim data-noescape>
                   cd react-chat
                   yarn start
+
+                  # or
+                  npm start
               	</code>
               </pre>
             </ul>
@@ -221,6 +296,12 @@
         </section> <!-- /do: set up and install -->
 
         <section> <!-- learn: what create-react-app is and an overview of the pieces it creates (10) -->
+          <section>
+            <h2>
+              What create-react-app gives you
+            </h2>
+          </section>
+
           <section>
             <pre style="font-size: 0.45em">
               <code data-trim data-noescape style="max-height: 470px">
@@ -234,7 +315,7 @@
                       &lt;div className="App">
                         &lt;header className="App-header">
                           &lt;img src={logo} className="App-logo" alt="logo" />
-                          &lt;h1 className="App-title">Welcome to React</h1>
+                          &lt;h1 className="App-title">Welcome to React&lt;/h1>
                         &lt;/header>
                         &lt;p className="App-intro">
                           To get started, edit &lt;code>src/App.js&lt;/code> and save to reload.
@@ -324,22 +405,57 @@
         <section> <!-- learn: raw react and what a component looks like, with basic children info (15) -->
           <section>
             <h1>
-              Raw React
+              Components
             </h1>
           </section>
 
           <section>
-            <pre>
+            <pre style="font-size: 0.45em">
               <code data-trim data-noescape>
+                const ComponentName = () => {
+                  return (
+                    &lt;div a={1}>
+                      Some text
+                    &lt;/div>
+                  );
+                };
+
                 class ComponentName extends React.Component {
                   render() {
                     return (
-                      React.createElement(string/class, props, children)
+                      &lt;div a={1}>
+                        Some text
+                      &lt;/div>
                     );
                   }
                 }
               </code>
             </pre>
+            <pre class="fragment">
+              <code data-trim data-noescape>
+                React.createElement('div', {a: 1}, 'Some text')
+              </code>
+            </pre>
+
+            <aside class="notes">
+              <ul>
+                <li>
+                  class vs function
+                </li>
+                <li>
+                  lifecycle / state vs just render
+                </li>
+                <li>
+                  power vs simplicity
+                </li>
+                <li>
+                  transpiling
+                </li>
+                <li>
+                  small and simple
+                </li>
+              </ul>
+            </aside>
           </section>
 
           <section>
@@ -348,7 +464,9 @@
                 class Title extends React.Component {
                   render() {
                     return (
-                      React.createElement('h1', {}, 'Some Text');
+                      &lt;h1>
+                        Some title
+                      &lt;/h1>
                     );
                   }
                 }
@@ -357,7 +475,7 @@
             <pre class="fragment">
               <code data-trim data-noescape>
                 &lt;h1>
-                  Some Text
+                  Some title
                 &lt;/h1>
               </code>
             </pre>
@@ -369,9 +487,9 @@
                 class Header extends React.Component {
                   render() {
                     return (
-                      React.createElement('header', {},
-                        React.createElement(Title, {})
-                      );
+                      &lt;header>
+                        &lt;Title />
+                      &lt;/header>
                     );
                   }
                 }
@@ -409,15 +527,30 @@
               <code data-trim data-noescape>
                 import './App.css';
 
-                class Message extends React.Component {
-                  render () {
-                    return (
-                      // insert code here
-                    );
-                  }
-                }
+                const Message = () => {
+                  return (
+                    // insert code here
+                  );
+                };
 
                 class App extends Component {
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h2>
+              Possible Solution
+            </h2>
+            <pre>
+              <code data-trim data-noescape>
+                const Message = () => {
+                  return (
+                    &lt;div>
+                      Some text
+                    &lt;/div>
+                  );
+                };
               </code>
             </pre>
           </section>
@@ -432,6 +565,8 @@
                   render() {
                     return (
                       &lt;div className="App">
+                        // previous code
+                        &lt;/header>
                         // insert code here
                       &lt;div>
                     );
@@ -447,20 +582,13 @@
             </h2>
             <pre>
               <code data-trim data-noescape>
-                class Message extends React.Component {
-                  render () {
-                    return (
-                      &lt;div>
-                        Some text
-                      &lt;/div>
-                    );
-                  }
-                }
                 class App extends Component {
                   render() {
                     return (
                       &lt;div className="App">
-                        React.createElement(Message);
+                        // previous code
+                        &lt;/header>
+                        &lt;Message />
                       &lt;div>
                     );
                   }
@@ -475,135 +603,6 @@
         <!-- /hour 0 to 1 -->
 
         <!-- hour 1 to 2 -->
-        <section> <!-- learn: an overview of jsx (10) -->
-          <section>
-            <h2>
-              JSX
-            </h2>
-          </section>
-
-          <section>
-            <h2>
-              Syntax
-            </h2>
-            <pre>
-              <code data-trim data-noescape>
-                React.createElement('h1', {}, 'Some Text');
-              </code>
-            </pre>
-            <pre>
-              <code data-trim data-noescape>
-                &lt;h1>
-                  Some Text
-                &lt;/h1>
-              </code>
-            </pre>
-            <aside class="notes">
-              Transpiled
-            </aside>
-          </section>
-
-          <section>
-            <h2>
-              Good to know
-            </h2>
-            <p>
-              className not class
-            </p>
-            <p>
-              htmlFor not for
-            </p>
-          </section>
-        </section> <!-- /learn: an overview of jsx (10) -->
-
-        <section> <!-- do: replace raw react with jsx (5) -->
-          <section>
-            Replace Raw React
-          </section>
-
-          <section>
-            <pre>
-              <code data-trim data-noescape>
-                import './App.css';
-
-                class Message extends React.Component {
-                  render () {
-                    return (
-                      // insert code here
-                    );
-                  }
-                }
-
-                class App extends Component {
-              </code>
-            </pre>
-          </section>
-
-          <section>
-            <h2>
-              Add
-            </h2>
-            <ul>
-              <li>
-                an image
-              </li>
-              <li>
-                a span with a name
-              </li>
-              <li>
-                a span with a time
-              </li>
-              <li>
-                a paragraph with the message
-              </li>
-            </ul>
-            <pre>
-              <code data-trim data-noescape>
-                class Message extends React.Component {
-                  render () {
-                    return (
-                      &lt;div>
-                        // insert code here
-                      &lt;/div>
-                    );
-                  }
-                }
-              </code>
-            </pre>
-          </section>
-
-          <section>
-            <h2>
-              Possible Solution
-            </h2>
-            <pre style="font-size: .45em">
-              <code data-trim data-noescape>
-                class Message extends React.Component {
-                  render () {
-                    return (
-                      &lt;div>
-                        &lt;img src="some_url.png" />
-                        &lt;span>
-                          Some name
-                        &lt;/span>
-                        &lt;span>
-                          Some time
-                        &lt;/span>
-                        &lt;p>
-                          Some message
-                        &lt;/p>
-                      &lt;/div>
-                    );
-                  }
-                }
-              </code>
-            </pre>
-            <aside class="notes">
-              React Dev Tools
-            </aside>
-          </section>
-        </section> <!-- /do: replace raw react with jsx (5) -->
-
         <section> <!-- learn: an overview of imports and exports (10) -->
           <section>
             <h1>
@@ -670,9 +669,9 @@
               <code data-trim data-noescape>
                 import React from 'react';
 
-                class Message extends React.Component {
+                const Message = () => {
                   // existing code
-                }
+                };
 
                 export default Message;
               </code>
@@ -712,21 +711,36 @@
             </pre>
             <pre class="fragment" style="font-size: .45em">
               <code data-trim data-noescape>
-                class Title extends React.Component {
-                  render() {
-                    const text = this.props.text;
-                    const sizeText = this.props.isMedium ? '(Medium)' : '(Not Medium)';
-                    return (
-                      &lt;h1>
-                        {text} {sizeText}
-                      &lt;/h1>
-                    );
-                  }
+                const Title = ({text, isMedium}) => {
+                  const sizeText = isMedium ? '(Medium)' : '(Not Medium)';
+                  return (
+                    &lt;h1>
+                      {text} {sizeText}
+                    &lt;/h1>
+                  );
                 }
               </code>
             </pre>
           </section>
         </section> <!-- /learn: an overview of props (10) -->
+
+        <section>
+          <h1>
+            Aside: Destructuring
+          </h1>
+          <pre style="font-size: .45em">
+            <code data-trim data-noescape>
+              const Title = ({text, isMedium}) => {
+            </code>
+          </pre>
+          <pre class="fragment" style="font-size: .45em">
+            <code data-trim data-noescape>
+              const Title = (props) => {
+                const text = props.text;
+                const isMedium = props.isMedium;
+            </code>
+          </pre>
+        </section>
 
         <section> <!-- do: use props in the message component (10) -->
           <section>
@@ -741,39 +755,18 @@
             </h2>
             <ul>
               <li>
-                image src
-              </li>
-              <li>
-                name text
-              </li>
-              <li>
-                time text
-              </li>
-              <li>
                 message text
               </li>
             </ul>
             <pre style="font-size: .45em">
               <code data-trim data-noescape>
-                class Message extends React.Component {
-                  render () {
-                    // insert code here
-                    return (
-                      &lt;div>
-                        &lt;img src={/* insert code here */} />
-                        &lt;span>
-                          // insert code here
-                        &lt;/span>
-                        &lt;span>
-                          // insert code here
-                        &lt;/span>
-                        &lt;p>
-                          // insert code here
-                        &lt;/p>
-                      &lt;/div>
-                    );
-                  }
-                }
+                const Message = (/* insert code here */) => {
+                  return (
+                    &lt;div>
+                      // insert code here
+                    &lt;/div>
+                  );
+                };
               </code>
             </pre>
           </section>
@@ -784,28 +777,13 @@
             </h2>
             <pre style="font-size: .45em">
               <code style="max-height: 485px" data-trim data-noescape>
-                class Message extends React.Component {
-                  render () {
-                    const avatarUrl = this.props.avatarUrl;
-                    const name = this.props.name;
-                    const timestamp = this.props.timestamp;
-                    const text = this.props.text;
-                    return (
-                      &lt;div>
-                        &lt;img src={avatarUrl} />
-                        &lt;span>
-                          {name}
-                        &lt;/span>
-                        &lt;span>
-                          {timestamp}
-                        &lt;/span>
-                        &lt;p>
-                          {text}
-                        &lt;/p>
-                      &lt;/div>
-                    );
-                  }
-                }
+                const Message = ({text}) => {
+                  return (
+                    &lt;div>
+                      {text}
+                    &lt;/div>
+                  );
+                };
               </code>
             </pre>
             <aside class="notes">
@@ -842,7 +820,7 @@
                   render() {
                     return (
                       &lt;div className="App">
-                        &lt;Message avatarUrl="some_url.png" name="A name" timestamp="08:20" text="Some bit of text" />
+                        &lt;Message text="Some bit of text" />
                       &lt;div>
                     );
                   }
@@ -853,104 +831,80 @@
               React Dev Tools
             </aside>
           </section>
-        </section> <!-- /do: use props in the message component (10) -->
-        <!-- /hour 1 to 2 -->
 
-        <!-- hour 2 to 3 -->
-        <section> <!-- learn: destructuring (10) -->
           <section>
             <h2>
-              Destructuring
+              Add more props
             </h2>
+            <ul>
+              <li>
+                name
+              </li>
+              <li>
+                timestamp
+              </li>
+            </ul>
+            <pre style="font-size: .45em">
+              <code data-trim data-noescape>
+                const Message = ({text, /* insert code here */}) => {
+                  return (
+                    &lt;div>
+                      &lt;span>
+                        // insert timestamp code here
+                      &lt;/span>
+                      &lt;span>
+                        // insert name code here
+                      &lt;/span>
+                      &lt;p>
+                        {text}
+                      &lt;/p>
+                    &lt;/div>
+                  );
+                };
+              </code>
+            </pre>
+          </section>
 
+          <section>
+            <h2>
+              Possible Solution
+            </h2>
+            <pre style="font-size: .45em">
+              <code style="max-height: 485px" data-trim data-noescape>
+                const Message = ({name, text, timestamp}) => {
+                  return (
+                    &lt;div>
+                      &lt;span>
+                        {timestamp}
+                      &lt;/span>
+                      &lt;span>
+                        {name}
+                      &lt;/span>
+                      &lt;p>
+                        {text}
+                      &lt;/p>
+                    &lt;/div>
+                  );
+                };
+              </code>
+            </pre>
             <aside class="notes">
-              ES2015+ syntax.
+              React Dev Tools
             </aside>
           </section>
 
           <section>
             <h2>
-              Destructuring Arrays
+              Define New Props for Message
             </h2>
             <pre>
               <code data-trim data-noescape>
-                const items = ['apple', 'banana', 'cherry'];
-
-                const first = items[0];
-                const second = items[1];
-                const third = items[2];
-              </code>
-            </pre>
-
-            <pre class="fragment">
-              <code data-trim data-noescape>
-                const items = ['apple', 'banana', 'cherry'];
-
-                const [first, second, third] = items;
-              </code>
-            </pre>
-          </section>
-
-          <section>
-            <h2>
-              Destructuring Objects
-            </h2>
-            <pre>
-              <code data-trim data-noescape>
-                const props = {text: 'Some text', isMedium: true};
-
-                const text = props.text;
-                const isMedium = this.props.isMedium;
-              </code>
-            </pre>
-
-            <pre class="fragment">
-              <code data-trim data-noescape>
-                const props = {text: 'Some text', isMedium: true};
-
-                const {text, isMedium} = props;
-              </code>
-            </pre>
-          </section>
-        </section> <!-- /learn: destructuring (10) -->
-
-        <section> <!-- do: use destructuring in message component (10) -->
-          <section>
-            <h2>
-              Use Destructuring inside Message
-            </h2>
-          </section>
-
-          <section>
-            <h2>
-              Additionally
-            </h2>
-            <ul>
-              <li>
-                Pass in a new Date instance into Message
-              </li>
-              <li>
-                Grab this date and turn it into a string
-              </li>
-            </ul>
-            <pre style="font-size: .45em">
-              <code style="max-height: 485px" data-trim data-noescape>
-                class Message extends React.Component {
-                  render () {
-                    // insert code here
+                class App extends Component {
+                  render() {
                     return (
+                      &lt;div className="App">
+                        &lt;Message text="Some bit of text" /* insert code here */ />
                       &lt;div>
-                        &lt;img src={avatarUrl} />
-                        &lt;span>
-                          {name}
-                        &lt;/span>
-                        &lt;span>
-                          {timestamp}
-                        &lt;/span>
-                        &lt;p>
-                          {text}
-                        &lt;/p>
-                      &lt;/div>
                     );
                   }
                 }
@@ -963,24 +917,13 @@
               Possible Solution
             </h2>
             <pre style="font-size: .45em">
-              <code style="max-height: 485px" data-trim data-noescape>
-                class Message extends React.Component {
-                  render () {
-                    const {avatarUrl, name, text, timestamp} = this.props;
-                    const time = timestamp.toTimeString().split(' ')[0];
+              <code data-trim data-noescape>
+                class App extends Component {
+                  render() {
                     return (
+                      &lt;div className="App">
+                        &lt;Message name="Rando" text="Some bit of text" timestamp="11:10pm"/>
                       &lt;div>
-                        &lt;img src={avatarUrl} />
-                        &lt;span>
-                          {name}
-                        &lt;/span>
-                        &lt;span>
-                          {time}
-                        &lt;/span>
-                        &lt;p>
-                          {text}
-                        &lt;/p>
-                      &lt;/div>
                     );
                   }
                 }
@@ -990,8 +933,195 @@
               React Dev Tools
             </aside>
           </section>
-        </section> <!-- /do: use destructuring in message component (10) -->
+        </section> <!-- /do: use props in the message component (10) -->
 
+        <section> <!-- learn: proptypes (10) -->
+          <section>
+            <h1>
+              PropTypes
+            </h1>
+          </section>
+
+          <section>
+            <h1>
+              Type Checking
+            </h1>
+            <ul>
+              <li>
+                Number
+              </li>
+              <li>
+                Object
+              </li>
+              <li>
+                String
+              </li>
+              <li>
+                Booleans
+              </li>
+              <li>
+                Array
+              </li>
+              <li>
+                More
+              </li>
+            </ul>
+            <p>
+              <a href="https://reactjs.org/docs/typechecking-with-proptypes.html">
+                Source
+              </a>
+            </p>
+          </section>
+        </section> <!-- /learn: proptypes (10) -->
+
+        <section> <!-- do: use proptypes (10) -->
+          <section>
+            <h1>
+              Use PropTypes
+            </h1>
+          </section>
+
+          <section>
+            <h1>
+              Install PropTypes
+            </h1>
+            <pre>
+              <code data-trim data-noescape>
+                npm install --save prop-types
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h1>
+              Add PropTypes to Message
+            </h1>
+            <ul>
+              <li>
+                Import PropTypes
+              </li>
+              <li>
+                Define PropTypes after Message
+              </li>
+            </ul>
+            <pre>
+              <code data-trim data-noescape>
+                import React from 'react';
+                // insert code here
+
+                const Message = ({name, text, timestamp}) => {
+                  // existing code
+                }
+
+                Message.propTypes = {
+                  name: // insert code here
+                  text: // insert code here
+                  timestamp: // insert code here
+                };
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h2>
+              Possible Solution
+            </h2>
+            <pre style="font-size: .45em">
+              <code data-trim data-noescape>
+                import React from 'react';
+                import PropTypes from 'prop-types';
+
+                const Message = ({name, text, timestamp}) => {
+                  // existing code
+                }
+
+                Message.propTypes = {
+                  name: PropTypes.string.isRequired,
+                  text: PropTypes.string.isRequired,
+                  timestamp: PropTypes.string.isRequired,
+                };
+              </code>
+            </pre>
+            <aside class="notes">
+              <ul>
+                <li>
+                  Remove a prop, console tells you
+                </li>
+                <li>
+                  Timestamp doesn't make much sense as a string
+                </li>
+              </ul>
+            </aside>
+          </section>
+
+          <section>
+            <h2>
+              Change timestamp to expect a Date
+            </h2>
+            <pre style="font-size: .45em">
+              <code data-trim data-noescape>
+                Message.propTypes = {
+                  name: PropTypes.string.isRequired,
+                  text: PropTypes.string.isRequired,
+                  timestamp: PropTypes.instanceOf(Date).isRequired,
+                };
+              </code>
+            </pre>
+            <aside class="notes">
+              Console tells you if it's the wrong prop
+            </aside>
+          </section>
+
+          <section>
+            <h2>
+              Pass in a Date
+            </h2>
+            <pre style="font-size: .45em">
+              <code data-trim data-noescape>
+                class App extends Component {
+                  render() {
+                    return (
+                      &lt;div className="App">
+                        &lt;Message name="Rando" text="Some bit of text" timestamp={new Date()} />
+                      &lt;div>
+                    );
+                  }
+                }
+              </code>
+            </pre>
+            <aside class="notes">
+              But now it's broken
+            </aside>
+          </section>
+
+          <section>
+            <h2>
+              Fixing the Date problem
+            </h2>
+            <pre style="font-size: .45em">
+              <code data-trim data-noescape>
+                const Message = ({name, text, timestamp}) => {
+                  const time = timestamp.toTimeString();
+                  return (
+                    &lt;div>
+                      // existing code
+                      &lt;span>
+                        {time}
+                      &lt;/span>
+                      // existing code
+                    &lt;/div>
+                  )
+                }
+              </code>
+            </pre>
+            <aside class="notes">
+              Power of React
+            </aside>
+          </section>
+        </section> <!-- /do: use proptypes (10) -->
+        <!-- /hour 1 to 2 -->
+
+        <!-- hour 2 to 3 -->
         <section> <!-- learn: about mapping (10) -->
           <section>
             <h1>
@@ -1223,119 +1353,6 @@
           </section>
         </section> <!-- /do: use mapping and children to create a messageslist (15) -->
 
-        <section> <!-- learn: the next things to build, room, roomslist (5) -->
-          <section>
-            <h1>
-              Adding more functionality
-            </h1>
-            <h2>
-              Room and RoomsList
-            </h2>
-          </section>
-        </section> <!-- /learn: the next things to build, room, roomslist (5) -->
-
-        <section> <!-- do: build room and roomslist (15) -->
-          <section style="text-align: left">
-            <h2>
-              Room
-            </h2>
-            <ul style="margin-bottom: 100px">
-              <li>
-                Takes 1 prop: name, a string
-              </li>
-              <li>
-                Returns a div with name in it
-              </li>
-            </ul>
-
-            <h2>
-              RoomsList
-            </h2>
-            <ul>
-              <li>
-                Takes 1 prop: rooms, an array of room objects
-              </li>
-              <li>
-                Returns a div with rooms mapped to Room components
-              </li>
-            </ul>
-          </section>
-
-          <section>
-            <h2>
-              Room
-            </h2>
-            <pre>
-              <code data-trim data-noescape>
-                class Room extends React.Component {
-                  render() {
-                    // insert code here
-                    return (
-                      // insert code here
-                    );
-                  }
-                }
-              </code>
-            </pre>
-
-            <h2>
-              RoomsList
-            </h2>
-            <pre>
-              <code data-trim data-noescape>
-                class RoomsList extends React.Component {
-                  render() {
-                    // insert code here
-                    return (
-                      // insert code here
-                    );
-                  }
-                }
-              </code>
-            </pre>
-          </section>
-
-          <section>
-            <h3>
-              Room
-            </h3>
-            <pre style="font-size: .45em">
-              <code data-trim data-noescape>
-                class Room extends React.Component {
-                  render() {
-                    const {name} = this.props;
-                    return (
-                      &lt;div>
-                        {name}
-                      &lt;/div>
-                    );
-                  }
-                }
-              </code>
-            </pre>
-
-            <h3>
-              RoomsList
-            </h3>
-            <pre style="font-size: .45em">
-              <code data-trim data-noescape>
-                class RoomsList extends React.Component {
-                  render() {
-                    const {rooms} = this.props;
-                    return (
-                      &lt;div>
-                        {rooms.map(room =>
-                          &lt;Room key={room.name} name={room.name} />
-                        )}
-                      &lt;/div>
-                    );
-                  }
-                }
-              </code>
-            </pre>
-          </section>
-        </section> <!-- /do: build room and roomslist (15) -->
-
         <section> <!-- learn: styling (10) -->
           <section>
             <h2>
@@ -1513,36 +1530,6 @@
             </pre>
           </section> <!-- /MessagesList styling -->
 
-          <section> <!-- RoomsList styling -->
-            <h2>
-              RoomsList Styling
-            </h2>
-            <pre style="font-size: .45em">
-              <code data-trim data-noescape>
-                class RoomsList extends React.Component {
-                  render() {
-                    const {rooms} = this.props;
-                    return (
-                      &lt;div style={styles.roomsList}>
-                        {rooms.map(room =>
-                          &lt;Room key={room.name} name={room.name} />
-                        )}
-                      &lt;/div>
-                    );
-                  }
-                }
-
-                const styles = {
-                  roomsList: {
-                    background: 'lightgreen',
-                    height: 'calc(100% - 40px)',
-                    padding: '20px',
-                  },
-                };
-              </code>
-            </pre>
-          </section> <!-- /RoomsList styling -->
-
           <section> <!-- App styling -->
             <h2>
               App Styling
@@ -1678,32 +1665,6 @@
             </pre>
           </section>
 
-          <section>
-            <h2>
-              Possible Solution
-            </h2>
-            <pre style="font-size: .45em">
-              <code data-trim data-noescape>
-                class Room extends React.Component {
-                  render() {
-                    const style = selected ? styles.selected : {};
-                    return (
-                      &lt;div style={style}>
-                        {name}
-                      &lt;/div>
-                    );
-                  }
-                }
-
-                const styles = {
-                  selected: {
-                    fontWeight: 'bold',
-                  },
-                };
-              </code>
-            </pre>
-          </section>
-
           <section> <!-- make messages expandable -->
             <h3>
               Make Messages expandable
@@ -1809,92 +1770,6 @@
           </section>
         </section> <!-- /do: use conditionals in styling and structure (15) -->
 
-        <section> <!-- learn: proptypes (10) -->
-          <section>
-            <h1>
-              PropTypes
-            </h1>
-          </section>
-
-          <section>
-            <h1>
-              Type Checking
-            </h1>
-            <ul>
-              <li>
-                Number
-              </li>
-              <li>
-                Object
-              </li>
-              <li>
-                String
-              </li>
-              <li>
-                Booleans
-              </li>
-              <li>
-                Array
-              </li>
-              <li>
-                More
-              </li>
-            </ul>
-            <p>
-              <a href="https://reactjs.org/docs/typechecking-with-proptypes.html">
-                Source
-              </a>
-            </p>
-          </section>
-        </section> <!-- /learn: proptypes (10) -->
-
-        <section> <!-- do: use proptypes (10) -->
-          <section>
-            <h1>
-              Use PropTypes
-            </h1>
-          </section>
-
-          <section>
-            <h1>
-              Install PropTypes
-            </h1>
-            <pre>
-              <code data-trim data-noescape>
-                npm install --save prop-types
-              </code>
-            </pre>
-          </section>
-
-          <section>
-            <h1>
-              Add PropTypes to Message
-            </h1>
-            <ul>
-              <li>
-                Import PropTypes
-              </li>
-              <li>
-                Define PropTypes after Message
-              </li>
-            </ul>
-            <pre>
-              <code data-trim data-noescape>
-                // insert code here
-                import React from 'react';
-
-                class Message extends React.Component {
-                  // existing code
-                }
-
-                Message.propTypes = {
-                  // insert code here
-                };
-              </code>
-            </pre>
-          </section>
-        </section> <!-- /do: use proptypes (10) -->
-
         <section> <!-- end / extra time / extra questions (20) -->
           <section>
             <h1>
@@ -1903,447 +1778,6 @@
           </section>
         </section> <!-- /end / extra time / extra questions (20) -->
         <!-- /hour 4 to 5 -->
-
-        <!-- hour 5 to 6 -->
-        <section> <!-- learn: an overview of inputs and form events (10) -->
-          <section>
-            <h1>
-              Inputs and Forms
-            </h1>
-          </section>
-
-          <section>
-            <pre>
-              <code data-trim data-noescape>
-                &lt;form onSubmit={createCat}>
-                  &lt;input name="catName" type="text" onChange={logChanges} />
-                &lt;/form>
-              </code>
-            </pre>
-          </section>
-
-          <section>
-            <a href="https://reactjs.org/docs/events.html">
-              <h1>
-                More on Events
-              </h1>
-            </a>
-          </section>
-        </section> <!-- /learn: an overview of inputs and form events (10) -->
-
-        <section> <!-- do: create an editor component (10) -->
-          <section>
-            <h1>
-              Create an Editor
-            </h1>
-          </section>
-
-          <section>
-            <h2>
-              Create a form
-            </h2>
-            <ul>
-              <li>
-                with an onSubmit handler that logs the event
-              </li>
-              <li>
-                with a single input
-              </li>
-            </ul>
-            <pre>
-              <code data-trim data-noescape>
-                const onSubmit = (event) => {
-                  event.preventDefault();
-                  console.log(event);
-                }
-                class Editor extends React.Component {
-                  render() {
-                    return (
-                      // insert code here
-                    );
-                  }
-                }
-              </code>
-            </pre>
-          </section>
-
-          <section>
-            <h2>
-              Possible Solution
-            </h2>
-            <pre>
-              <code data-trim data-noescape>
-                const onSubmit = (event) => {
-                  event.preventDefault();
-                  console.log(event);
-                }
-                class Editor extends React.Component {
-                  render() {
-                    &lt;form style={styles.editor} onSubmit={onSubmit}>
-                      &lt;input autoComplete="off" name="text" style={styles.input} type="text" />
-                    &lt;/form>
-                  }
-                }
-                const styles = {
-                  editor: {
-                    padding: '0 20px',
-                    marginBottom: '20px',
-                  },
-                  input: {
-                    padding: '10px',
-                    width: 'calc(100% - 20px)',
-                  },
-                };
-              </code>
-            </pre>
-          </section>
-        </section> <!-- /do: create an editor component (10) -->
-
-        <section> <!-- learn: an overview of state and constructor (10) -->
-          <section>
-            <h1>
-              State (and Constructor)
-            </h1>
-          </section>
-
-          <section>
-            <h2>
-              State
-            </h2>
-            <ul>
-              <li>
-                Managed internally
-              </li>
-              <li>
-                Responsible for changes
-              </li>
-            </ul>
-
-            <aside class="notes">
-              A component of only props does what it is told. A component with state can choose
-            </aside>
-          </section>
-
-          <section>
-            <h2>
-              Constructor
-            </h2>
-            <ul>
-              <li>
-                Sets initial state
-              </li>
-              <li>
-                Bind functions
-              </li>
-              <li>
-                Always call super
-              </li>
-            </ul>
-          </section>
-
-          <section>
-            <pre>
-              <code data-trim data-noescape>
-                class Dog extends React.Component {
-                  constructor(props) {
-                    super(props);
-                    this.state = {isBarking: false};
-                    this.startBarking = this.startBarking.bind(this);
-                  }
-
-                  startBarking() {
-                    this.setState({isBarking: true});
-                  }
-                }
-              </code>
-            </pre>
-          </section>
-        </section> <!-- /learn: an overview of state and constructor (10) -->
-
-        <section> <!-- do: add messages from editor (10) -->
-          <section>
-            <h2>
-              Add submitted messages to chat
-            </h2>
-          </section>
-
-          <section>
-            <h2>
-              Possible Solution
-            </h2>
-            <pre>
-              <code data-trim data-noescape>
-                class App extends React.Component {
-                  constructor(props) {
-                    super(props);
-                    this.state = {messages: messages};
-                    this.addMessage = this.addMessage.bind(this);
-                  }
-
-                  addMessage(newMessage) {
-                    const currentMessages = this.state.messages;
-                    const currentPlusNewMessages = currentMessages.concat(newMessage);
-                    this.setState({messages: currentPlusNewMessages});
-                  }
-
-                  render() {
-                    &lt;div style={styles.app}>
-                      /* existing code */
-                      &lt;div style={styles.messages}>
-                        /* existing code */
-                        &lt;Editor addMessage={this.addMessage} />
-                      &lt;/div>
-                    &lt;/div>
-                  }
-                }
-
-                class Editor extends React.Component {
-                  constructor(props) {
-                    super(props);
-                    this.sendMessage = this.sendMessage.bind(this);
-                  }
-
-                  sendMessage(event) {
-                    event.preventDefault();
-                    const form = event.target;
-
-                    const text = form.text.value;
-                    const timestamp = new Date();
-                    const name = 'Some name';
-                    const avatarUrl = 'some_url.png';
-
-                    const {addMessage} = this.props;
-                    addMessage({avatarUrl, name, text, timestamp});
-                  }
-
-                  render() {
-                    return (
-                      &lt;form onSubmit={this.sendMessage}>
-                        &lt;input /* existing code */ />
-                      &lt;/form>
-                    );
-                  }
-                }
-              </code>
-            </pre>
-          </section>
-        </section> <!-- /do: add messages from editor (10) -->
-
-        <section> <!-- learn: conditional rendering (5) -->
-          <section>
-            <h2>
-              Conditional Rendering
-            </h2>
-          </section>
-
-          <section>
-            <pre>
-              <code data-trim data-noescape>
-                render() {
-                  if (this.state.isBarking) {
-                    return (
-                      &lt;HugeDog />
-                    );
-                  }
-
-                  return (
-                    &lt;TinyDog />
-                  );
-                }
-              </code>
-            </pre>
-          </section>
-        </section> <!-- /learn: conditional rendering (5) -->
-
-        <section> <!-- do: create fakelogin component (10) -->
-          <section>
-            <h2>
-              Create a FakeLoginScreen
-            </h2>
-          </section>
-
-          <section>
-            <pre>
-              <code data-trim data-noescape>
-                
-              </code>
-            </pre>
-          </section>
-        </section> <!-- /do: create fakelogin component (10) -->
-        <!-- /hour 5 to 6 -->
-
-        <!-- hour 6 to 7 -->
-        <section> <!-- learn: class functions (5) -->
-          <section>
-            learn: class functions (5)
-          </section>
-        </section> <!-- /learn: class functions (5) -->
-
-        <section> <!-- do: create fakelogin function (5) -->
-          <section>
-            do: create fakelogin function (5)
-          </section>
-        </section> <!-- /do: create fakelogin function (5) -->
-
-        <section> <!-- learn: stateful vs functional (5) -->
-          <section>
-            learn: stateful vs functional (5)
-          </section>
-        </section> <!-- /learn: stateful vs functional (5) -->
-
-        <section> <!-- do: convert to functional (10) -->
-          <section>
-            do: convert to functional (10)
-          </section>
-        </section> <!-- /do: convert to functional (10) -->
-
-        <section> <!-- learn: click events (5) -->
-          <section>
-            learn: click events (5)
-          </section>
-        </section> <!-- /learn: click events (5) -->
-
-        <section> <!-- do: create console function for clicks (10) -->
-          <section>
-            do: create console function for clicks (10)
-          </section>
-        </section> <!-- /do: create console function for clicks (10) -->
-
-        <section> <!-- learn: pass through functions (5) -->
-          <section>
-            learn: pass through functions (5)
-          </section>
-        </section> <!-- /learn: pass through functions (5) -->
-
-        <section> <!-- do: create selectroom function (10) -->
-          <section>
-            do: create selectroom function (10)
-          </section>
-        </section> <!-- /do: create selectroom function (10) -->
-
-        <section> <!-- learn: directory organization (5) -->
-          <section>
-            learn: directory organization (5)
-          </section>
-        </section> <!-- /learn: directory organization (5) -->
-
-        <section> <!-- do: create messageslist and roomslist directories (10) -->
-          <section>
-            do: create messageslist and roomslist directories (10)
-          </section>
-        </section> <!-- /do: create messageslist and roomslist directories (10) -->
-        <!-- /hour 6 to 7 -->
-
-        <!-- hour 7 to 8 -->
-        <section> <!-- break (30) -->
-          <section>
-            <h1>
-              Break
-            </h1>
-          </section>
-        </section> <!-- /break (30) -->
-
-        <section> <!-- learn: controlled vs uncontrolled components (10) -->
-          <section>
-            learn: controlled vs uncontrolled components (10)
-          </section>
-        </section> <!-- /learn: controlled vs uncontrolled components (10) -->
-
-        <section> <!-- do: make editor controlled (10) -->
-          <section>
-            do: make editor controlled (10)
-          </section>
-        </section> <!-- /do: make editor controlled (10) -->
-
-        <section> <!-- learn: containers vs components (10) -->
-          <section>
-            learn: containers vs components (10)
-          </section>
-        </section> <!-- /learn: containers vs components (10) -->
-
-        <section> <!-- do: create fake containers (5) -->
-          <section>
-            do: create fake containers (5)
-          </section>
-        </section> <!-- /do: create fake containers (5) -->
-        <!-- /hour 7 to 8 -->
-
-        <!-- hour 8 to 9 -->
-        <section> <!-- learn: lifecycle methods: didmount (5) -->
-          <section>
-            learn: lifecycle methods: didmount (5)
-          </section>
-        </section> <!-- /learn: lifecycle methods: didmount (5) -->
-
-        <section> <!-- do: create roomslist.container (10) -->
-          <section>
-            do: create roomslist.container (10)
-          </section>
-        </section> <!-- /do: create roomslist.container (10) -->
-
-        <section> <!-- learn: lifecycle methods: didupdate (10) -->
-          <section>
-            learn: lifecycle methods: didupdate (10)
-          </section>
-        </section> <!-- /learn: lifecycle methods: didupdate (10) -->
-
-        <section> <!-- do: create messageslist.container (10) -->
-          <section>
-            do: create messageslist.container (10)
-          </section>
-        </section> <!-- /do: create messageslist.container (10) -->
-
-        <section> <!-- learn: higher order functions (5) -->
-          <section>
-            learn: higher order functions (5)
-          </section>
-        </section> <!-- /learn: higher order functions (5) -->
-
-        <section> <!-- do: create logging function (5) -->
-          <section>
-            do: create logging function (5)
-          </section>
-        </section> <!-- /do: create logging function (5) -->
-
-        <section> <!-- learn: higher order components (10) -->
-          <section>
-            learn: higher order components (10)
-          </section>
-        </section> <!-- /learn: higher order components (10) -->
-
-        <section> <!-- do: create logging hoc (10) -->
-          <section>
-            do: create logging hoc (10)
-          </section>
-        </section> <!-- /do: create logging hoc (10) -->
-        <!-- /hour 8 to 9 -->
-
-        <!-- hour 9 to 10 -->
-        <section> <!-- learn: hoc containers (5) -->
-          <section>
-            learn: hoc containers (5)
-          </section>
-        </section> <!-- /learn: hoc containers (5) -->
-
-        <section> <!-- do: get database code and create hoc containers (15) -->
-          <section>
-            do: get database code and create hoc containers (15)
-          </section>
-        </section> <!-- /do: get database code and create hoc containers (15) -->
-
-        <section> <!-- learn: final task, add messages to database (5) -->
-          <section>
-            learn: final task, add messages to database (5)
-          </section>
-        </section> <!-- /learn: final task, add messages to database (5) -->
-
-        <section> <!-- do: add messages to database (15) -->
-          <section>
-            do: add messages to database (15)
-          </section>
-        </section> <!-- /do: add messages to database (15) -->
-        <!-- /hour 9 to 10 -->
-
       </div> <!-- /.slides -->
     </div> <!-- /.reveal -->
 
