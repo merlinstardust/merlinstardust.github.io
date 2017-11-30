@@ -94,66 +94,7 @@
           </section>
         </section> <!-- /do: create an editor component (10) -->
 
-        <section> <!-- learn: an overview of state and constructor (10) -->
-          <section>
-            <h1>
-              State (and Constructor)
-            </h1>
-          </section>
 
-          <section>
-            <h2>
-              State
-            </h2>
-            <ul>
-              <li>
-                Managed internally
-              </li>
-              <li>
-                Responsible for changes
-              </li>
-            </ul>
-
-            <aside class="notes">
-              A component of only props does what it is told. A component with state can choose
-            </aside>
-          </section>
-
-          <section>
-            <h2>
-              Constructor
-            </h2>
-            <ul>
-              <li>
-                Sets initial state
-              </li>
-              <li>
-                Bind functions
-              </li>
-              <li>
-                Always call super
-              </li>
-            </ul>
-          </section>
-
-          <section>
-            <pre>
-              <code data-trim data-noescape>
-                class Dog extends React.Component {
-                  constructor(props) {
-                    super(props);
-                    this.state = {isBarking: false};
-                    this.startBarking = this.startBarking.bind(this);
-                  }
-
-                  startBarking() {
-                    this.setState({isBarking: true});
-                  }
-                }
-              </code>
-            </pre>
-          </section>
-        </section> <!-- /learn: an overview of state and constructor (10) -->
 
         <section> <!-- do: add messages from editor (10) -->
           <section>

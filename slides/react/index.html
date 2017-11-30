@@ -1119,9 +1119,313 @@
             </aside>
           </section>
         </section> <!-- /do: use proptypes (10) -->
+
+        <section> <!-- learn: default props (10) -->
+          <section>
+            <h1>
+              Default Props
+            </h1>
+          </section>
+
+          <section>
+            <h2>
+              Setting Defaults
+            </h2>
+            <ul>
+              <li>
+                easy to find
+              </li>
+              <li>
+                consistency
+              </li>
+              <li>
+                lifecycle methods
+              </li>
+            </ul>
+
+            <aside class="notes">
+              JS has similar way like Ruby but not needed
+            </aside>
+          </section>
+        </section> <!-- /learn: default props (10) -->
+
+        <section> <!-- do: use default props (10) -->
+          <section>
+            <h1>
+              Use Default Props
+            </h1>
+          </section>
+
+          <section>
+            <h2>
+              Add Message without a name
+            </h2>
+            <pre style="font-size: .45em">
+              <code data-trim data-noescape>
+                class App extends Component {
+                  render() {
+                    return (
+                      &lt;div style={styles.app}>
+                        // existing code
+                        &lt;div style={styles.messages}>
+                          &lt;Message // existing code />
+                          &lt;Message // insert code here />
+                        &lt;/div>
+                      &lt;/div>
+                    );
+                  }
+                }
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h2>
+              Possible Solution
+            </h2>
+            <pre style="font-size: .45em">
+              <code data-trim data-noescape>
+                class App extends Component {
+                  render() {
+                    return (
+                      &lt;div style={styles.app}>
+                        // existing code
+                        &lt;Message // existing code />
+                        &lt;Message text="A message with no name" timestamp={new Date()} />
+                      &lt;/div>
+                    );
+                  }
+                }
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h1>
+              Add defaultProps to Message
+            </h1>
+            <ul>
+              <li>
+                remove isRequired from name
+              </li>
+              <li>
+                set name to 'Anonymous'
+              </li>
+            </ul>
+            <pre>
+              <code data-trim data-noescape>
+                import React from 'react';
+
+                // existing code
+
+                Message.propTypes = // existing code
+
+                Message.defaultProps = {
+                  name: // insert code here
+                };
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h2>
+              Possible Solution
+            </h2>
+            <pre>
+              <code data-trim data-noescape>
+                import React from 'react';
+
+                // existing code
+
+                Message.propTypes = // existing code
+
+                Message.defaultProps = {
+                  name: 'Anonymous'
+                };
+              </code>
+            </pre>
+          </section>
+        </section> <!-- /do: use default props (10) -->
         <!-- /hour 1 to 2 -->
 
         <!-- hour 2 to 3 -->
+        <section> <!-- learn: styling (10) -->
+          <section>
+            <h2>
+              Styling
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+              Options
+            </h2>
+            <ul>
+              <li>
+                Traditional
+              </li>
+              <li>
+                Inline
+              </li>
+              <li>
+                Generated stylesheets
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>
+              CSS in JS
+            </h2>
+            <pre>
+              <code data-trim data-noescape>
+                class Title extends React.Component {
+                  render() {
+                    const style = {fontSize: '20rem', padding: 10};
+                    return (
+                      &lt;h1 style={style}>
+                        Some text
+                      &lt;/h1>
+                    );
+                  }
+                }
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <pre style="font-size: .45em">
+              <code data-trim data-noescape>
+                class Title extends React.Component {
+                  render() {
+                    return (
+                      &lt;h1 style={styles.h1}>
+                        Some text
+                      &lt;/h1>
+                    );
+                  }
+                }
+
+                const styles = {
+                  h1: {
+                    fontSize: '2rem',
+                    padding: 10,
+                  },
+                };
+              </code>
+            </pre>
+          </section>
+        </section> <!-- /learn: styling (10) -->
+
+        <section> <!-- do: style existing components (10) -->
+          <section>
+            <h1>
+              Style Existing Components
+            </h1>
+          </section>
+
+          <section>
+            <h2>
+              Style name in Message
+            </h2>
+            <ul>
+              <li>
+                Make it bold
+              </li>
+            </ul>
+            <pre style="font-size: .45em">
+              <code data-trim data-noescape>
+                const Message = ({name, text, timestamp}) => {
+                  // existing code
+                  return (
+                    &lt;div>
+                      /* existing code */
+                      &lt;span /* insert code here */ >
+                        {name}
+                      &lt;/span>
+                      /* existing code */
+                    &lt;/div>
+                  );
+                };
+
+                const styles = {
+                  // insert code here
+                };
+              </code>
+            </pre>
+          </section>
+
+          <section> <!-- Message styling -->
+            <h2>
+              Message Styling
+            </h2>
+            <pre style="font-size: .45em">
+              <code data-trim data-noescape>
+                const Message = ({compact, name, text, timestamp}) => {
+                  const time = timestamp.toTimeString().split(' ')[0];
+                  return (
+                    &lt;div style={styles.container}>
+                      &lt;span style={styles.name}>
+                        {name}
+                      &lt;/span>
+                      &lt;span style={styles.time}>
+                        {time}
+                      &lt;/span>
+                      &lt;p style={styles.text}>
+                        {text}
+                      &lt;/p>
+                    &lt;/div>
+                  );
+                };
+
+                const styles = {
+                  name: {
+                    fontWeight: 'bold',
+                  },
+                  text: {
+                    marginTop: 0,
+                  },
+                  time: {
+                    color: 'grey',
+                    fontSize: '.8rem',
+                    marginRight: '1rem',
+                  },
+                };
+              </code>
+            </pre>
+          </section> <!-- /Message styling -->
+
+          <section> <!-- App styling -->
+            <h2>
+              App Styling
+            </h2>
+            <pre style="font-size: .45em">
+              <code data-trim data-noescape>
+                class App extends Component {
+                  render() {
+                    return (
+                      &lt;div style={styles.app}>
+                        // existing code
+                        &lt;div style={styles.messages}>
+                          &lt;Message // existing code />
+                          &lt;Message // existing code />
+                        &lt;/div>
+                      &lt;/div>
+                    );
+                  }
+                }
+
+                const styles = {
+                  messages: {
+                    width: '50%',
+                    margin: '0 auto',
+                  },
+                };
+              </code>
+            </pre>
+          </section> <!-- /App styling -->
+        </section> <!-- /do: style existing components (10) -->
+
         <section> <!-- learn: about mapping (10) -->
           <section>
             <h1>
@@ -1194,14 +1498,6 @@
             </pre>
           </section>
         </section> <!-- /do: re-write the mapping function from the challenge (10) -->
-
-        <section> <!-- break / extra questions (15) -->
-          <section>
-            <h1>
-              Break
-            </h1>
-          </section>
-        </section> <!-- /break / extra questions (15) -->
         <!-- /hour 2 to 3 -->
 
         <!-- hour 3 to 4 -->
@@ -1244,6 +1540,10 @@
                 }
               </code>
             </pre>
+
+            <aside class="notes">
+              Already been using it
+            </aside>
           </section>
 
           <section>
@@ -1294,7 +1594,7 @@
                 A new file called MessagesList.jsx
               </li>
               <li>
-                A list of message objects
+                A component that gets messages as a prop
               </li>
               <li>
                 A div that wraps a map of message objects from props to Message components
@@ -1303,11 +1603,6 @@
 
             <pre>
               <code data-trim data-noescape>
-                const messages = [
-                  {/* message content */},
-                  {/* message content */},
-                  {/* message content */},
-                ];
                 class MessagesList extends React.Component {
                   render() {
                     return (
@@ -1328,14 +1623,6 @@
             </h2>
             <pre style="font-size: .45em">
               <code data-trim data-noescape>
-                // in App.js
-                const messages = [
-                  {avatarUrl: 'image_a.png', name: 'A', timestamp: new Date(2017, 9, 1), text: 'Hello'},
-                  {avatarUrl: 'image_b.png', name: 'B', timestamp: new Date(2017, 9, 2), text: 'Hi'},
-                  {avatarUrl: 'image_c.png', name: 'C', timestamp: new Date(2017, 9, 3), text: 'Howdy'},
-                ];
-
-                // in MessagesList.jsx
                 class MessagesList extends React.Component {
                   render() {
                     const {messages} = this.props;
@@ -1344,6 +1631,77 @@
                         {messages.map(message =>
                           &lt;Message key={message.timestamp.toString() + message.name} avatarUrl={message.avatarUrl} name={message.name} timestamp={message.timestamp} text={message.text} />
                         )}
+                      &lt;/div>
+                    );
+                  }
+                }
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h2>
+              Use MessagesList in App.js
+            </h2>
+            <ul>
+              <li>
+                Import MessagesList
+              </li>
+              <li>
+                Turn your messages into an array of objects
+              </li>
+              <li>
+                Replaces Messages with MessagesList
+              </li>
+            </ul>
+
+            <pre>
+              <code data-trim data-noescape>
+                import React from 'react';
+                // insert code here
+
+                const messages = [
+                  {/* insert message content */},
+                  {/* insert message content */},
+                  {/* insert message content */},
+                ];
+
+                class App extends Component {
+                  render() {
+                    return (
+                      &lt;div className="App">
+                        &lt;div style={styles.message}>
+                          // insert code here
+                        &lt;/div>
+                      &lt;/div>
+                    );
+                  }
+                }
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h2>
+              Possible Solution
+            </h2>
+            <pre style="font-size: .45em">
+              <code data-trim data-noescape>
+                import MessagesList from './MessagesList';
+
+                const messages = [
+                  {name: 'A', timestamp: new Date(2017, 9, 1), text: 'Hello'},
+                  {name: 'B', timestamp: new Date(), text: 'Hi'},
+                  {name: 'C', timestamp: new Date(), text: 'Howdy'},
+                ];
+
+                class App extends Component {
+                  render() {
+                    return (
+                      &lt;div className="App">
+                        &lt;div style={styles.message}>
+                          &lt;MessagesList messages={messages} />
+                        &lt;/div>
                       &lt;/div>
                     );
                   }
@@ -1352,223 +1710,6 @@
             </pre>
           </section>
         </section> <!-- /do: use mapping and children to create a messageslist (15) -->
-
-        <section> <!-- learn: styling (10) -->
-          <section>
-            <h2>
-              Styling
-            </h2>
-          </section>
-
-          <section>
-            <h2>
-              CSS in JS
-            </h2>
-            <pre>
-              <code data-trim data-noescape>
-                class Title extends React.Component {
-                  render() {
-                    const style = {fontSize: '20rem', padding: 10};
-                    return (
-                      &lt;h1 style={style}>
-                        Some text
-                      &lt;/h1>
-                    );
-                  }
-                }
-              </code>
-            </pre>
-          </section>
-
-          <section>
-            <pre style="font-size: .45em">
-              <code data-trim data-noescape>
-                class Title extends React.Component {
-                  render() {
-                    return (
-                      &lt;h1 style={styles.h1}>
-                        Some text
-                      &lt;/h1>
-                    );
-                  }
-                }
-
-                const styles = {
-                  h1: {
-                    fontSize: '2rem',
-                    padding: 10,
-                  },
-                };
-              </code>
-            </pre>
-          </section>
-        </section> <!-- /learn: styling (10) -->
-
-        <section> <!-- do: style existing components (10) -->
-          <section>
-            <h1>
-              Style Existing Components
-            </h1>
-          </section>
-
-          <section>
-            <h2>
-              Style name in Message
-            </h2>
-            <ul>
-              <li>
-                Make it bold
-              </li>
-            </ul>
-            <pre style="font-size: .45em">
-              <code data-trim data-noescape>
-                class Message extends React.Component {
-                  render () {
-                    // existing code
-                    return (
-                      &lt;div>
-                        /* existing code */
-                        &lt;span /* insert code here */ >
-                          {name}
-                        &lt;/span>
-                        /* existing code */
-                      &lt;/div>
-                    );
-                  }
-                }
-
-                const styles = {
-                  // insert code here
-                };
-              </code>
-            </pre>
-          </section>
-
-          <section> <!-- Message styling -->
-            <h2>
-              Message Styling
-            </h2>
-            <pre style="font-size: .45em">
-              <code data-trim data-noescape>
-                class Message extends React.Component {
-                  render () {
-                    const {avatarUrl, name, text, timestamp} = this.props;
-                    const time = timestamp.toTimeString().split(' ')[0];
-                    return (
-                      &lt;div style={styles.container}>
-                        &lt;img src={avatarUrl} styles={styles.image} />
-                        &lt;div style={styles.rightSide}>
-                          &lt;span style={styles.name}>
-                            {name}
-                          &lt;/span>
-                          &lt;span style={styles.time}>
-                            {time}
-                          &lt;/span>
-                          &lt;p style={styles.text}>
-                            {text}
-                          &lt;/p>
-                        &lt;/div>
-                      &lt;/div>
-                    );
-                  }
-                }
-
-                const styles = {
-                  container: {
-                    marginBottom: '10px',
-                  },
-                  image: {
-                    height: '36px',
-                    marginRight: '10px',
-                    width: '36px',
-                  },
-                  name: {
-                    fontWeight: 'bold',
-                    marginRight: '10px',
-                  },
-                  rightSide: {
-                    display: 'inline-block',
-                  },
-                  text: {
-                    margin: 0,
-                  },
-                  time: {
-                    color: 'grey',
-                    fontSize: '10px',
-                  },
-                };
-              </code>
-            </pre>
-          </section> <!-- /Message styling -->
-
-          <section> <!-- MessagesList styling -->
-            <h2>
-              MessagesList Styling
-            </h2>
-            <pre style="font-size: .45em">
-              <code data-trim data-noescape>
-                class MessagesList extends React.Component {
-                  render() {
-                    const {messages} = this.props;
-                    return (
-                      &lt;div style={styles.messagesList}>
-                        {messages.map(message =>
-                          &lt;Message key={message.timestamp.toString() + message.name} avatarUrl={message.avatarUrl} name={message.name} timestamp={message.timestamp} text={message.text} />
-                        )}
-                      &lt;/div>
-                    );
-                  }
-                }
-
-                const styles = {
-                  messagesList: {
-                    marginTop: 'auto',
-                    padding: '20px',
-                  },
-                };
-              </code>
-            </pre>
-          </section> <!-- /MessagesList styling -->
-
-          <section> <!-- App styling -->
-            <h2>
-              App Styling
-            </h2>
-            <pre style="font-size: .45em">
-              <code data-trim data-noescape>
-                class App extends Component {
-                  render() {
-                    return (
-                      &lt;div style={styles.app}>
-                        &lt;div style={styles.rooms}>
-                          &lt;RoomsList rooms={rooms} />
-                        &lt;/div>
-                        &lt;div style={styles.messages}>
-                          &lt;MessagesList messages={messsages} />
-                        &lt;/div>
-                      &lt;/div>
-                    );
-                  }
-                }
-
-                const styles = {
-                  app: {
-                    display: 'flex',
-                    height: '100%',
-                  },
-                  messages: {
-                    display: 'flex',
-                    flex: '0 0 80%',
-                    flexDirection: 'column',
-                  },
-                  rooms: {
-                    flex: '0 0 20%',
-                  },
-                };
-              </code>
-            </pre>
-          </section> <!-- /App styling -->
-        </section> <!-- /do: style existing components (10) -->
         <!-- /hour 3 to 4 -->
 
         <!-- hour 4 to 5 -->
@@ -1630,145 +1771,266 @@
 
           <section>
             <h2>
-              Bold selected Room
+              Move Message text inline
             </h2>
             <ul>
               <li>
                 Add styles (given below)
               </li>
               <li>
-                Add selected prop
+                Add compact prop
               </li>
               <li>
-                If selected is true, make the Room bold
+                If compact is true, make the text appear inline
               </li>
             </ul>
             <pre style="font-size: .45em">
               <code data-trim data-noescape>
-                class Room extends React.Component {
-                  render() {
-                    // insert code here
-                    return (
-                      &lt;div /* insert code here */>
+                const Message = ({name, text, timestamp, /* insert code here */}) => {
+                  return (
+                    &lt;div>
+                      // existing code
+                      &lt;span style={/* insert code here */}>
                         {name}
-                      &lt;/div>
-                    );
-                  }
+                      &lt;/span>
+                      // existing code
+                    &lt;/div>
+                  );
                 }
 
                 const styles = {
-                  selected: {
-                    fontWeight: 'bold',
+                  // existing code
+                  textCompact: {
+                    display: 'inline',
+                    marginLeft: '1rem',
                   },
                 };
               </code>
             </pre>
           </section>
 
-          <section> <!-- make messages expandable -->
-            <h3>
-              Make Messages expandable
-            </h3>
-            <ul style="font-size: 25px">
-              <li>
-                Add styles (given below)
-              </li>
-              <li>
-                If expanded, show the image
-              </li>
-              <li>
-                If expanded, show the time after the name
-              </li>
-              <li>
-                If not expanded, show the time before the name and use both time styles
-              </li>
-              <li>
-                If expanded is true, use styles.text, if false, use styles.textNotExpanded
-              </li>
-            </ul>
-            <pre style="font-size: .45em">
-              <code data-trim data-noescape>
-                class Message extends React.Component {
-                  render () {
-                    // existing code
-                    return (
-                      &lt;div>
-                        /* insert code here */
-                      &lt;/div>
-                    );
-                  }
-                }
-
-                const styles = {
-                  // original styles
-                  textNotExpanded: {
-                    display: 'inline',
-                  },
-                  timeNotExpanded: {
-                    fontSize: '12px',
-                    marginRight: '10px',
-                  },
-                };
-              </code>
-            </pre>
-          </section> <!-- /make messages expandable -->
-
           <section>
             <h2>
               Possible Solution
             </h2>
+
             <pre style="font-size: .45em">
               <code data-trim data-noescape>
-                class Message extends React.Component {
-                  render () {
-                    const {avatarUrl, name, text, timestamp} = this.props;
-                    const time = timestamp.toTimeString().split(' ')[0];
-
-                    styles.timeMerged = styles.timeNotExpanded;
-                    styles.timeMerged.color = styles.time.color;
-
-                    return (
-                      &lt;div>
-                        {expanded &&
-                          &lt;img src={avatarUrl} styles={styles.image} />
-                        }
-                        &lt;div style={styles.rightSide}>
-                          {! expanded &&
-                            &lt;span style={styles.timeMerged}>
-                              {time}
-                            &lt;/span>
-                          }
-                          &lt;span style={styles.name}>
-                            {name}
-                          &lt;/span>
-                          {expanded &&
-                            &lt;span style={styles.time}>
-                              {time}
-                            &lt;/span>
-                          }
-                          &lt;p style={expanded ? styles.text : styles.textNotExpanded}>
-                            {text}
-                          &lt;/p>
-                        &lt;/div>
-                      &lt;/div>
-                    );
-                  }
-                }
+                const Message = ({name, text, timestamp, compact}) => {
+                  return (
+                    &lt;div style={compact ? styles.textCompact : styles.text}>
+                      {name}
+                    &lt;/div>
+                  );
+                };
 
                 const styles = {
-                  // original styles
-                  textNotExpanded: {
+                  // existing code
+                  textCompact: {
                     display: 'inline',
-                  },
-                  timeNotExpanded: {
-                    fontSize: '12px',
-                    marginRight: '10px',
+                    marginLeft: '1rem',
                   },
                 };
               </code>
             </pre>
           </section>
         </section> <!-- /do: use conditionals in styling and structure (15) -->
+
+        <section> <!-- learn: an overview of state and constructor (10) -->
+          <section>
+            <h1>
+              State (and Constructor)
+            </h1>
+          </section>
+
+          <section>
+            <h2>
+              State
+            </h2>
+            <ul>
+              <li>
+                Managed internally
+              </li>
+              <li>
+                Responsible for changes
+              </li>
+            </ul>
+
+            <aside class="notes">
+              A component of only props does what it is told. A component with state can choose
+            </aside>
+          </section>
+
+          <section>
+            <h2>
+              Constructor
+            </h2>
+            <ul>
+              <li>
+                Sets initial state
+              </li>
+              <li>
+                Always call super
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <pre>
+              <code data-trim data-noescape>
+                class Dog extends React.Component {
+                  constructor(props) {
+                    super(props);
+                    this.state = {isBarking: false};
+                  }
+                }
+              </code>
+            </pre>
+          </section>
+        </section> <!-- /learn: an overview of state and constructor (10) -->
+
+        <section> <!-- do: use state (10) -->
+          <section>
+            <h2>
+              Add boolean "compact" to App state
+            </h2>
+            <pre>
+              <code data-trim data-noescape>
+                class App extends React.Component {
+                  constructor(props) {
+                    // insert code here
+                  }
+                  // existing code
+                }
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h2>
+              Possible Solution
+            </h2>
+            <pre>
+              <code data-trim data-noescape>
+                class App extends React.Component {
+                  constructor(props) {
+                    super(props);
+                    this.state = {compact: false};
+                  }
+                  // existing code
+                }
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h2>
+              Pass "compact" to MessagesList
+            </h2>
+            <ul>
+              <li>
+                Get "compact" from state
+              </li>
+              <li>
+                Pass compact as prop to MessagesList
+              </li>
+            </ul>
+            <pre>
+              <code data-trim data-noescape>
+                class App extends React.Component {
+                  // existing code
+                  render() {
+                    // insert code here
+                    return (
+                      &lt;div className="App">
+                        &lt;div style={styles.message}>
+                          &lt;MessagesList /* insert code here */ messages={messages} />
+                        &lt;/div>
+                      &lt;/div>
+                    );
+                  }
+                }
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h2>
+              Possible Solution
+            </h2>
+            <pre>
+              <code data-trim data-noescape>
+                class App extends React.Component {
+                  // existing code
+                  render() {
+                    const {compact} = this.state;
+                    return (
+                      &lt;div className="App">
+                        &lt;div style={styles.message}>
+                          &lt;MessagesList compact={compact} messages={messages} />
+                        &lt;/div>
+                      &lt;/div>
+                    );
+                  }
+                }
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h2>
+              Pass "compact" into Message in MessagesList
+            </h2>
+            <pre>
+              <code data-trim data-noescape>
+                const MessagesList = ({messages, /* insert code here */}) => {
+                  return (
+                    &lt;div>
+                      {messages.map(({name, text, timestamp}, index) =>
+                        &lt;Message
+                          key={index + timestamp.getTime()}
+                          /* insert code here */
+                          name={name}
+                          text={text}
+                          timestamp={timestamp}
+                        />
+                      )}
+                    &lt;/div>
+                  );
+                };
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h2>
+              Possible Solution
+            </h2>
+            <pre>
+              <code data-trim data-noescape>
+                const MessagesList = ({messages, compact}) => {
+                  return (
+                    &lt;div>
+                      {messages.map(({name, text, timestamp}, index) =>
+                        &lt;Message
+                          key={index + timestamp.getTime()}
+                          compact={compact}
+                          name={name}
+                          text={text}
+                          timestamp={timestamp}
+                        />
+                      )}
+                    &lt;/div>
+                  );
+                };
+              </code>
+            </pre>
+
+            <aside class="notes">
+              React Dev Tools
+            </aside>
+          </section>
+        </section>
 
         <section> <!-- end / extra time / extra questions (20) -->
           <section>
