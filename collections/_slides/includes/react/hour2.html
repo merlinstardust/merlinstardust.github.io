@@ -1,0 +1,249 @@
+<section> <!-- learn: styling (10) -->
+  <section>
+    <h2>
+      Styling
+    </h2>
+  </section>
+
+  <section>
+    <h2>
+      Options
+    </h2>
+    <ul>
+      <li>
+        Traditional
+      </li>
+      <li>
+        Inline
+      </li>
+      <li>
+        Generated stylesheets
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>
+      CSS in JS
+    </h2>
+    <pre>
+      <code data-trim data-noescape>
+        class Title extends React.Component {
+          render() {
+            const style = {fontSize: '20rem', padding: 10};
+            return (
+              &lt;h1 style={style}>
+                Some text
+              &lt;/h1>
+            );
+          }
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <pre style='font-size: .45em'>
+      <code data-trim data-noescape>
+        class Title extends React.Component {
+          render() {
+            return (
+              &lt;h1 style={styles.h1}>
+                Some text
+              &lt;/h1>
+            );
+          }
+        }
+
+        const styles = {
+          h1: {
+            fontSize: '2rem',
+            padding: 10,
+          },
+        };
+      </code>
+    </pre>
+  </section>
+</section> <!-- /learn: styling (10) -->
+
+<section> <!-- do: style existing components (10) -->
+  <section>
+    <h1>
+      Style Existing Components
+    </h1>
+  </section>
+
+  <section>
+    <h2>
+      Style name in Message
+    </h2>
+    <ul>
+      <li>
+        Make it bold
+      </li>
+    </ul>
+    <pre style='font-size: .45em'>
+      <code data-trim data-noescape>
+        const Message = ({name, text, timestamp}) => {
+          // existing code
+          return (
+            &lt;div>
+              /* existing code */
+              &lt;span /* insert code here */ >
+                {name}
+              &lt;/span>
+              /* existing code */
+            &lt;/div>
+          );
+        };
+
+        const styles = {
+          // insert code here
+        };
+      </code>
+    </pre>
+  </section>
+
+  <section> <!-- Message styling -->
+    <h2>
+      Message Styling
+    </h2>
+    <pre style='font-size: .45em'>
+      <code data-trim data-noescape>
+        const Message = ({compact, name, text, timestamp}) => {
+          const time = timestamp.toTimeString().split(' ')[0];
+          return (
+            &lt;div style={styles.container}>
+              &lt;span style={styles.name}>
+                {name}
+              &lt;/span>
+              &lt;span style={styles.time}>
+                {time}
+              &lt;/span>
+              &lt;p style={styles.text}>
+                {text}
+              &lt;/p>
+            &lt;/div>
+          );
+        };
+
+        const styles = {
+          name: {
+            fontWeight: 'bold',
+          },
+          text: {
+            marginTop: 0,
+          },
+          time: {
+            color: 'grey',
+            fontSize: '.8rem',
+            marginRight: '1rem',
+          },
+        };
+      </code>
+    </pre>
+  </section> <!-- /Message styling -->
+
+  <section> <!-- App styling -->
+    <h2>
+      App Styling
+    </h2>
+    <pre style='font-size: .45em'>
+      <code data-trim data-noescape>
+        class App extends Component {
+          render() {
+            return (
+              &lt;div>
+                // existing code
+                &lt;div style={styles.messages}>
+                  &lt;Message // existing code />
+                  &lt;Message // existing code />
+                &lt;/div>
+              &lt;/div>
+            );
+          }
+        }
+
+        const styles = {
+          messages: {
+            width: '50%',
+            margin: '0 auto',
+          },
+        };
+      </code>
+    </pre>
+  </section> <!-- /App styling -->
+</section> <!-- /do: style existing components (10) -->
+
+<section> <!-- learn: about mapping (10) -->
+  <section>
+    <h1>
+      Map
+    </h1>
+  </section>
+
+  <section>
+    <pre>
+      <code data-trim data-noescape>
+        // input
+        [1, 3, 5, 7]
+
+        // output
+        [10, 30, 50, 70]
+      </code>
+    </pre>
+  </section>
+</section> <!-- /learn: about mapping (10) -->
+
+<section> <!-- do: re-write the mapping function from the challenge (10) -->
+  <section>
+    <h2>
+      Write a map function that
+    </h2>
+    <ul>
+      <li>
+        returns a new array
+      </li>
+      <li>
+        with every number multiplied by 10
+      </li>
+      <li>
+        and does not change the original array
+      </li>
+    </ul>
+
+    <pre>
+      <code data-trim data-noescape>
+        function multiplyBy10(numbers) {
+          // insert code here
+        }
+
+        // example
+        const testArray = [1, 3, 5, 7];
+
+        const resultArray = multiplyBy10(testArray);
+
+        console.log(testArray); // prints [1, 3, 5, 7];
+        console.log(resultArray); // prints [10, 30, 50, 70]
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    A Simpler Solution
+    <pre>
+      <code data-trim data-noescape>
+        function multiplyBy10(numbers) {
+          return numbers.map(number => 10 * number);
+        }
+      </code>
+    </pre>
+    <pre class='fragment'>
+      <code data-trim data-noescape>
+        function multiplyBy10(numbers) {
+          return numbers.map(function (number) { return 10 * number; });
+        }
+      </code>
+    </pre>
+  </section>
+</section> <!-- /do: re-write the mapping function from the challenge (10) -->

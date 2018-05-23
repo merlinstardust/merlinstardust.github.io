@@ -1,0 +1,663 @@
+---
+title: Git and Github
+categories: ['weekend website']
+order: 3
+---
+<section>
+  <h3>
+    Intro to Git and Github
+  </h3>
+</section>
+
+<section>
+  <h3>
+    What we will cover today
+  </h3>
+  <ul>
+    <li class='fragment'>
+      What is version control and why should we care?
+    </li>
+    <li class='fragment'>
+      Basics of git -- the essential commands
+    </li>
+    <li class='fragment'>
+      Sharing code on GitHub
+    </li>
+  </ul>
+</section>
+
+<section>
+  <section>
+    <h3>
+      What is version control?
+    </h3>
+    <p>
+      Version control allows you (and your team) to do two powerful things
+    </p>
+    <div class='fragment'>
+      <h4>
+        Collaborate
+      </h4>
+      <p>
+        Create anything with other people, from academic papers to entire websites and applications.
+      </p>
+    </div>
+    <div class='fragment'>
+      <h4>
+        Track and revert changes
+      </h4>
+      <p>Mistakes happen. Wouldn't it be nice if you could see the changes that have been made and go 'back in time' to fix something that went wrong?
+    </div>
+  </section>
+  <section>
+    <h3>
+      Working without Version Control
+    </h3>
+    <p>
+      Trying to make a grocery list with 5 people and no version control
+    </p>
+    <p>
+      The Horror!
+    </p>
+  </section>
+  <section>
+    <h3>
+      Working with Version Control
+    </h3>
+    <p>
+      Successfully making a grocery list with 5 people and version control
+    </p>
+    <p>
+      Rainbows and bunny rabbits!
+    </h3>
+  </section>
+</section>
+
+<section>
+  <h3>
+    Brief history of Version Control
+  </h3>
+  <p>
+    1990s - CVS (Concurrent Version Systems)
+  </p>
+  <p>
+    2000s - SVN (Apache Subversion)
+  </p>
+  <p>
+    2005 - Git (well, Git)
+  </p>
+</section>
+
+<section>
+  <h3>
+    Intro to Git
+  </h3>
+  <p>
+    Goals of Git Design
+  </p>
+  <ul>
+    <li>
+      Fast -- add to your team and code base quickly
+    </li>
+    <li>
+      Distributed (see slide above)
+    </li>
+    <li>
+      Each commit has a corresponding hash (track changes from everyone)
+    </li>
+    <li>
+      Everyone has a local copy of the history
+    </li>
+  </ul>
+</section>
+
+<section>
+  <section>
+    <h3>
+      Installation and Setup
+    </h3>
+    <a href='https://desktop.github.com/' alt='Download latest version of Git' target='_blank'>
+      <p>
+        Install GitHub for Desktop
+      </p>
+    </a>
+  </section>
+  <section>
+    <h3>
+      Create a github account
+    </h3>
+    <a href='https://github.com/'>
+      github.com
+    </a>
+    <p>
+      Login with that account on GitHub for Desktop
+    </p>
+  </section>
+  <section>
+    <h3>
+      Let's make a page on github!
+    </h3>
+    <a href='https://pages.github.com/'>
+      Github Pages
+    </a>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>
+      Understanding GitHub for desktop
+    </h3>
+  </section>
+  <section>
+    <h3>
+      Add files
+    </h3>
+  </section>
+  <section>
+    <h3>
+      Changes and commits
+    </h3>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>
+      What did we just do??
+    </h3>
+    <p>
+      How is this all different than just saving a file?
+    </p>
+    <ul>
+      <li class='fragment'>
+        When we <span class='green'>add</span> a new file, we tell Git to add the file to the repository to be tracked
+      </li>
+      <li class='fragment'>
+        When we <span class='green'>stage</span> an existing file (also with the keyword 'add'), we are telling Git to track the current state of our file
+      </li>
+      <li class='fragment'>
+        A <span class='green'>commit</span> saves changes made to a file, not the file as a whole. The commit will have a 'hash' so we can track which changes were committed when and by whom.
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3>
+      Look at our progress
+    </h3>
+    <pre>
+      <code data-trim class='command-line'>
+        git log
+      </code>
+    </pre>
+    <pre>
+      <code data-trim class='command-line'>
+        commit [HASH HERE]
+        Author: Your name <you@your-email.com>
+        Date:   [DATE HERE]
+
+        First commit. Added hello world to repository.
+      </code>
+    </pre>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>
+      Nobody's Perfect
+    </h3>
+    <h4>
+      Undoing local changes
+    </h4>
+    <p>
+      If you haven't committed yet
+    </p>
+    <div class='fragment'>
+      <p>
+        Open hello_world.txt and add some new text
+      </p>
+      <pre>
+        <code data-trim class='command-line'>
+          change hello_world.txt
+          git checkout hello_world.txt
+        </code>
+      </pre>
+    </div>
+    <p class='fragment'>
+      Look at hello_world.txt. Your changes are gone.
+    </p>
+  </section>
+  <section>
+    <h3>
+      Nobody's Perfect
+    </h3>
+    <h4>
+      Undoing staged changes
+    </h4>
+    <div class='fragment'>
+      <p>
+        Open hello_world.txt and add some new text
+      </p>
+      <pre>
+        <code data-trim class='command-line'>
+          git add hello_world.txt
+          git reset HEAD hello_world.txt
+          git checkout hello_world.txt
+        </code>
+      </pre>
+    </div>
+    <p class='fragment'>
+      Look at hello_world.txt. Your changes are gone.
+    </p>
+  </section>
+  <section>
+    <h3>
+      Nobody's Perfect
+    </h3>
+    <h4>
+      Undoing staged changes
+    </h4>
+    <div class='fragment'>
+      <p>
+        Open hello_world.txt and add some new text
+      </p>
+      <pre>
+        <code data-trim class='command-line'>
+          git add hello_world.txt
+          git commit -am 'Changing and committing some lines'
+          git log --pretty=oneline
+          git revert [HASH]
+        </code>
+      </pre>
+    </div>
+    <p class='fragment'>
+      Look at hello_world.txt. Your changes are gone.
+    </p>
+  </section>
+  <section>
+    <h3>
+      Nobody's Perfect
+    </h3>
+    <h4>
+      Remove a file from staging
+    </h4>
+    <p>
+      Create new file my_new_file.txt
+    </p>
+      <pre>
+        <code data-trim class='command-line'>
+          git add my_new_file.txt
+          git reset my_new_file.txt
+        </code>
+      </pre>
+  </section>
+  <section>
+    <h3>
+      Nobody's Perfect
+    </h3>
+    <h4>
+      Delete a file
+    </h4>
+    <p>
+      Create new file my_other_file.txt
+    </p>
+    <pre>
+      <code data-trim class='command-line'>
+        git add my_other_file.txt
+      </code>
+    </pre>
+    <p>
+      Manually delete your file
+    </p>
+    <pre>
+      <code data-trim class='command-line'>
+        git rm my_other_file.txt
+      </code>
+    </pre>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>
+      Branching
+    </h3>
+    <ul>
+      <li>
+        Develop different code on the same base
+      </li>
+      <li>
+        Conduct exploratory work without affecting the work on master branch
+      </li>
+      <li>
+        Incorporate changes to your master branch only when you are ready
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3>
+      Branching
+    </h3>
+    <p>
+      Create a new branch called version2
+    </p>
+    <pre>
+      <code data-trim class='command-line'>
+        git checkout -b version2
+      </code>
+    </pre>
+    <p>
+      Add new lines to hello_world.txt
+    </p>
+    <pre>
+      <code data-trim class='command-line'>
+        git add hello_world.txt
+        git commit -m 'Adding changes to version 2'
+      </code>
+    </pre>
+  </section>
+  <section>
+    <h3>
+      Branching
+    </h3>
+    <h4>
+      Switching branches
+    </h4>
+    <p>
+      See all branches. Branch with * is active
+    </p>
+    <pre>
+      <code data-trim class='command-line'>
+        git branch
+      </code>
+    </pre>
+    <p>
+      Switch to master and look at hello_world.txt
+    </p>
+    <pre>
+      <code data-trim class='command-line'>
+        git checkout master
+      </code>
+    </pre>
+    <p>
+      Switch to version2 and look at hello_world.txt
+    </p>
+    <pre>
+      <code data-trim class='command-line'>
+        git checkout version2
+      </code>
+    </pre>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>
+      Merging
+    </h3>
+    <h4>
+      Merge to get changes from one branch into another*
+    </h4>
+    <p>
+      Switch to master and merge changes
+    </p>
+    <pre>
+      <code data-trim class='command-line'>
+        git checkout master
+        git merge version2
+      </code>
+    </pre>
+    <p>
+      *rebase is another option, but will not be covered in this workshop
+    </p>
+  </section>
+  <section>
+    <h3>
+      Merging
+    </h3>
+    <h4>
+      Merge conflicts
+    </h4>
+    <p>
+      Change first line in hello_world.txt in master branch
+    </p>
+    <pre>
+      <code data-trim class='command-line'>
+        git add hello_world.txt
+        git commit -m 'Changing first line in master'
+      </code>
+    </pre>
+    <p>
+      Change first line in hello_world.txt in version2 branch
+    </p>
+    <pre>
+      <code data-trim class='command-line'>
+        git checkout version2
+        # open hello_world.txt and change first line
+        git add hello_world.txt
+        git commit -m 'Changing first line in version2'
+      </code>
+    </pre>
+  </section>
+  <section>
+    <h3>
+      Merging
+    </h3>
+    <h4>
+      Merge conflicts, cont.
+    </h4>
+    <p>
+      Merge from master into version2
+    </p>
+    <pre>
+      <code data-trim class='command-line'>
+        git merge master
+      </code>
+    </pre>
+    <p class='fragment'>
+      You will be notified of a conflict. Go to the file and fix the problem. Then commit your edits.
+    </p>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>
+      <a href='http://www.github.com' alt='GitHub homepage'>
+        GitHub
+      </a>
+    </h3>
+    <ul>
+      <li class='fragment'>
+        Launched in <span class='green'>2008</span>
+      </li>
+      <li class='fragment'>
+        Leader in <span class='green'>Social Coding</span>
+      </li>
+      <li class='fragment'>
+        GitHub is a commercial site that allows users to <span class='green'>host Git repositories</span> publicly and privately
+      </li>
+      <li class='fragment'>
+        <span class='green'>Open source projects</span> host or mirror their repositories on GitHub
+      </li>
+      <li class='fragment'>
+        <span class='green'>Post your own code</span> for others to use or contribute to
+      </li>
+      <li class='fragment'>
+        Use and <span class='green'>learn</span> from the code in other people's repositories
+      </li>
+    </ul>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>
+      GitHub
+    </h3>
+    <h4>
+      ReadME
+    </h4>
+    <blockquote>
+      While a README isn't a required part of a GitHub repository, it is a very good idea to have one. READMEs are a great place to describe your project or add some documentation such as how to install or use your project. You might want to include contact information - if your project becomes popular people will want to help you out.
+    </blockquote>
+  </section>
+  <section>
+    <h3>
+      GitHub
+    </h3>
+    <h4>
+      Get Local Repository of GitHub Repo
+    </h4>
+    <pre>
+      <code data-trim class='command-line'>
+        cd ../ # Back in root directory
+        mkdir hello-github
+        cd hello-github
+        git init
+        git remote add origin git@github.com:username/NAME-OF-REPO
+        git pull origin master
+      </code>
+    </pre>
+  </section>
+  <section>
+    <h3>
+      GitHub
+    </h3>
+    <h4>
+      Push to GitHub Repo
+    </h4>
+    <p>Edit the ReadMe file
+    <pre>
+      <code data-trim class='command-line'>
+        git add README
+        git commit -m 'Updating readme file'
+        git push origin master
+      </code>
+    </pre>
+    <p class='fragment'>
+      Go look at your github repo online
+    </p>
+  </section>
+  <section>
+    <h3>
+      GitHub
+    </h3>
+    <h4>
+      Pulling from remote repository
+    </h4>
+    <p>
+      If you are working with a team, you want to make sure that you have everyone's changes before pushing your changes to the GitHub repo
+    </p>
+    <pre>
+      <code data-trim class='command-line'>
+        # Commit local changes
+        git commit -m 'My latest commit'
+        # Pull changes other people have made
+        git pull origin master
+        # Fix any conflicts (see merge conflicts above) and commit
+        git commit -m 'Fixing merging conflicts'
+        # Push local changes to GitHub
+        git push origin master
+      </code>
+    </pre>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>
+      Forking
+    </h3>
+    <ul>
+      <li>
+        There are <span class='green'>MILLIONS</span> of public repositories on GitHub
+      </li>
+      <li>
+        If you want to <span class='green'>use</span> or <span class='green'>contribute</span> to a repository, you can fork it.
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3>
+      Forking
+    </h3>
+    <img src='images/bootcamp_3_fork.jpg' alt='How to fork a repository. Image from https://help.github.com/articles/fork-a-repo'/>
+  </section>
+  <section>
+    <h3>
+      Forking
+    </h3>
+    <h4>
+      Cloning
+    </h4>
+    <p>Clone to get a local repository of your fork
+    <pre>
+      <code data-trim class='command-line'>
+        cd ../
+
+        git clone https://github.com/username/FORKED-REPO-NAME.git
+
+        cd FORKED-REPO-NAME
+
+        git remote add upstream https://github.com/original-username/FORKED-REPO-NAME.git
+        #Assigns the original repository to a remote called 'upstream'
+
+        git fetch upstream
+        #Pulls in changes not present in your local repository, without modifying your files
+      </code>
+    </pre>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>
+      Pull Requests
+    </h3>
+    <ul>
+      <li class='fragment'>
+        After you fork and clone a repository all pushed changes will go to your fork
+      </li>
+      <li class='fragment'>
+        These changes will not affect the original repository
+      </li>
+      <li class='fragment'>
+        If you would like to get your changes to be incorporated into the original repo, you can submit a pull request
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3>
+      Starting a pull request
+    </h3>
+    <img src='images/click-pull-request.png' alt='How to initiate a pull request. Image from https://help.github.com/articles/using-pull-requests'/>
+  </section>
+  <section>
+    <h3>
+      Previewing  and sending pull request
+    </h3>
+    <img src='images/pull-request.png' alt='How to preview and send a pull request. Image from https://help.github.com/articles/using-pull-requests'/>
+  </section>
+  <section>
+    <h3>
+      Managing pull requests
+    </h3>
+    <p>
+      How to manage pull requests is out of the scope of this short workshop, but you can learn more from the
+      <a href='https://help.github.com/categories/63/articles' target='_blank'>
+        Github Collaborating Tutorials
+      </a>
+    </p>
+  </section>
+</section>
+
+<section>
+  <h2>
+    Questions?
+  </h2>
+  <div style='font-size: 1200%;'>
+    ?
+  </div>
+</section>

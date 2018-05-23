@@ -1,0 +1,207 @@
+<section> <!-- learn: more about children (10) -->
+  <section>
+    <h1>
+      Children
+    </h1>
+  </section>
+
+  <section>
+    <h1>
+      Can be anything
+    </h1>
+    <ul>
+      <li>
+        Strings
+      </li>
+      <li>
+        Elements
+      </li>
+      <li>
+        Functions
+      </li>
+      <li>
+        Arrays
+      </li>
+    </ul>
+
+    <pre>
+      <code data-trim data-noescape>
+        render() {
+          return (
+            &lt;div>
+              &lt;img />
+              Some text
+              {someFunction()}
+            &lt;/div>
+          );
+        }
+      </code>
+    </pre>
+
+    <aside class='notes'>
+      Already been using it
+    </aside>
+  </section>
+
+  <section>
+    <pre>
+      <code data-trim data-noescape>
+        render() {
+          return (
+            &lt;div>
+              &lt;Character name='Arya' />
+              &lt;Character name='Jon' />
+              &lt;Character name='Dany' />
+            &lt;/div>
+          );
+        }
+      </code>
+    </pre>
+
+    <pre class='fragment'>
+      <code data-trim data-noescape>
+        render() {
+          const profiles = [{name: 'Arya'}, {name: 'Jon'}, {name: 'Dany'}];
+          return (
+            &lt;div>
+              {profiles.map(profile =>
+                &lt;Character name={profile.name} />
+              )}
+            &lt;/div>
+          );
+        }
+      </code>
+    </pre>
+  </section>
+</section> <!-- /learn: more about children (10) -->
+
+<section> <!-- do: use mapping and children to create a messageslist (15) -->
+  <section>
+    <h2>
+      Create a MessagesList
+    </h2>
+  </section>
+
+  <section>
+    <h2>
+      Create
+    </h2>
+    <ul>
+      <li>
+        A new file called MessagesList.jsx
+      </li>
+      <li>
+        A component that gets messages as a prop
+      </li>
+      <li>
+        A div that wraps a map of message objects from props to Message components
+      </li>
+    </ul>
+
+    <pre>
+      <code data-trim data-noescape>
+        const MessagesList = (/* insert code here */) => {
+          return (
+            // insert code here
+          );
+        };
+      </code>
+    </pre>
+    <aside class='notes'>
+      Keys
+    </aside>
+  </section>
+
+  <section>
+    <h2>
+      Possible Solution
+    </h2>
+    <pre style='font-size: .45em'>
+      <code data-trim data-noescape>
+        class MessagesList extends React.Component {
+          render() {
+            const {messages} = this.props;
+            return (
+              &lt;div>
+                {messages.map(message =>
+                  &lt;Message key={message.timestamp.toString() + message.name} avatarUrl={message.avatarUrl} name={message.name} timestamp={message.timestamp} text={message.text} />
+                )}
+              &lt;/div>
+            );
+          }
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Use MessagesList in App.js
+    </h2>
+    <ul>
+      <li>
+        Import MessagesList
+      </li>
+      <li>
+        Turn your messages into an array of objects
+      </li>
+      <li>
+        Replaces Messages with MessagesList
+      </li>
+    </ul>
+
+    <pre>
+      <code data-trim data-noescape>
+        import React from 'react';
+        // insert code here
+
+        const messages = [
+          {/* insert message content */},
+          {/* insert message content */},
+          {/* insert message content */},
+        ];
+
+        class App extends Component {
+          render() {
+            return (
+              &lt;div className='App'>
+                &lt;div style={styles.message}>
+                  // insert code here
+                &lt;/div>
+              &lt;/div>
+            );
+          }
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Possible Solution
+    </h2>
+    <pre style='font-size: .45em'>
+      <code data-trim data-noescape>
+        import MessagesList from './MessagesList';
+
+        const messages = [
+          {name: 'A', timestamp: new Date(2017, 9, 1), text: 'Hello'},
+          {name: 'B', timestamp: new Date(), text: 'Hi'},
+          {name: 'C', timestamp: new Date(), text: 'Howdy'},
+        ];
+
+        class App extends Component {
+          render() {
+            return (
+              &lt;div className='App'>
+                &lt;div style={styles.message}>
+                  &lt;MessagesList messages={messages} />
+                &lt;/div>
+              &lt;/div>
+            );
+          }
+        }
+      </code>
+    </pre>
+  </section>
+</section> <!-- /do: use mapping and children to create a messageslist (15) -->

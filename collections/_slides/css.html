@@ -1,0 +1,1049 @@
+---
+title: CSS
+categories: ['weekend website']
+order: 2
+---
+<section>
+  <h1>
+    Cascading Style Sheets (CSS)
+  </h1>
+</section>
+
+<section>
+  <h2>
+    Why use CSS?
+  </h2>
+  <p>
+    To describe the look and formatting of a document written in a markup language, eg. hypertext markup language (html)
+  </p>
+  <img height='160' src='http://php.quicoto.com/wp-content/uploads/2013/06/css3.jpg' />
+  <p style='margin: 0;'>
+    We can change the colors, sizes, positions, and formatting of any of our HTML elements  including the body, paragraphs, links, and images
+  </p>
+</section>
+
+<section>
+  <h2>
+    What does it look like
+  </h2>
+  <img src='https://s3.amazonaws.com/media-p.slid.es/uploads/442720/images/2188237/homepage-css.png' />
+</section>
+
+<section>
+  <img style='max-width: 500px;' src='/slides/images/session1site.png' />
+</section>
+
+<section>
+  <h2>
+    What will we be building?
+  </h2>
+  <img src='/slides/images/session2site.png' />
+</section>
+
+<section>
+  <h2>
+    CSS syntax
+  </h2>
+  <img src='https://s3.amazonaws.com/media-p.slid.es/uploads/442720/images/2188238/cssrule.png' />
+</section>
+
+<section>
+  <p>
+    Behold:
+  </p>
+  <pre class='fragment'>
+    <code data-trim>
+      <h1>
+        Godric Gryffindor
+      </h1>
+    </code>
+  </pre>
+  <pre class='fragment'>
+    <code data-trim>
+      <h1 style='color: red;'>
+        Godric Gryffindor
+      </h1>
+    </code>
+  </pre>
+</section>
+
+<section>
+  <p>
+    samewebsite/page1.html
+  </p>
+  <pre class='fragment'>
+    <code data-trim>
+      <h1 style='color: red;'>
+        Jake
+      </h1>
+      <h2 style='color: red;'>
+        Cassie
+      </h2>
+      <p style='color: red;'>
+        Ax
+      </p>
+    </code>
+  </pre>
+  <p class='fragment'>
+    samewebsite/page2.htm
+  </p>
+  <pre class='fragment'>
+    <code data-trim>
+      <h1 style='color: red;'>
+        Tobias
+      </h1>
+      <h2 style='color: red;'>
+        Rachel
+      </h2>
+      <p style='color: red;'>
+        Marco
+      </p>
+    </code>
+  </pre>
+</section>
+
+<section>
+  <h2>
+    style.css
+  </h2>
+  <p>
+    let's create a new file with the extension .css so we can keep all of our styles there
+  </p>
+  <img height='115' src='https://s3.amazonaws.com/media-p.slid.es/uploads/327572/images/1385771/red_style_snippet.jpg' />
+</section>
+
+<section>
+  <p>
+    Let's break this down:
+  </p>
+  <pre>
+    <code data-trim>
+      &lt;link rel='stylesheet' type='text/css' href='style.css'>
+    </code>
+  </pre>
+</section>
+
+<section>
+  <h3>
+    Let's take a closer look at these styles in our browsers.
+  </h3>
+</section>
+
+<style>
+  .custom p {
+    margin: 0;
+    text-align: left;
+  }
+</style>
+<section class='custom'>
+  <h3>
+    Property: color
+  </h3>
+
+  <pre>
+    <code data-trim>
+      p {
+        color: red;
+        color: #ff0000;
+        color: rgb(255, 0, 0);
+      }
+    </code>
+  </pre>
+
+  <p>
+    The color property changes the color of the text.
+  </p>
+  <p>
+    Color name
+  </p>
+  <p>
+    Hexadecimal value
+  </p>
+  <p>
+    RGB value
+  </p>
+  <p>
+    Named colors such as: black, blue, gray, green, purple, white, etc.
+  </p>
+</section>
+
+<section>
+  <h3>
+    Property: background-color
+  </h3>
+  <p>
+    The background-color property changes the color of the background.
+  </p>
+  <pre>
+    <code data-trim>
+      p {
+        background-color: black;
+        background-color: #000000;
+        background-color: rgb(0,0,0);
+      }
+    </code>
+  </pre>
+</section>
+
+<section>
+  <h3>
+    Property: font-family
+  </h3>
+  <p>
+    The font-family property deﬁnes which font is used.
+  </p>
+  <pre>
+    <code data-trim>
+      p {
+        font-family: 'Times New Roman';
+        font-family: serif;
+        font-family: 'Arial', sans-serif;
+      }
+    </code>
+  </pre>
+  <p>
+    Specific font name
+  </p>
+  <p>
+    Generic name
+  </p>
+  <p>
+    Comma-separated list
+  </p>
+</section>
+
+<section>
+  <h3>
+    Property: font-size
+  </h3>
+  <p>
+    The font-size property speciﬁes the size of the font.
+  </p>
+  <pre>
+    <code data-trim>
+      p {
+        font-size: 12px;
+        font-size: 1.5em;
+        font-size: 100%;
+      }
+    </code>
+  </pre>
+  <p>
+    Pixels
+  </p>
+  <p>
+    'em'
+  </p>
+  <p>
+    Percentage
+  </p>
+</section>
+
+<section>
+  <h3>
+    Property: Fonts (shorthand)
+  </h3>
+  <pre>
+    <code data-trim>
+      p {
+        font-style: italic;
+        font-weight: bold;
+        font-size: 10px;
+        font-family: sans-serif;
+      }
+    </code>
+  </pre>
+
+  <p>
+    OR
+  </p>
+
+  <pre>
+    <code data-trim>
+      p {
+        font: italic bold 10px sans-serif;
+      }
+    </code>
+  </pre>
+</section>
+
+<section>
+  <section>
+    <h2>
+      Gasp!
+    </h2>
+    <p>
+      but what if i have list items that I want to make different colors?
+    </p>
+    <p>
+      What then?
+    </p>
+    <ul>
+      <li>
+        Yellow
+      </li>
+      <li>
+        Green
+      </li>
+      <li>
+        Blue
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>
+      IDs
+    </h2>
+    <ul>
+      <li>
+        IDs are unique
+      </li>
+      <li>
+        Each element can have only one ID
+      </li>
+      <li>
+        Each page can have only one element with that ID
+      </li>
+    </ul>
+
+    <h2>
+      Classes
+    </h2>
+    <ul>
+      <li>
+        Classes are not unique
+      </li>
+      <li>
+        You can use the same class on multiple elements.
+      </li>
+      <li>
+        You can use multiple classes on the same element.
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>
+    IDs
+  </h2>
+    <pre>
+      <code data-trim>
+        <ul id='colorful-list'>
+          <li id='yellow-zest'>
+            Yellow Zest
+          </li>
+          <li id='green-apple'>
+            Green Apple
+          </li>
+          <li id='blueberry'>
+            Blueberry
+          </li>
+        </ul>
+      </code>
+    </pre>
+
+    <h2>
+      Classes
+    </h2>
+    <pre>
+      <code data-trim>
+        <ul class='navigation'>
+          <li class='navigation-link'>
+            Link 1
+          </li>
+          <li class='navigation-link'>
+            Link 2
+          </li>
+          <li class='navigation-link'>
+            Link 3
+          </li>
+        </ul>
+      </code>
+    </pre>
+
+    <pre>
+      <code data-trim>
+        #green-apple {
+          color: rgb(0, 255, 0);
+        }
+
+        #blueberry {
+          color: rgb(0, 0, 255);
+        }
+        </code>
+      </pre>
+
+      <pre>
+        <code data-trim>
+          .navigation {
+            list-style: none;
+          }
+
+          .navigation-link {
+            font-size: large;
+          }
+        </code>
+      </pre>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2>
+      div
+    </h2>
+    <ul>
+      <li>
+        A block element
+      </li>
+      <li>
+        Starts on a new line and stretches out to the left and right as far as it can
+      </li>
+      <li>
+        The same way &lt;p> tags work
+      </li>
+    </ul>
+
+    <h2>
+      span
+    </h2>
+    <ul>
+      <li>
+        An inline element
+      </li>
+      <li>
+        Can wrap some text inside another element
+      </li>
+      <li>
+        Works the same way as an &lt;a> tag
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>
+      div
+    </h2>
+    <pre>
+      <code data-trim>
+        <div>
+          <p>
+            Content
+          </p>
+          <p>
+            Content
+          </p>
+        </div>
+
+        <div id='header'>
+          <h1>
+            Main Heading
+          </h1>
+        </div>
+      </code>
+    </pre>
+
+    <h2>
+      span
+    </h2>
+    <pre>
+      <code data-trim>
+        <p>
+          Paragraph with <span class='yellow'>yellow</span> text.
+        </p>
+      </code>
+    </pre>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>
+      Box Model
+    </h3>
+    <img src='/slides/images/box-model.png' />
+  </section>
+
+  <section>
+    <h3>
+      padding
+    </h3>
+    <p>
+      Space between the border and the content
+    </p>
+    <p>
+      Adds to the total width of the box.
+    </p>
+    <img src='/slides/images/box-model-padding.png' />
+  </section>
+
+  <section>
+    <h3>
+      padding
+    </h3>
+    <pre>
+      <code data-trim>
+        /* 15 pixels on all sides */
+        padding: 15px;
+
+        /* 10 pixels on top only */
+        padding-top: 10px;
+
+        /* 10 on top, 5 on right, 3 on bottom, 5 on left */
+        padding: 10px 5px 3px 5px;
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h3>
+      padding
+    </h3>
+    <pre>
+      <code data-trim>
+        /* One value */
+        padding: all;
+
+        /* Two values */
+        padding: top/bottom right/left;
+
+        /* Four values */
+        padding: top right bottom left;
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h3>
+      padding
+    </h3>
+    <pre>
+      <code data-trim>
+        padding: 10px 20px 30px 40px;
+      </code>
+    </pre>
+    <img src='/slides/images/box-model-padding2.png' />
+  </section>
+
+  <section>
+    <h3>
+      Border
+    </h3>
+    <p>
+      The edge around the box, specified as 'thickness, style, color.'
+    </p>
+    <img src='/slides/images/box-model-border.png'>
+  </section>
+
+  <section>
+    <h3>
+      border
+    </h3>
+    <pre>
+      <code data-trim>
+        /* a solid red border */
+        border: 1px solid #ff0000;
+
+        /* a thick dotted black top border */
+        border-top: 4px dotted rgb(0, 0, 0);
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h3>
+      border - Other Properties
+    </h3>
+    <pre>
+      <code data-trim>
+        border-width: 10px;
+        border-style: dashed;
+        border-color: #666666;
+      </code>
+    </pre>
+    <p>
+      You can specify each property separately, or all three together.
+    </p>
+  </section>
+
+  <section>
+    <h3>
+      margin
+    </h3>
+    <p>
+      The transparent area around the box that separates it from other elements.
+    </p>
+    <img src='/slides/images/box-model-margin.png' />
+  </section>
+
+  <section>
+    <h3>
+      margin
+    </h3>
+    <p>
+      15 pixels on all sides
+    </p>
+    <pre>
+      <code data-trim>
+      /* 15 pixels on all sides */
+      margin: 15px;
+
+      /* 10 pixels on top only */
+      margin-top: 10px;
+
+      /* 10 on top, 5 on right, 3 on bottom, 5 on left */
+      margin: 10px 5px 3px 5px;
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h3>
+      Auto margin
+    </h3>
+    <p>
+      If a margin is set to auto on a box that has width, it will take up as much space as possible.
+    </p>
+    <p>
+      Centered
+    </p>
+    <pre>
+      <code data-trim>
+        width: 300px;
+        margin: auto;
+      </code>
+    </pre>
+
+    <p>
+      Flush Right
+    </p>
+    <pre>
+      <code data-trim>
+        width: 300px;
+        margin-left: auto;
+        margin-right: 5px;
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h3>
+      Let's Develop it!
+    </h3>
+    <p>
+      Let's add some padding, borders, and margins to our divs.
+    </p>
+    <p>
+      Let's center our entire document in the browser.
+    </p>
+  </section>
+
+  <section>
+    <h3>
+      Property: width
+    </h3>
+    <p>
+      Sets the width of an element.
+    </p>
+    <p>
+      Does not include padding or borders, remember these add to the width.
+    </p>
+  </section>
+
+  <section>
+    <h3>
+      Property: height
+    </h3>
+    <p>
+      Sets the height of an element.
+    </p>
+    <p>
+      Does not include padding or borders, remember these add to the width.
+    </p>
+  </section>
+
+  <section>
+    <h3>
+      Let's develop it!
+    </h3>
+    <div class='left-align'>
+      <p>
+        Add a width &amp; height to our divs.
+      </p>
+      <p>
+        Use IDs to target each div with CSS
+      </p>
+    </div>
+  </section>
+</section>
+
+<section>
+  <h2>
+    Selector: Descendant
+  </h2>
+  <pre>
+    <code data-trim>
+      p em {
+        color: yellow;
+      }
+    </code>
+  </pre>
+
+  <p>
+    Selects all em elements that are within a paragraph
+  </p>
+
+  <pre>
+    <code data-trim>
+      <p>
+        This is <em>important.</em>
+      </p>
+    </code>
+  </pre>
+</section>
+
+<section>
+  <section>
+    <h2>
+      Let's find ourselves a splash image!
+    </h2>
+    <h3>
+      https://unsplash.com/
+    </h3>
+    <img height='250' src='https://download.unsplash.com/photo-1414073875831-b47709631146' />
+  </section>
+
+  <section>
+    <h2>
+      style.css
+    </h2>
+    <pre>
+      <code data-trim>
+        body {
+          background-attachment: fixed;
+          background-image: url(milkway_splash.jpeg);
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      </code>
+    </pre>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>
+      float
+    </h3>
+    <div class='left-align'>
+      <ul>
+        <li>
+          'Floating' an element takes it in the normal flow, as far to the left or right of it's containing element as possible.
+        </li>
+        <li>
+          Any other elements, such as paragraphs or lists, will wrap around the floated element.
+        </li>
+        <li>
+          Always specify a width when floating an element, otherwise the element is likely to take up the whole page and not appear floated.
+        </li>
+        <li>
+          You can specify a) whether an element is floated or not, and b) which side it ﬂoats on.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h3>
+      float: Example
+    </h3>
+    <p>
+      Below a &lt;blockquote> is floated to the left, allowing text to wrap around it on the right
+    </p>
+    <img src='/slides/images/example-floatbq.png' alt='example float' />
+  </section>
+
+  <section>
+    <h3>
+      float
+    </h3>
+    <pre>
+      <code data-trim>
+        .float {
+          float: left;
+          width: 200px;
+          background: yellow;
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h3>
+      Using floats to place elements side by side
+    </h3>
+    <p>
+      If you want two block level elements to be side by side, you need to float both elements. One left, and one right.
+    </p>
+    <img src='/slides/images/example-float-column.png' />
+  </section>
+
+  <section>
+    <h3>
+      clear
+    </h3>
+    <ul>
+      <li>
+        Clearing tells the element on which side (right, left, both) other elements
+        <strong>
+          cannot
+        </strong>
+        appear.
+      </li>
+      <li>
+        If you had an image floated left, and you did not want the paragraph to appear next to it, you would add
+        <strong>
+          clear: left;
+        </strong>
+        to the paragraph.
+      </li>
+      <li>
+        Clearing both sides makes sure ﬂoats don’t ﬂow past the clear element.
+      </li>
+    </ul>
+    <pre>
+      <code data-trim>
+        clear: right;
+        clear: left;
+        clear: both;
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h3>
+      clear
+    </h3>
+    <pre>
+      <code data-trim>
+        .float {
+          float: left;
+          width: 50px;
+          background: yellow;
+        }
+        .clear-left {
+          clear: left;
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h3>
+      Let's Develop It
+    </h3>
+    <p>
+      Let's float our side bar and content areas.
+    </p>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>
+      Pseudo-classes, more CSS for links
+    </h3>
+    <p>
+      Changing the format of a link when you hover over it is accomplished by using pseudo-classes.
+    </p>
+    <p>
+      CSS pseudo-classes are used to add special effects to some selectors.
+    </p>
+  </section>
+
+  <section>Syntax:
+    <pre>
+      <code data-trim>
+        selector:pseudo-class {
+          property: value;
+        }
+       </code>
+    </pre>
+    Example:
+    <pre>
+      <code data-trim>
+        a:link {
+          text-decoration: none;
+        }
+       </code>
+    </pre>
+  </section>
+
+  <style>
+    .custom pre code {
+      line-height: 1;
+    }
+  </style>
+  <section class='custom'>
+    <h3>
+      Pseudo-classes, more CSS for links
+    </h3>
+    <pre>
+      <code data-trim>
+        /* unvisited link */
+        a:link {
+          color: #FF0000;
+        }
+        /* visited link */
+        a:visited {
+          color: #00FF00;
+        }
+        /* mouse over link */
+        a:hover {
+          color: #FF00FF;
+        }
+        /* selected link */
+        a:active {
+          color: #0000FF;
+        }
+      </code>
+    </pre>
+    <p>
+      Note: order matters
+    </p>
+  </section>
+
+  <section>
+    <h3>
+      Let's Develop It
+    </h3>
+    <p>
+      Add pseudo classes to your links
+    </p>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2>
+      Now onto navigation!
+    </h2>
+  </section>
+
+  <section>
+    <h2>
+      Let's start simple
+    </h2>
+    <ul>
+      <li>
+        Remove those ugly bullets
+      </li>
+      <li>
+        Make the nav horizontal
+      </li>
+      <li>
+        Add a hover effect
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <pre>
+      <code data-trim>
+        <nav>
+          <ul class='navigation'>
+            <li>
+              <a href='/AboutMe/index.html'>
+                About Me
+              </a>
+            </li>
+            <li>
+              <a href='/Resources/index.html'>
+                Resources
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </code>
+    </pre>
+
+    <pre>
+      <code data-trim>
+        ul.navigation {
+          background-color: white;
+          display: block;
+          list-style: none;
+          margin-top: 0;
+          width: 100%;
+          height: 35px;
+        }
+
+        ul.navigation li {
+          display: inline-block;
+          float: left;
+        }
+
+        ul.navigation a {
+          color: black;
+          display: block;
+          padding: 10px;
+          text-decoration: none;
+        }
+
+        ul.navigation a:hover {
+          background-color: black;
+          color: white;
+        }
+      </code>
+    </pre>
+  </section>
+</section>
+
+<section>
+  <h2>
+    Choose one of these three to implement on your own:
+  </h2>
+  <ul>
+    <li>
+      At least two responsive divs
+    </li>
+    <li>
+      Make the text on your page look nicer with a simple css trick or two like https://css-tricks.com/viewport-sized-typography/
+    </li>
+    <li>
+      Feeling ambitious? Research something on http://codepen.io/ or try http://cssdeck.com/labs/another-simple-css3-dropdown-menu
+    </li>
+    <li>
+      Follow along with
+      <a href='http://learnlayout.com/'>
+        learnlayout.com
+      </a>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h2>
+    Let's Pause
+  </h2>
+  <p>
+    and look at some beautiful sites created using only HTML and CSS:
+  </p>
+  <img height='200' src='http://www.maxinepaynter.com/images/portfolio/single-portfolio-pages/zengarden-top.png' />
+  <p style='text-align: left;'>
+    <a href='http://www.csszengarden.com/' target='_blank'>
+      CSS Zen Garden
+    </a>
+  </p>
+</section>
+
+<section>
+  <h2>
+    Questions?
+  </h2>
+  <div style='font-size: 1200%;'>
+    ?
+  </div>
+</section>

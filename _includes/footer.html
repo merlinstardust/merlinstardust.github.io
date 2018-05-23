@@ -1,0 +1,45 @@
+<footer class='site-footer'>
+  <div class='wrapper'>
+
+    <h2 class='footer-heading'>
+      {{ site.title }}
+    </h2>
+
+    <div class='footer-col-wrapper row'>
+      <div class='contact column'>
+        <ul class='contact-list'>
+          <li>
+            {{ site.title }}
+          </li>
+          <li>
+            <a href='mailto:{{ site.email }}'>
+              {{ site.email }}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class='profiles column size20'>
+        <ul class='social-media-list'>
+          {% for profileSite in site.data.profileSites %}
+            <li>
+              <a href='{{ profileSite.url }}/{{ profileSite.username }}'>
+                <span class='icon'>
+                  <svg>
+                    <use xlink:href='/assets/icons.svg#{{ profileSite.name | downcase }}' />
+                  </svg>
+                  <span class='username'>{{ profileSite.name }}</span>
+                </span>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class='description column'>
+        <p class='text'>{{ site.description }}</p>
+      </div>
+    </div>
+
+  </div>
+</footer>

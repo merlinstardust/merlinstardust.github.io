@@ -1,0 +1,367 @@
+<section> <!-- learn: conditionals (10) -->
+  <section>
+    <h1>
+      Conditionals
+    </h1>
+  </section>
+
+  <section>
+    <h1>
+      Ternary (?)
+    </h1>
+    <pre>
+      <code data-trim data-noescape>
+        const message = loggedIn ? 'Welcome' : 'Please log in';
+      </code>
+    </pre>
+    <pre>
+      <code data-trim data-noescape>
+        render() {
+          return (
+            &lt;div>
+              {loggedIn ? &lt;App /> : &lt;LoginScreen />}
+            &lt;/div>
+          );
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h1>
+      And Operator (&&)
+    </h1>
+    <pre>
+      <code data-trim data-noescape>
+        render() {
+          return (
+            &lt;div>
+              {loggedIn &&
+                &lt;Profile />
+              }
+            &lt;/div>
+          );
+        }
+      </code>
+    </pre>
+  </section>
+</section> <!-- /learn: conditionals (10) -->
+
+<section> <!-- do: use conditionals in styling and structure (15) -->
+  <section>
+    <h1>
+      Style Conditionally
+    </h1>
+  </section>
+
+  <section>
+    <h2>
+      Move Message text inline
+    </h2>
+    <ul>
+      <li>
+        Add styles (given below)
+      </li>
+      <li>
+        Add compact prop
+      </li>
+      <li>
+        If compact is true, make the text appear inline
+      </li>
+    </ul>
+    <pre style='font-size: .45em'>
+      <code data-trim data-noescape>
+        const Message = ({name, text, timestamp, /* insert code here */}) => {
+          return (
+            &lt;div>
+              // existing code
+              &lt;p style={/* insert code here */}>
+                {text}
+              &lt;/p>
+            &lt;/div>
+          );
+        }
+
+        const styles = {
+          // existing code
+          textCompact: {
+            display: 'inline',
+            marginLeft: '1rem',
+          },
+        };
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Possible Solution
+    </h2>
+
+    <pre style='font-size: .45em'>
+      <code data-trim data-noescape>
+        const Message = ({name, text, timestamp, compact}) => {
+          return (
+            &lt;div style={compact ? styles.textCompact : styles.text}>
+              {name}
+            &lt;/div>
+          );
+        };
+
+        const styles = {
+          // existing code
+          textCompact: {
+            display: 'inline',
+            marginLeft: '1rem',
+          },
+        };
+      </code>
+    </pre>
+  </section>
+</section> <!-- /do: use conditionals in styling and structure (15) -->
+
+<section> <!-- learn: an overview of state and constructor (10) -->
+  <section>
+    <h1>
+      State (and Constructor)
+    </h1>
+  </section>
+
+  <section>
+    <h2>
+      State
+    </h2>
+    <ul>
+      <li>
+        Managed internally
+      </li>
+      <li>
+        Responsible for changes
+      </li>
+    </ul>
+
+    <aside class='notes'>
+      A component of only props does what it is told. A component with state can choose
+    </aside>
+  </section>
+
+  <section>
+    <h2>
+      Constructor
+    </h2>
+    <ul>
+      <li>
+        Sets initial state
+      </li>
+      <li>
+        Always call super
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <pre>
+      <code data-trim data-noescape>
+        class Dog extends React.Component {
+          constructor(props) {
+            super(props);
+            this.state = {isBarking: false};
+          }
+        }
+      </code>
+    </pre>
+  </section>
+</section> <!-- /learn: an overview of state and constructor (10) -->
+
+<section> <!-- do: use state (10) -->
+  <section>
+    <h2>
+      Add boolean 'compact' to App state
+    </h2>
+    <pre>
+      <code data-trim data-noescape>
+        class App extends React.Component {
+          constructor(props) {
+            // insert code here
+          }
+          // existing code
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Possible Solution
+    </h2>
+    <pre>
+      <code data-trim data-noescape>
+        class App extends React.Component {
+          constructor(props) {
+            super(props);
+            this.state = {compact: false};
+          }
+          // existing code
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Pass 'compact' to MessagesList
+    </h2>
+    <ul>
+      <li>
+        Get 'compact' from state
+      </li>
+      <li>
+        Pass compact as prop to MessagesList
+      </li>
+    </ul>
+    <pre>
+      <code data-trim data-noescape>
+        class App extends React.Component {
+          // existing code
+          render() {
+            // insert code here
+            return (
+              &lt;div className='App'>
+                &lt;div style={styles.message}>
+                  &lt;MessagesList /* insert code here */ messages={messages} />
+                &lt;/div>
+              &lt;/div>
+            );
+          }
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Possible Solution
+    </h2>
+    <pre>
+      <code data-trim data-noescape>
+        class App extends React.Component {
+          // existing code
+          render() {
+            const {compact} = this.state;
+            return (
+              &lt;div className='App'>
+                &lt;div style={styles.message}>
+                  &lt;MessagesList compact={compact} messages={messages} />
+                &lt;/div>
+              &lt;/div>
+            );
+          }
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Pass 'compact' into Message in MessagesList
+    </h2>
+    <pre>
+      <code data-trim data-noescape>
+        const MessagesList = ({messages, /* insert code here */}) => {
+          return (
+            &lt;div>
+              {messages.map(({name, text, timestamp}, index) =>
+                &lt;Message
+                  key={index + timestamp.getTime()}
+                  /* insert code here */
+                  name={name}
+                  text={text}
+                  timestamp={timestamp}
+                />
+              )}
+            &lt;/div>
+          );
+        };
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Possible Solution
+    </h2>
+    <pre>
+      <code data-trim data-noescape>
+        const MessagesList = ({messages, compact}) => {
+          return (
+            &lt;div>
+              {messages.map(({name, text, timestamp}, index) =>
+                &lt;Message
+                  key={index + timestamp.getTime()}
+                  compact={compact}
+                  name={name}
+                  text={text}
+                  timestamp={timestamp}
+                />
+              )}
+            &lt;/div>
+          );
+        };
+      </code>
+    </pre>
+
+    <aside class='notes'>
+      React Dev Tools
+    </aside>
+  </section>
+</section>
+
+<section> <!-- learn: an overview of inputs and form events (10) -->
+  <section>
+    <h1>
+      Inputs and Forms
+    </h1>
+  </section>
+
+  <section>
+    <pre>
+      <code data-trim data-noescape>
+        &lt;form onSubmit={createCat}>
+          &lt;input name='catName' type='text' onChange={logChanges} />
+        &lt;/form>
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <a href='https://reactjs.org/docs/events.html'>
+      <h1>
+        More on Events
+      </h1>
+    </a>
+  </section>
+</section> <!-- /learn: an overview of inputs and form events (10) -->
+
+<section> <!-- do: create an editor component (10) -->
+  <section>
+    <h2>
+      Create a Checkbox to Toggle Compact Mode
+    </h2>
+  </section>
+</section>
+
+<section> <!-- end / extra time / extra questions (20) -->
+  <section>
+    <ul>
+      <li>
+        3 things you learned / surprised you
+      </li>
+      <li>
+        2 questions you still have
+      </li>
+      <li>
+        1 thing you want to explore / 1 suggestion for me
+      </li>
+    </ul>
+  </section>
+</section> <!-- /end / extra time / extra questions (20) -->

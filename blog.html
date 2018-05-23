@@ -1,0 +1,65 @@
+---
+# title: Blog
+tags: ['jekyll']
+---
+
+<div class='home'>
+
+  <h1 class='page-heading'>for category in site.categories</h1>
+  <ul class='post-list'>
+    {% for category in site.categories %}
+      <li>
+        {{ category | first }}
+      </li>
+    {% endfor %}
+  </ul>
+
+  <hr />
+
+  <h1 class='page-heading'>for tag in site.tags</h1>
+  <ul class='post-list'>
+    {% for tag in site.tags %}
+      <li>
+        {{ tag | first }}
+      </li>
+    {% endfor %}
+  </ul>
+
+  <hr />
+
+  <h1 class='page-heading'>for post in site.tags[page.tag]</h1>
+  <div class='post-list'>
+    {% for post in site.tags[page.tag] %}
+      <div>
+        {{post.content}}
+      </div>
+    {% endfor %}
+  </div>
+
+  <hr />
+
+  <h1 class='page-heading'>for post in site.posts</h1>
+  <ul class='post-list'>
+    {% for post in site.posts %}
+      <li>
+        <span class='post-meta'>
+          {{ post.date | date: '%b %-d, %Y' }}
+        </span>
+
+        <h2>
+          <a class='post-link' href='{{ post.url }}'>
+            {{ post.title }}
+          </a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class='rss-subscribe'>
+    subscribe
+    <a href='{{ '/feed.xml' }}'>
+      via RSS
+    </a>
+  </p>
+
+</div>

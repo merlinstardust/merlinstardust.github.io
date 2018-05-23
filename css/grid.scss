@@ -1,0 +1,45 @@
+---
+---
+@charset 'utf-8';
+
+.row {
+  display: flex;
+  width: 100%;
+  padding: 0;
+}
+
+.column {
+  display: block;
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: 100%;
+}
+
+$sizes: 10, 20, 25, 40, 50, 60, 75, 80, 90;
+
+@each $size in $sizes {
+  .offset#{$size} {
+    margin-left: percentage($size / 100);
+  }
+
+  .size#{$size} {
+    flex: 0 0 percentage($size / 100);
+    max-width: percentage($size / 100);
+  }
+}
+
+.offset33 {
+  margin-left: 33.3333%;
+}
+.size33 {
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+}
+
+.offset66 {
+  margin-left: 66.6666%;
+}
+.size66 {
+  flex: 0 0 66.6666%;
+  max-width: 66.6666%;
+}

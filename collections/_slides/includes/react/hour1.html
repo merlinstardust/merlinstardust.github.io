@@ -1,0 +1,643 @@
+<section> <!-- learn: an overview of imports and exports (10) -->
+  <section>
+    <h1>
+      Imports and Exports
+    </h1>
+  </section>
+
+  <section>
+    <pre>
+      <code data-trim data-noescape>
+        import React from 'react'; // node_modules
+
+        import App from './App'; // project
+
+        export default App;
+      </code>
+    </pre>
+  </section>
+  <aside class='notes'>
+    File path and extension may or may not be needed
+  </aside>
+</section> <!-- /learn: an overview of imports and exports (10) -->
+
+<section> <!-- do: use the message component in the app (5) -->
+  <section>
+    <h2>
+      Separate the Message Component
+    </h2>
+  </section>
+
+  <section>
+    <ol>
+      <li>
+        Create a new file called Message.jsx
+      </li>
+      <li>
+        Import React
+      </li>
+      <li>
+        Cut / paste in the Message class
+      </li>
+      <li>
+        Export Message as a default
+      </li>
+      <li>
+        Import Message into App.js
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>
+      Solution
+    </h2>
+    <pre style='font-size: .45em'>
+      <code data-trim data-noescape>
+        src/
+          App.js
+          ...
+          Message.jsx
+      </code>
+    </pre>
+    <pre style='font-size: .45em'>
+      <code data-trim data-noescape>
+        import React from 'react';
+
+        const Message = () => {
+          // existing code
+        };
+
+        export default Message;
+      </code>
+    </pre>
+    <pre style='font-size: .45em'>
+      <code data-trim data-noescape>
+        import React, { Component } from 'react';
+        import Message from './Message'
+        import logo from './logo.svg';
+
+        class App extends Component {
+      </code>
+    </pre>
+    <aside class='notes'>
+      React Dev Tools
+    </aside>
+  </section>
+</section> <!-- /do: use the message component in the app (5) -->
+
+<section> <!-- learn: an overview of props (10) -->
+  <section>
+    <h2>
+      Props
+    </h2>
+  </section>
+
+  <section>
+    <pre>
+      <code data-trim data-noescape>
+        &lt;Title text='The Cat' isMedium={true} />
+      </code>
+    </pre>
+    <pre class='fragment'>
+      <code data-trim data-noescape>
+        React.createElement(Title, {text: 'The Cat', isMedium: true});
+      </code>
+    </pre>
+    <pre class='fragment' style='font-size: .45em'>
+      <code data-trim data-noescape>
+        const Title = ({text, isMedium}) => {
+          const sizeText = isMedium ? '(Medium)' : '(Not Medium)';
+          return (
+            &lt;h1>
+              {text} {sizeText}
+            &lt;/h1>
+          );
+        }
+      </code>
+    </pre>
+  </section>
+</section> <!-- /learn: an overview of props (10) -->
+
+<section>
+  <h1>
+    Aside: Destructuring
+  </h1>
+  <pre style='font-size: .45em'>
+    <code data-trim data-noescape>
+      const Title = ({text, isMedium}) => {
+    </code>
+  </pre>
+  <pre class='fragment' style='font-size: .45em'>
+    <code data-trim data-noescape>
+      const Title = (props) => {
+        const text = props.text;
+        const isMedium = props.isMedium;
+    </code>
+  </pre>
+</section>
+
+<section> <!-- do: use props in the message component (10) -->
+  <section>
+    <h2>
+      Replace Text in Message with Props
+    </h2>
+  </section>
+
+  <section>
+    <h2>
+      Replace
+    </h2>
+    <ul>
+      <li>
+        message text
+      </li>
+    </ul>
+    <pre style='font-size: .45em'>
+      <code data-trim data-noescape>
+        const Message = (/* insert code here */) => {
+          return (
+            &lt;div>
+              // insert code here
+            &lt;/div>
+          );
+        };
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Possible Solution
+    </h2>
+    <pre style='font-size: .45em'>
+      <code style='max-height: 485px' data-trim data-noescape>
+        const Message = ({text}) => {
+          return (
+            &lt;div>
+              {text}
+            &lt;/div>
+          );
+        };
+      </code>
+    </pre>
+    <aside class='notes'>
+      React Dev Tools
+    </aside>
+  </section>
+
+  <section>
+    <h2>
+      Define Props for Message
+    </h2>
+    <pre>
+      <code data-trim data-noescape>
+        class App extends Component {
+          render() {
+            return (
+              &lt;div className='App'>
+                &lt;Message /* insert code here */ />
+              &lt;div>
+            );
+          }
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Possible Solution
+    </h2>
+    <pre style='font-size: .45em'>
+      <code data-trim data-noescape>
+        class App extends Component {
+          render() {
+            return (
+              &lt;div className='App'>
+                &lt;Message text='Some bit of text' />
+              &lt;div>
+            );
+          }
+        }
+      </code>
+    </pre>
+    <aside class='notes'>
+      React Dev Tools
+    </aside>
+  </section>
+
+  <section>
+    <h2>
+      Add more props
+    </h2>
+    <ul>
+      <li>
+        name
+      </li>
+      <li>
+        timestamp
+      </li>
+    </ul>
+    <pre style='font-size: .45em'>
+      <code data-trim data-noescape>
+        const Message = ({text, /* insert code here */}) => {
+          return (
+            &lt;div>
+              &lt;span>
+                // insert timestamp code here
+              &lt;/span>
+              &lt;span>
+                // insert name code here
+              &lt;/span>
+              &lt;p>
+                {text}
+              &lt;/p>
+            &lt;/div>
+          );
+        };
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Possible Solution
+    </h2>
+    <pre style='font-size: .45em'>
+      <code style='max-height: 485px' data-trim data-noescape>
+        const Message = ({name, text, timestamp}) => {
+          return (
+            &lt;div>
+              &lt;span>
+                {timestamp}
+              &lt;/span>
+              &lt;span>
+                {name}
+              &lt;/span>
+              &lt;p>
+                {text}
+              &lt;/p>
+            &lt;/div>
+          );
+        };
+      </code>
+    </pre>
+    <aside class='notes'>
+      React Dev Tools
+    </aside>
+  </section>
+
+  <section>
+    <h2>
+      Define New Props for Message
+    </h2>
+    <pre>
+      <code data-trim data-noescape>
+        class App extends Component {
+          render() {
+            return (
+              &lt;div className='App'>
+                &lt;Message text='Some bit of text' /* insert code here */ />
+              &lt;div>
+            );
+          }
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Possible Solution
+    </h2>
+    <pre style='font-size: .45em'>
+      <code data-trim data-noescape>
+        class App extends Component {
+          render() {
+            return (
+              &lt;div className='App'>
+                &lt;Message name='Rando' text='Some bit of text' timestamp='11:10pm'/>
+              &lt;div>
+            );
+          }
+        }
+      </code>
+    </pre>
+    <aside class='notes'>
+      React Dev Tools
+    </aside>
+  </section>
+</section> <!-- /do: use props in the message component (10) -->
+
+<section> <!-- learn: proptypes (10) -->
+  <section>
+    <h1>
+      PropTypes
+    </h1>
+  </section>
+
+  <section>
+    <h1>
+      Type Checking
+    </h1>
+    <ul>
+      <li>
+        Number
+      </li>
+      <li>
+        Object
+      </li>
+      <li>
+        String
+      </li>
+      <li>
+        Booleans
+      </li>
+      <li>
+        Array
+      </li>
+      <li>
+        More
+      </li>
+    </ul>
+    <p>
+      <a href='https://reactjs.org/docs/typechecking-with-proptypes.html'>
+        Source
+      </a>
+    </p>
+  </section>
+</section> <!-- /learn: proptypes (10) -->
+
+<section> <!-- do: use proptypes (10) -->
+  <section>
+    <h1>
+      Use PropTypes
+    </h1>
+  </section>
+
+  <section>
+    <h1>
+      Install PropTypes
+    </h1>
+    <pre>
+      <code data-trim data-noescape>
+        npm install --save prop-types
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Add PropTypes to Message
+    </h2>
+    <ul>
+      <li>
+        Import PropTypes
+      </li>
+      <li>
+        Define PropTypes after Message
+      </li>
+    </ul>
+    <pre>
+      <code data-trim data-noescape>
+        import React from 'react';
+        // insert code here
+
+        const Message = ({name, text, timestamp}) => {
+          // existing code
+        }
+
+        Message.propTypes = {
+          name: // insert code here
+          text: // insert code here
+          timestamp: // insert code here
+        };
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Possible Solution
+    </h2>
+    <pre style='font-size: .45em'>
+      <code data-trim data-noescape>
+        import React from 'react';
+        import PropTypes from 'prop-types';
+
+        const Message = ({name, text, timestamp}) => {
+          // existing code
+        }
+
+        Message.propTypes = {
+          name: PropTypes.string.isRequired,
+          text: PropTypes.string.isRequired,
+          timestamp: PropTypes.string.isRequired,
+        };
+      </code>
+    </pre>
+    <aside class='notes'>
+      <ul>
+        <li>
+          Remove a prop, console tells you
+        </li>
+        <li>
+          Timestamp doesn't make much sense as a string
+        </li>
+      </ul>
+    </aside>
+  </section>
+
+  <section>
+    <h2>
+      Change timestamp to expect a Date
+    </h2>
+    <pre style='font-size: .45em'>
+      <code data-trim data-noescape>
+        Message.propTypes = {
+          name: PropTypes.string.isRequired,
+          text: PropTypes.string.isRequired,
+          timestamp: PropTypes.instanceOf(Date).isRequired,
+        };
+      </code>
+    </pre>
+    <aside class='notes'>
+      Console tells you if it's the wrong prop
+    </aside>
+  </section>
+
+  <section>
+    <h2>
+      Pass in a Date
+    </h2>
+    <pre style='font-size: .45em'>
+      <code data-trim data-noescape>
+        class App extends Component {
+          render() {
+            return (
+              &lt;div className='App'>
+                &lt;Message name='Rando' text='Some bit of text' timestamp={new Date()} />
+              &lt;div>
+            );
+          }
+        }
+      </code>
+    </pre>
+    <aside class='notes'>
+      But now it's broken
+    </aside>
+  </section>
+
+  <section>
+    <h2>
+      Fixing the Date problem
+    </h2>
+    <pre style='font-size: .45em'>
+      <code data-trim data-noescape>
+        const Message = ({name, text, timestamp}) => {
+          const time = timestamp.toTimeString();
+          return (
+            &lt;div>
+              // existing code
+              &lt;span>
+                {time}
+              &lt;/span>
+              // existing code
+            &lt;/div>
+          )
+        }
+      </code>
+    </pre>
+    <aside class='notes'>
+      Power of React
+    </aside>
+  </section>
+</section> <!-- /do: use proptypes (10) -->
+
+<section> <!-- learn: default props (10) -->
+  <section>
+    <h1>
+      Default Props
+    </h1>
+  </section>
+
+  <section>
+    <h2>
+      Setting Defaults
+    </h2>
+    <ul>
+      <li>
+        easy to find
+      </li>
+      <li>
+        consistency
+      </li>
+      <li>
+        lifecycle methods
+      </li>
+    </ul>
+
+    <aside class='notes'>
+      JS has similar way like Ruby but not needed
+    </aside>
+  </section>
+</section> <!-- /learn: default props (10) -->
+
+<section> <!-- do: use default props (10) -->
+  <section>
+    <h1>
+      Use Default Props
+    </h1>
+  </section>
+
+  <section>
+    <h2>
+      Add Message without a name
+    </h2>
+    <pre style='font-size: .45em'>
+      <code data-trim data-noescape>
+        class App extends Component {
+          render() {
+            return (
+              &lt;div style={styles.app}>
+                // existing code
+                &lt;div style={styles.messages}>
+                  &lt;Message // existing code />
+                  &lt;Message // insert code here />
+                &lt;/div>
+              &lt;/div>
+            );
+          }
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Possible Solution
+    </h2>
+    <pre style='font-size: .45em'>
+      <code data-trim data-noescape>
+        class App extends Component {
+          render() {
+            return (
+              &lt;div style={styles.app}>
+                // existing code
+                &lt;Message // existing code />
+                &lt;Message text='A message with no name' timestamp={new Date()} />
+              &lt;/div>
+            );
+          }
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h1>
+      Add defaultProps to Message
+    </h1>
+    <ul>
+      <li>
+        remove isRequired from name
+      </li>
+      <li>
+        set name to 'Anonymous'
+      </li>
+    </ul>
+    <pre>
+      <code data-trim data-noescape>
+        import React from 'react';
+
+        // existing code
+
+        Message.propTypes = // existing code
+
+        Message.defaultProps = {
+          name: // insert code here
+        };
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Possible Solution
+    </h2>
+    <pre>
+      <code data-trim data-noescape>
+        import React from 'react';
+
+        // existing code
+
+        Message.propTypes = // existing code
+
+        Message.defaultProps = {
+          name: 'Anonymous'
+        };
+      </code>
+    </pre>
+  </section>
+</section> <!-- /do: use default props (10) -->

@@ -1,0 +1,23 @@
+---
+title: Slides
+---
+
+<h1>
+  Slides
+</h1>
+
+{% for slide in site.slides %}
+  <div class='row'>
+    <div class='column'>
+      <h2>
+        {{slide.title}}
+      </h2>
+      <iframe src='{{slide.url}}'></iframe>
+      <p>
+        <a href='{{slide.url}}' target='_blank'>
+          View Full Screen
+        </a>
+      </p>
+    </div>
+  </div>
+{% endfor %}

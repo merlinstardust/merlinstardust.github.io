@@ -1,0 +1,463 @@
+<!-- hour 0 to 1 -->
+<section> <!-- learn: what is react -->
+  <section>
+    <h1>
+      What is React and why use it?
+    </h1>
+  </section>
+
+  <section>
+    <h2>
+      Library (and philosophy)
+    </h2>
+    <ul>
+      <li class='fragment'>
+        Simple view layer
+      </li>
+      <li class='fragment'>
+        Cross browser consistency
+      </li>
+      <li class='fragment'>
+        Fast to update
+      </li>
+      <li class='fragment'>
+        Cross browser consistency
+      </li>
+      <li class='fragment'>
+        Mobile apps
+      </li>
+    </ul>
+    <aside class='notes'>
+      <ul>
+        <li>
+          Virtual DOM
+        </li>
+        <li>
+          Events
+        </li>
+        <li>
+          Android, iOS, even VR
+        </li>
+      </ul>
+    </aside>
+  </section>
+
+  <section>
+    <h2>
+      Companies Using It
+    </h2>
+    <ul>
+      <li>
+        <a href='https://reactjs.org/blog/2013/06/05/why-react.html'>
+          Facebook (Creators)
+        </a>
+      </li>
+      <li>
+        <a href='http://devnacho.com/2016/03/20/how-airbnb-uses-react/'>
+          AirBnB
+        </a>
+      </li>
+      <li>
+        <a href='https://medium.com/netflix-techblog/netflix-likes-react-509675426db'>
+          Netflix
+        </a>
+      </li>
+      <li>
+        <a href='https://sophiebits.com/2013/06/09/using-react-to-speed-up-khan-academy.html'>
+          Khan Academy
+        </a>
+      </li>
+      <li>
+        <a href='https://open.nytimes.com/react-relay-and-graphql-under-the-hood-of-the-times-website-redesign-22fb62ea9764'>
+          The New York Times
+        </a>
+      </li>
+    </ul>
+  </section>
+</section> <!-- /learn: what is react -->
+
+<section> <!-- do: set up and install -->
+  <section> <!-- node, dev tools, create-react-app -->
+    <h2>
+      Get Started - Install
+    </h2>
+    <ul>
+      <li>
+        Install
+        <a href='https://nodejs.org/en/download/' target='_blank'>
+          Node (click here)
+        </a>
+      </li>
+      <li>
+        Install
+        <a href='https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en' target='_blank'>
+          React Dev Tools (click here)
+        </a>
+        (requires Chrome)
+      </li>
+      <li>
+        Install
+        <a href='https://github.com/facebookincubator/create-react-app#create-react-app' target='_blank'>
+          create-react-app
+        </a>
+        <ul>
+          <li>
+            Open Terminal on Mac or Command Prompt on Windows
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <pre>
+      <code data-trim data-noescape>
+        npm install -g create-react-app
+      </code>
+    </pre>
+    <aside class='notes'>
+      <ul>
+        <li>
+          Node - server side JS
+        </li>
+        <li>
+          npm/yarn - package manager
+        </li>
+        <li>
+          create-react-app - what it says
+        </li>
+      </ul>
+    </aside>
+  </section> <!-- /node, dev tools, create-react-app -->
+
+  <section> <!-- /create and run -->
+    <h2>
+      Get Started - Create and Run
+    </h2>
+      <p>
+        Create a project named react-chat
+      </p>
+      <pre>
+        <code data-trim data-noescape>
+          create-react-app react-chat
+        </code>
+      </pre>
+      <p>
+        Run a project named react-chat
+      </p>
+      <pre>
+        <code data-trim data-noescape>
+          cd react-chat
+          yarn start
+
+          # or
+          npm start
+        </code>
+      </pre>
+    </ul>
+  </section> <!-- /create and run -->
+</section> <!-- /do: set up and install -->
+
+<section> <!-- learn: what create-react-app is and an overview of the pieces it creates (10) -->
+  <section>
+    <h2>
+      What create-react-app gives you
+    </h2>
+  </section>
+
+  <section>
+    <pre style='font-size: 0.45em'>
+      <code data-trim data-noescape style='max-height: 470px'>
+        import React, { Component } from 'react';
+        import logo from './logo.svg';
+        import './App.css';
+
+        class App extends Component {
+          render() {
+            return (
+              &lt;div className='App'>
+                &lt;header className='App-header'>
+                  &lt;img src={logo} className='App-logo' alt='logo' />
+                  &lt;h1 className='App-title'>Welcome to React&lt;/h1>
+                &lt;/header>
+                &lt;p className='App-intro'>
+                  To get started, edit &lt;code>src/App.js&lt;/code> and save to reload.
+                &lt;/p>
+              &lt;/div>
+            );
+          }
+        }
+
+        export default App;
+      </code>
+    </pre>
+    <aside class='notes'>
+      Open dev tools (React and regular)
+    </aside>
+  </section>
+
+  <section>
+    <pre>
+      <code data-trim data-noescape>
+        import React from 'react';
+        import ReactDOM from 'react-dom';
+        import './index.css';
+        import App from './App';
+        import registerServiceWorker from './registerServiceWorker';
+
+        ReactDOM.render(&lt;App />, document.getElementById('root'));
+        registerServiceWorker();
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Other Things
+    </h2>
+    <pre>
+      <code data-trim data-noescape>
+        public/
+        src/
+          App.css
+          App.js
+          App.test.js
+          index.css
+          index.js
+          logo.svg
+          registerServiceWorker.js
+      </code>
+    </pre>
+    <aside class='notes'>
+      <ul>
+        <li>
+          css and images
+        </li>
+        <li>
+          tests
+        </li>
+        <li>
+          service worker - background, offline, push, sync, etc
+        </li>
+        <li>
+          language support
+        </li>
+      </ul>
+    </aside>
+  </section>
+</section> <!-- /learn: what create-react-app is and an overview of the pieces it creates (10) -->
+
+<section> <!-- do: change a few pieces to see how it affects the app and look at devtools (5) -->
+  <section>
+    <h1>
+      Experiment
+    </h1>
+    <aside class='notes'>
+      <ul>
+        <li>
+          change the header text
+        </li>
+        <li>
+          change the image
+        </li>
+      </ul>
+    </aside>
+  </section>
+</section> <!-- /do: change a few pieces to see how it affects the app and look at devtools (5) -->
+
+<section> <!-- learn: raw react and what a component looks like, with basic children info (15) -->
+  <section>
+    <h1>
+      Components
+    </h1>
+  </section>
+
+  <section>
+    <pre style='font-size: 0.45em'>
+      <code data-trim data-noescape>
+        const ComponentName = () => {
+          return (
+            &lt;div a={1}>
+              Some text
+            &lt;/div>
+          );
+        };
+
+        class ComponentName extends React.Component {
+          render() {
+            return (
+              &lt;div a={1}>
+                Some text
+              &lt;/div>
+            );
+          }
+        }
+      </code>
+    </pre>
+    <pre class='fragment'>
+      <code data-trim data-noescape>
+        React.createElement('div', {a: 1}, 'Some text')
+      </code>
+    </pre>
+
+    <aside class='notes'>
+      <ul>
+        <li>
+          class vs function
+        </li>
+        <li>
+          lifecycle / state vs just render
+        </li>
+        <li>
+          power vs simplicity
+        </li>
+        <li>
+          transpiling
+        </li>
+        <li>
+          small and simple
+        </li>
+      </ul>
+    </aside>
+  </section>
+
+  <section>
+    <pre>
+      <code data-trim data-noescape>
+        class Title extends React.Component {
+          render() {
+            return (
+              &lt;h1>
+                Some title
+              &lt;/h1>
+            );
+          }
+        }
+      </code>
+    </pre>
+    <pre class='fragment'>
+      <code data-trim data-noescape>
+        &lt;h1>
+          Some title
+        &lt;/h1>
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <pre>
+      <code data-trim data-noescape>
+        class Header extends React.Component {
+          render() {
+            return (
+              &lt;header>
+                &lt;Title />
+              &lt;/header>
+            );
+          }
+        }
+      </code>
+    </pre>
+    <pre class='fragment'>
+      <code data-trim data-noescape>
+        &lt;header>
+          &lt;h1>
+            Some Text
+          &lt;/h1>
+        &lt;/header>
+      </code>
+    </pre>
+  </section>
+</section> <!-- /learn: raw react and what a component looks like, with basic children info (15) -->
+
+<section> <!-- do: create a basic message component (10) -->
+  <section>
+    <h2>
+      Create a Message Component
+    </h2>
+  </section>
+
+  <section>
+    <h2>
+      Create
+    </h2>
+    <ul>
+      <li>
+        div with text
+      </li>
+    </ul>
+    <pre>
+      <code data-trim data-noescape>
+        import './App.css';
+
+        const Message = () => {
+          return (
+            // insert code here
+          );
+        };
+
+        class App extends Component {
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Possible Solution
+    </h2>
+    <pre>
+      <code data-trim data-noescape>
+        const Message = () => {
+          return (
+            &lt;div>
+              Some text
+            &lt;/div>
+          );
+        };
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Use the Component
+    </h2>
+    <pre>
+      <code data-trim data-noescape>
+        class App extends Component {
+          render() {
+            return (
+              &lt;div className='App'>
+                // previous code
+                &lt;/header>
+                // insert code here
+              &lt;div>
+            );
+          }
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Possible Solution
+    </h2>
+    <pre>
+      <code data-trim data-noescape>
+        class App extends Component {
+          render() {
+            return (
+              &lt;div className='App'>
+                // previous code
+                &lt;/header>
+                &lt;Message />
+              &lt;div>
+            );
+          }
+        }
+      </code>
+    </pre>
+    <aside class='notes'>
+      React Dev Tools
+    </aside>
+  </section>
+</section> <!-- /do: create a basic message component (10) -->
+<!-- /hour 0 to 1 -->

@@ -1,0 +1,103 @@
+---
+title: Writing
+---
+<style>
+  .wrapper {
+    max-width: 126rem;
+  }
+
+  nav.editions {
+    border: 0 none;
+    margin: 0 0 1.5em;
+    background: transparent;
+    list-style-type: none;
+    overflow: auto;
+  }
+
+  nav.editions h2 {
+    padding: 3px 0 3px 10%;
+    border-top: 2px #ddd solid;
+    margin: 0;
+    color: #444;
+    font-weight: 700;
+    font-size: 100%;
+  }
+
+  nav.editions ul {
+    width: 100%;
+    padding: 0;
+    border-top: 2px #ddd solid;
+    border-bottom: 2px #ddd solid;
+    margin: 0;
+    list-style-type: none;
+    overflow: hidden;
+  }
+
+  nav.editions li {
+    width: 100%;
+    margin: 0;
+    line-height: 1.5em;
+  }
+
+  nav.editions a {
+    display: block;
+    padding: 3px 0 3px 10%;
+    border-bottom: 1px #ddd solid;
+    color: #444;
+    text-decoration: none;
+  }
+
+  nav.editions a:hover {
+    background-color: #888;
+    color: #fff;
+    outline: 0 none;
+  }
+
+  iframe {
+    width: 100%;
+  }
+
+  iframe, nav.editions {
+    height: 78rem;
+  }
+</style>
+
+<h1>
+  Writing
+</h1>
+
+<div class='row'>
+  <div class='column size25'>
+    <nav class='editions'>
+      <h2>
+        Tales
+      </h2>
+      <ul>
+        {% for tale in site.tales %}
+          <li>
+            <a href='{{tale.url}}' target='viewer'>
+              {{tale.title}}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <h2>
+        College House Newsletters
+      </h2>
+      <ul>
+        {% assign files = site.static_files | where: 'collegeHouseNewsletter', true | reverse %}
+        {% for file in files %}
+          <li>
+            <a href='{{file.path}}' target='viewer'>
+             {{file.basename | replace_first: '_', ' - ' | replace: '_', ' '}}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+  <div class='column size75'>
+    <iframe name='viewer' src='/tales/darkland'></iframe>
+  </div>
+</div>

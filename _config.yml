@@ -1,0 +1,52 @@
+# Site settings
+title: Merlin - Product Wizard
+email: your-email@domain.com
+
+description: >
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+
+url: 'http://merlinpatt.com'
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+collections_dir: collections
+
+collections:
+  slides:
+    output: true
+  tales:
+    output: true
+
+exclude: ['_slides/includes', '_tales/includes']
+
+defaults:
+  -
+    scope:
+      path: ''
+    values:
+      layout: 'default'
+  -
+    scope:
+      type: 'posts'
+    values:
+      permalink: /blog/:year/:month/:title/
+  -
+    scope:
+      type: 'slides'
+    values:
+      layout: 'reveal'
+      theme: 'black'
+  # writing
+  -
+    scope:
+      path: 'assets/pdfs/college-house-newsletters'
+    values:
+      collegeHouseNewsletter: true
+  - scope:
+      type: 'tales'
+    values:
+      contentOnly: true

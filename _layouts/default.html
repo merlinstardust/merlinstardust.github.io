@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body>
+
+    {% unless page.contentOnly %}
+      {% include header.html %}
+    {% endunless %}
+
+    <div class='page-content'>
+      <div class='wrapper'>
+        {{ content }}
+      </div>
+    </div>
+
+    {% unless page.contentOnly %}
+      {% include footer.html %}
+    {% endunless %}
+
+  </body>
+</html>

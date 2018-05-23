@@ -1,0 +1,197 @@
+---
+title: Weekend Website Wizardry
+---
+<style>
+  h2 {
+    margin-bottom: 0;
+  }
+  dl dt {
+    font-weight: bold;
+  }
+  dl dd {
+    margin-bottom: 1rem;
+  }
+  code {
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(27,31,35,0.05);
+    border-radius: 3px;
+  }
+</style>
+
+<h1>
+  Weekend Website Wizardry
+</h1>
+
+<h2>
+  Slides
+</h2>
+<ol>
+  {% assign slides = site.slides | where: 'categories', 'weekend website' | sort: 'order' %}
+  {% for slide in slides %}
+    <li>
+      <a href='{{slide.url}}' target='_blank'>
+        {{slide.title}}
+      </a>
+    </li>
+  {% endfor %}
+</ol>
+
+<h2>
+  Resources
+</h2>
+<ul>
+  <li>
+    <a href='https://css-tricks.com/' target='_blank'>
+      CSS Tricks - a blog about CSS and other things in web development
+    </a>
+  </li>
+  <li>
+    <a href='https://www.freeformatter.com/html-formatter.html' target='_blank'>
+      HTML Formatter - an HTML formatter
+    </a>
+  </li>
+  <li>
+    <a href='https://dev.w3.org/html5/html-author/charref' target='blank'>
+      HTML Character Codes
+    </a>
+  </li>
+  <li>
+    <a href='https://coolors.co/app' target='_blank'>
+      Coolors - a color palette generator
+    </a>
+  </li>
+  <li>
+    <a href='https://chrome.google.com/webstore/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg?hl=en' target='_blank'>
+      ColorPick Eyedropper - a tool to grab colors from the web
+    </a>
+  </li>
+  <li>
+    <a href='https://www.shopify.com/partners/blog/79940998-15-funny-lorem-ipsum-generators-to-shake-up-your-design-mockups' target='_blank'>
+      Fun Text Generators for Mockups
+    </a>
+  </li>
+  <li>
+    <a href='https://developer.mozilla.org/en-US/' target='_blank'>
+      MDN web docs
+    </a>
+    - a web development wiki by
+    <a href='https://blog.mozilla.org/blog/2017/10/18/mozilla-brings-microsoft-google-w3c-samsung-together-create-cross-browser-documentation-mdn/' target='_blank'>
+      Mozilla, Google, Microsoft, W3C, and Samsung
+    </a>
+  </li>
+  <li>
+    <a href='https://stackoverflow.com' target='_blank'>
+      Stack Overflow - a Q and A site for developers
+    </a>
+  </li>
+  <li>
+    <a href='https://stackexchange.com/sites' target='_blank'>
+      Stack Exchange - a family of Q and A sites to cover almost any question
+    </a>
+  </li>
+  <li>
+    <a href='https://www.thinkful.com/blog/why-learning-to-code-is-so-damn-hard/' target='_blank'>
+      Why Learning to Code is so Damn Hard
+    </a>
+  </li>
+</ul>
+
+<h2>
+  Meetups
+</h2>
+<ul>
+  <li>
+    <a href='https://www.meetup.com/jrWebDev/' target='_blank'>
+      Jr Web Dev
+    </a>
+  </li>
+  <li>
+    <a href='https://www.meetup.com/charmcityjs/' target='_blank'>
+      CharmCityJS
+    </a>
+  </li>
+  <li>
+    <a href='https://www.meetup.com/Baltimore-UX-Meetup' target='_blank'>
+      Baltimore UX Meetup
+    </a>
+  </li>
+  <li>
+    <a href='https://www.meetup.com/GDG-Baltimore' target='_blank'>
+      Google Developers Group / Women Techmakers
+    </a>
+  </li>
+</ul>
+
+<h2>
+  FAQs
+</h2>
+<dl>
+  <dt>
+    What are <code>-moz</code> and <code>-webkit</code>?
+  </dt>
+  <dd>
+    CSS prefixes for specific browsers. See more
+    <a href='https://stackoverflow.com/questions/18083056/css-what-are-moz-and-webkit' target='_blank'>
+      here
+    </a>
+  </dd>
+
+  <dt>
+    Who decides what becomes a part of HTML, CSS, JS, etc?
+  </dt>
+  <dd>
+    There are organizations dedicated to maintaining, creating, and reviewing web standards.
+    <a href='https://en.wikipedia.org/wiki/World_Wide_Web_Consortium' target='_blank'>
+      W3C (World Wide Web Consortium)
+    </a>
+    handles HTML and CSS among others.
+    <a href='https://en.wikipedia.org/wiki/Ecma_International' target='_blank'>
+      Ecma International
+    </a>
+    handles EcmaScript (or JavaScript).
+  </dd>
+
+  <dt>
+    What domain (<code>.io</code>, <code>.com</code>, <code>.net</code>)?
+  </dt>
+  <dd>
+    Using another domain may be cheaper or a name you want is more likely to be available. It does not matter what domain you use.
+  </dd>
+
+  <dt>
+    Why are links created with <code>&lt;a&gt;</code> and how is it different from <code>&lt;link&gt;</code>
+  </dt>
+  <dd>
+
+  </dd>
+</dl>
+
+<h2>
+  Cool Projects
+</h2>
+<ul>
+  <li>
+    <a href="https://codepen.io/juliangarnier/pen/idhuG">
+      CSS Solar System
+    </a>
+  </li>
+  <li>
+    <a href="https://codepen.io/rachel_web/pen/pjzowB">
+      CSS Minion
+    </a>
+  </li>
+</ul>
+
+<h2>
+  Further Classes
+</h2>
+<ul>
+  <li>
+    <a href='https://www.edx.org/course/cs50s-introduction-computer-science-harvardx-cs50x' target='_blank'>
+      Intro to Computer Science
+    </a>
+    - a great intro course that walks you through both theory and practice in a number of different programming languages.
+  </li>
+</ul>

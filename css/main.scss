@@ -1,0 +1,42 @@
+---
+---
+@charset 'utf-8';
+
+$base-font-family: Helvetica, Arial, sans-serif;
+$base-font-size: 1.6em;
+$small-font-size: $base-font-size * 0.875;
+$base-line-height: 1.5;
+
+$spacing-unit: 3rem;
+
+$text-color: hsl(0, 0%, 7%);
+$background-color: hsl(0, 0%, 99%);
+$brand-color: hsl(214, 76%, 53%);
+
+$grey-color: hsl(0, 0%, 51%);
+$grey-color-light: hsl(0, 0%, 91%);
+$grey-color-dark: hsl(0, 0%, 26%);
+
+$content-width: 80rem;
+
+$on-palm: 60rem;
+$on-laptop: 80rem;
+
+// Using media queries with like this:
+// @include media-query($on-palm) {
+//   .wrapper {
+//     padding: 0 #{$spacing-unit / 2};
+//   }
+// }
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@import 'base';
+@import 'footer';
+@import 'header';
+@import 'page';
+@import 'post';
+@import 'syntax-highlighting';

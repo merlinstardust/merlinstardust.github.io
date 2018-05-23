@@ -1,0 +1,41 @@
+.site-footer {
+  border-top: 1px solid $grey-color-light;
+  padding: $spacing-unit 0;
+}
+
+.footer-heading {
+  font-size: 18px;
+  margin-bottom: $spacing-unit / 2;
+}
+
+.contact-list,
+.social-media-list {
+  list-style: none;
+  margin-left: 0;
+}
+
+.footer-col-wrapper {
+  font-size: 15px;
+  color: $grey-color;
+  @extend %clearfix;
+}
+
+.social-media-list .icon svg {
+  fill: $grey-color;
+}
+
+@include media-query($on-palm) {
+  .footer-col-wrapper.row {
+    flex-wrap: wrap;
+
+    .contact, .profiles {
+      flex: 0 0 percentage(50 / 100);
+      max-width: percentage(50 / 100);
+    }
+
+    .description {
+      flex: 0 0 percentage(100 / 100);
+      max-width: percentage(100 / 100);
+    }
+  }
+}
