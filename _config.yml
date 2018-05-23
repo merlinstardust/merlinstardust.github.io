@@ -50,3 +50,6 @@ defaults:
       type: 'tales'
     values:
       contentOnly: true
+
+plugins:
+  - jekyll-redirect-from
