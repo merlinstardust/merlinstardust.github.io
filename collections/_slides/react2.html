@@ -1,0 +1,390 @@
+---
+title: React 2
+---
+
+<section>
+  <h1>
+    Learn React Continued
+  </h1>
+</section>
+
+<!-- hour 5 to 6 -->
+<section> <!-- learn: an overview of inputs and form events (10) -->
+  <section>
+    <h1>
+      Inputs and Forms
+    </h1>
+  </section>
+
+  <section>
+    <pre>
+      <code data-trim data-noescape>
+        &lt;form onSubmit={createCat}>
+          &lt;input name="catName" type="text" onChange={logChanges} />
+        &lt;/form>
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <a href="https://reactjs.org/docs/events.html">
+      <h1>
+        More on Events
+      </h1>
+    </a>
+  </section>
+</section> <!-- /learn: an overview of inputs and form events (10) -->
+
+<section> <!-- do: create an editor component (10) -->
+  <section>
+    <h1>
+      Create an Editor
+    </h1>
+  </section>
+
+  <section>
+    <h2>
+      Create a form
+    </h2>
+    <ul>
+      <li>
+        with an onSubmit handler that logs the event
+      </li>
+      <li>
+        with a single input
+      </li>
+    </ul>
+    <pre>
+      <code data-trim data-noescape>
+        const onSubmit = (event) => {
+          event.preventDefault();
+          console.log(event);
+        }
+        class Editor extends React.Component {
+          render() {
+            return (
+              // insert code here
+            );
+          }
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Possible Solution
+    </h2>
+    <pre>
+      <code data-trim data-noescape>
+        const onSubmit = (event) => {
+          event.preventDefault();
+          console.log(event);
+        }
+        class Editor extends React.Component {
+          render() {
+            &lt;form style={styles.editor} onSubmit={onSubmit}>
+              &lt;input autoComplete="off" name="text" style={styles.input} type="text" />
+            &lt;/form>
+          }
+        }
+        const styles = {
+          editor: {
+            padding: '0 20px',
+            marginBottom: '20px',
+          },
+          input: {
+            padding: '10px',
+            width: 'calc(100% - 20px)',
+          },
+        };
+      </code>
+    </pre>
+  </section>
+</section> <!-- /do: create an editor component (10) -->
+
+
+
+<section> <!-- do: add messages from editor (10) -->
+  <section>
+    <h2>
+      Add submitted messages to chat
+    </h2>
+  </section>
+
+  <section>
+    <h2>
+      Possible Solution
+    </h2>
+    <pre>
+      <code data-trim data-noescape>
+        class App extends React.Component {
+          constructor(props) {
+            super(props);
+            this.state = {messages: messages};
+            this.addMessage = this.addMessage.bind(this);
+          }
+
+          addMessage(newMessage) {
+            const currentMessages = this.state.messages;
+            const currentPlusNewMessages = currentMessages.concat(newMessage);
+            this.setState({messages: currentPlusNewMessages});
+          }
+
+          render() {
+            &lt;div style={styles.app}>
+              /* existing code */
+              &lt;div style={styles.messages}>
+                /* existing code */
+                &lt;Editor addMessage={this.addMessage} />
+              &lt;/div>
+            &lt;/div>
+          }
+        }
+
+        class Editor extends React.Component {
+          constructor(props) {
+            super(props);
+            this.sendMessage = this.sendMessage.bind(this);
+          }
+
+          sendMessage(event) {
+            event.preventDefault();
+            const form = event.target;
+
+            const text = form.text.value;
+            const timestamp = new Date();
+            const name = 'Some name';
+            const avatarUrl = 'some_url.png';
+
+            const {addMessage} = this.props;
+            addMessage({avatarUrl, name, text, timestamp});
+          }
+
+          render() {
+            return (
+              &lt;form onSubmit={this.sendMessage}>
+                &lt;input /* existing code */ />
+              &lt;/form>
+            );
+          }
+        }
+      </code>
+    </pre>
+  </section>
+</section> <!-- /do: add messages from editor (10) -->
+
+<section> <!-- learn: conditional rendering (5) -->
+  <section>
+    <h2>
+      Conditional Rendering
+    </h2>
+  </section>
+
+  <section>
+    <pre>
+      <code data-trim data-noescape>
+        render() {
+          if (this.state.isBarking) {
+            return (
+              &lt;HugeDog />
+            );
+          }
+
+          return (
+            &lt;TinyDog />
+          );
+        }
+      </code>
+    </pre>
+  </section>
+</section> <!-- /learn: conditional rendering (5) -->
+
+<section> <!-- do: create fakelogin component (10) -->
+  <section>
+    <h2>
+      Create a FakeLoginScreen
+    </h2>
+  </section>
+
+  <section>
+    <pre>
+      <code data-trim data-noescape>
+
+      </code>
+    </pre>
+  </section>
+</section> <!-- /do: create fakelogin component (10) -->
+<!-- /hour 5 to 6 -->
+
+<!-- hour 6 to 7 -->
+<section> <!-- learn: class functions (5) -->
+  <section>
+    learn: class functions (5)
+  </section>
+</section> <!-- /learn: class functions (5) -->
+
+<section> <!-- do: create fakelogin function (5) -->
+  <section>
+    do: create fakelogin function (5)
+  </section>
+</section> <!-- /do: create fakelogin function (5) -->
+
+<section> <!-- learn: stateful vs functional (5) -->
+  <section>
+    learn: stateful vs functional (5)
+  </section>
+</section> <!-- /learn: stateful vs functional (5) -->
+
+<section> <!-- do: convert to functional (10) -->
+  <section>
+    do: convert to functional (10)
+  </section>
+</section> <!-- /do: convert to functional (10) -->
+
+<section> <!-- learn: click events (5) -->
+  <section>
+    learn: click events (5)
+  </section>
+</section> <!-- /learn: click events (5) -->
+
+<section> <!-- do: create console function for clicks (10) -->
+  <section>
+    do: create console function for clicks (10)
+  </section>
+</section> <!-- /do: create console function for clicks (10) -->
+
+<section> <!-- learn: pass through functions (5) -->
+  <section>
+    learn: pass through functions (5)
+  </section>
+</section> <!-- /learn: pass through functions (5) -->
+
+<section> <!-- do: create selectroom function (10) -->
+  <section>
+    do: create selectroom function (10)
+  </section>
+</section> <!-- /do: create selectroom function (10) -->
+
+<section> <!-- learn: directory organization (5) -->
+  <section>
+    learn: directory organization (5)
+  </section>
+</section> <!-- /learn: directory organization (5) -->
+
+<section> <!-- do: create messageslist and roomslist directories (10) -->
+  <section>
+    do: create messageslist and roomslist directories (10)
+  </section>
+</section> <!-- /do: create messageslist and roomslist directories (10) -->
+<!-- /hour 6 to 7 -->
+
+<!-- hour 7 to 8 -->
+<section> <!-- break (30) -->
+  <section>
+    <h1>
+      Break
+    </h1>
+  </section>
+</section> <!-- /break (30) -->
+
+<section> <!-- learn: controlled vs uncontrolled components (10) -->
+  <section>
+    learn: controlled vs uncontrolled components (10)
+  </section>
+</section> <!-- /learn: controlled vs uncontrolled components (10) -->
+
+<section> <!-- do: make editor controlled (10) -->
+  <section>
+    do: make editor controlled (10)
+  </section>
+</section> <!-- /do: make editor controlled (10) -->
+
+<section> <!-- learn: containers vs components (10) -->
+  <section>
+    learn: containers vs components (10)
+  </section>
+</section> <!-- /learn: containers vs components (10) -->
+
+<section> <!-- do: create fake containers (5) -->
+  <section>
+    do: create fake containers (5)
+  </section>
+</section> <!-- /do: create fake containers (5) -->
+<!-- /hour 7 to 8 -->
+
+<!-- hour 8 to 9 -->
+<section> <!-- learn: lifecycle methods: didmount (5) -->
+  <section>
+    learn: lifecycle methods: didmount (5)
+  </section>
+</section> <!-- /learn: lifecycle methods: didmount (5) -->
+
+<section> <!-- do: create roomslist.container (10) -->
+  <section>
+    do: create roomslist.container (10)
+  </section>
+</section> <!-- /do: create roomslist.container (10) -->
+
+<section> <!-- learn: lifecycle methods: didupdate (10) -->
+  <section>
+    learn: lifecycle methods: didupdate (10)
+  </section>
+</section> <!-- /learn: lifecycle methods: didupdate (10) -->
+
+<section> <!-- do: create messageslist.container (10) -->
+  <section>
+    do: create messageslist.container (10)
+  </section>
+</section> <!-- /do: create messageslist.container (10) -->
+
+<section> <!-- learn: higher order functions (5) -->
+  <section>
+    learn: higher order functions (5)
+  </section>
+</section> <!-- /learn: higher order functions (5) -->
+
+<section> <!-- do: create logging function (5) -->
+  <section>
+    do: create logging function (5)
+  </section>
+</section> <!-- /do: create logging function (5) -->
+
+<section> <!-- learn: higher order components (10) -->
+  <section>
+    learn: higher order components (10)
+  </section>
+</section> <!-- /learn: higher order components (10) -->
+
+<section> <!-- do: create logging hoc (10) -->
+  <section>
+    do: create logging hoc (10)
+  </section>
+</section> <!-- /do: create logging hoc (10) -->
+<!-- /hour 8 to 9 -->
+
+<!-- hour 9 to 10 -->
+<section> <!-- learn: hoc containers (5) -->
+  <section>
+    learn: hoc containers (5)
+  </section>
+</section> <!-- /learn: hoc containers (5) -->
+
+<section> <!-- do: get database code and create hoc containers (15) -->
+  <section>
+    do: get database code and create hoc containers (15)
+  </section>
+</section> <!-- /do: get database code and create hoc containers (15) -->
+
+<section> <!-- learn: final task, add messages to database (5) -->
+  <section>
+    learn: final task, add messages to database (5)
+  </section>
+</section> <!-- /learn: final task, add messages to database (5) -->
+
+<section> <!-- do: add messages to database (15) -->
+  <section>
+    do: add messages to database (15)
+  </section>
+</section> <!-- /do: add messages to database (15) -->
+<!-- /hour 9 to 10 -->
