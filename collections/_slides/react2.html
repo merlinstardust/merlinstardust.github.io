@@ -56,11 +56,12 @@ title: React 2
     </ul>
     <pre>
       <code data-trim>
-        const onSubmit = (event) => {
-          event.preventDefault();
-          console.log(event);
-        }
         class Editor extends React.Component {
+          onSubmit(event) {
+            event.preventDefault();
+            console.log(event);
+          }
+
           render() {
             return (
               // insert code here
@@ -77,11 +78,12 @@ title: React 2
     </h2>
     <pre class='small'>
       <code data-trim>
-        const onSubmit = (event) => {
-          event.preventDefault();
-          console.log(event);
-        }
         class Editor extends React.Component {
+          onSubmit(event) {
+            event.preventDefault();
+            console.log(event);
+          }
+
           render() {
             <form style={styles.editor} onSubmit={onSubmit}>
               <input autoComplete='off' name='text' style={styles.input} type='text' />
@@ -108,8 +110,32 @@ title: React 2
 <section> <!-- do: add messages from editor (10) -->
   <section>
     <h2>
-      Add submitted messages to chat
+      Add a new message to the existing list
     </h2>
+    <ul>
+      <li>
+        Initialize state with messages
+      </li>
+      <li>
+        Concatenate state messages with new message
+      </li>
+      <li>
+        Pass state messages into MessagesList
+      </li>
+    </ul>
+    <pre class='small'>
+      <code data-trim>
+        class App extends React.Component {
+          constructor(props) {
+            /* insert code here */
+          }
+
+          addMessage(newMessage) {
+            /* insert code here */
+          }
+        }
+      </code>
+    </pre>
   </section>
 
   <section>
@@ -132,16 +158,57 @@ title: React 2
           }
 
           render() {
-            <div style={styles.app}>
-              /* existing code */
-              <div style={styles.messages}>
+            return (
+              <div style={styles.app}>
                 /* existing code */
-                &lt;Editor addMessage={this.addMessage} />
+                <div style={styles.messages}>
+                  /* existing code */
+                  &lt;Editor addMessage={this.addMessage} />
+                </div>
               </div>
-            </div>
+            );
           }
         }
+      </code>
+    </pre>
+  </section>
 
+  <section>
+    <h2>
+      Use addMessage in Editor to "send" the message
+    </h2>
+    <ul>
+      <li>
+        Get data from form
+      </li>
+      <li>
+        Use fake data for name
+      </li>
+      <li>
+        Call addMessage with data
+      </li>
+    </ul>
+    <pre class='small'>
+      <code data-trim>
+        class Editor extends React.Component {
+          constructor(props) {
+            /* insert code here */
+          }
+
+          sendMessage(event) {
+            /* insert code here */
+          }
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Possible Solution
+    </h2>
+    <pre class='small'>
+      <code data-trim>
         class Editor extends React.Component {
           constructor(props) {
             super(props);
@@ -155,7 +222,6 @@ title: React 2
             const text = form.text.value;
             const timestamp = new Date();
             const name = 'Some name';
-            const avatarUrl = 'some_url.png';
 
             const {addMessage} = this.props;
             addMessage({avatarUrl, name, text, timestamp});
@@ -173,6 +239,172 @@ title: React 2
     </pre>
   </section>
 </section> <!-- /do: add messages from editor (10) -->
+
+<section> <!-- learn: controlled vs uncontrolled components (10) -->
+  <section>
+    <h1>
+      Controlled vs Uncontrolled Components
+    </h1>
+  </section>
+
+  <section>
+    <h2>
+      Uncontrolled
+    </h2>
+    <ul>
+      <li>
+        Basic inputs
+      </li>
+      <li>
+        User has control
+      </li>
+      <li>
+        React does not
+      </li>
+      <li>
+        Use with default values
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <pre>
+      <code data-trim>
+        <input type='text' defaultValue='some stuff' />
+      </code>
+    </pre>
+    <pre>
+      <code data-trim>
+        <input type='checkbox' defaultChecked={true} />
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Controlled
+    </h2>
+    <ul>
+      <li>
+        Value is set via a prop
+      </li>
+      <li>
+        Usually has an onChange handler
+      </li>
+      <li>
+        React has control
+      </li>
+      <li>
+        User does not
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <pre>
+      <code data-trim>
+        <input type='text' value='some stuff' />
+      </code>
+    </pre>
+    <pre>
+      <code data-trim>
+        <input type='checkbox' checked={true} />
+      </code>
+    </pre>
+    <pre>
+      <code data-trim>
+        <input type='text' value='some stuff' onChange={handleChange} />
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Use uncontrolled when...
+    </h2>
+    <ul>
+      <li class='fragment'>
+        You only get the value once
+      </li>
+      <li class='fragment'>
+        You do not need validation or validate later
+      </li>
+    </ul>
+    <h2 class='fragment'>
+      Use controlled when...
+    </h2>
+    <ul>
+      <li class='fragment'>
+        You want to trigger other effects
+      </li>
+      <li class='fragment'>
+        You want to validate as the input changes
+      </li>
+    </ul>
+  </section>
+</section> <!-- /learn: controlled vs uncontrolled components (10) -->
+
+<section> <!-- do: make editor controlled (10) -->
+  <section>
+    <h1>
+      Make the Editor Input Controlled
+    </h1>
+  </section>
+
+  <section>
+    <ul>
+      <li>
+        Add value to state
+      </li>
+      <li>
+        Set value on input
+      </li>
+      <li>
+        Define and use onChange handler
+      </li>
+    </ul>
+    <pre class='small'>
+      <code data-trim>
+        class Editor extends React.Component {
+          constructor(props) {
+            /* insert code here */
+          }
+
+          onChange(event) {
+            /* insert code here */
+          }
+
+          render() {
+            return (
+              <form onSubmit={this.sendMessage}>
+                &lt;input /* insert code here */ />
+              </form>
+            );
+          }
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h2>
+      Possible Solution
+    </h2>
+    <pre class='small'>
+      <code data-trim>
+        class Editor extends React.Component {
+          render() {
+            return (
+              <form onSubmit={this.sendMessage}>
+                &lt;input /* existing code */ />
+              </form>
+            );
+          }
+        }
+      </code>
+    </pre>
+  </section>
+</section> <!-- /do: make editor controlled (10) -->
 
 <section> <!-- learn: conditional rendering (5) -->
   <section>
@@ -287,18 +519,6 @@ title: React 2
     </h1>
   </section>
 </section> <!-- /break (30) -->
-
-<section> <!-- learn: controlled vs uncontrolled components (10) -->
-  <section>
-    learn: controlled vs uncontrolled components (10)
-  </section>
-</section> <!-- /learn: controlled vs uncontrolled components (10) -->
-
-<section> <!-- do: make editor controlled (10) -->
-  <section>
-    do: make editor controlled (10)
-  </section>
-</section> <!-- /do: make editor controlled (10) -->
 
 <section> <!-- learn: containers vs components (10) -->
   <section>

@@ -6,3 +6,19 @@
     text-transform: none;
   }
 }
+
+.reveal pre {
+  font-size: .5em;
+  white-space: normal;
+  > code {
+    white-space: pre;
+  }
+
+  &.small {
+    font-size: .45em;
+  }
+}
+
+.reveal ul.small li {
+  font-size: 30px;
+}
