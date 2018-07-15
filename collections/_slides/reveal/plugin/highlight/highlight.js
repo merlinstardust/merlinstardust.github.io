@@ -63,6 +63,14 @@
 				element.innerHTML = element.innerHTML.replace(/</g,"&lt;").replace(/>/g,"&gt;");
 			}
 
+			if (element.innerHTML.includes('="{')) {
+				element.innerHTML = element.innerHTML.replace(/"\{/g,"&lbrace;").replace(/\}"/g,"&rbrace;");
+			}
+
+			if (element.innerHTML.includes('classname')) {
+				element.innerHTML = element.innerHTML.replace(/classname/g, 'className');
+			}
+
 			// re-highlight when focus is lost (for edited code)
 			element.addEventListener( 'focusout', function( event ) {
 				hljs.highlightBlock( event.currentTarget );

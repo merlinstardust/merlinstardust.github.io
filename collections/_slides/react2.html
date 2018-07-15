@@ -18,20 +18,20 @@ title: React 2
 
   <section>
     <pre>
-      <code data-trim data-noescape>
-        &lt;form onSubmit={createCat}>
-          &lt;input name="catName" type="text" onChange={logChanges} />
-        &lt;/form>
+      <code data-trim>
+        <form onSubmit={createCat}>
+          <input name='catName' type='text' onChange={logChanges} />
+        </form>
       </code>
     </pre>
   </section>
 
   <section>
-    <a href="https://reactjs.org/docs/events.html">
-      <h1>
-        More on Events
-      </h1>
-    </a>
+    <h1>
+      <a href='https://reactjs.org/docs/events.html'>
+        Click for More on Events
+      </a>
+    </h1>
   </section>
 </section> <!-- /learn: an overview of inputs and form events (10) -->
 
@@ -55,7 +55,7 @@ title: React 2
       </li>
     </ul>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim>
         const onSubmit = (event) => {
           event.preventDefault();
           console.log(event);
@@ -75,17 +75,17 @@ title: React 2
     <h2>
       Possible Solution
     </h2>
-    <pre>
-      <code data-trim data-noescape>
+    <pre class='small'>
+      <code data-trim>
         const onSubmit = (event) => {
           event.preventDefault();
           console.log(event);
         }
         class Editor extends React.Component {
           render() {
-            &lt;form style={styles.editor} onSubmit={onSubmit}>
-              &lt;input autoComplete="off" name="text" style={styles.input} type="text" />
-            &lt;/form>
+            <form style={styles.editor} onSubmit={onSubmit}>
+              <input autoComplete='off' name='text' style={styles.input} type='text' />
+            </form>
           }
         }
         const styles = {
@@ -116,8 +116,8 @@ title: React 2
     <h2>
       Possible Solution
     </h2>
-    <pre>
-      <code data-trim data-noescape>
+    <pre class='small'>
+      <code data-trim>
         class App extends React.Component {
           constructor(props) {
             super(props);
@@ -132,13 +132,13 @@ title: React 2
           }
 
           render() {
-            &lt;div style={styles.app}>
+            <div style={styles.app}>
               /* existing code */
-              &lt;div style={styles.messages}>
+              <div style={styles.messages}>
                 /* existing code */
                 &lt;Editor addMessage={this.addMessage} />
-              &lt;/div>
-            &lt;/div>
+              </div>
+            </div>
           }
         }
 
@@ -163,9 +163,9 @@ title: React 2
 
           render() {
             return (
-              &lt;form onSubmit={this.sendMessage}>
+              <form onSubmit={this.sendMessage}>
                 &lt;input /* existing code */ />
-              &lt;/form>
+              </form>
             );
           }
         }
@@ -209,7 +209,7 @@ title: React 2
 
   <section>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim>
 
       </code>
     </pre>

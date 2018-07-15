@@ -8,7 +8,6 @@ title: React
   </h1>
 </section>
 
-
 <!-- hour 0 to 1 -->
 <section> <!-- learn: what is react -->
   <section>
@@ -119,7 +118,7 @@ title: React
       </li>
     </ul>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='shell'>
         npm install -g create-react-app
       </code>
     </pre>
@@ -146,7 +145,7 @@ title: React
         Create a project named react-chat
       </p>
       <pre>
-        <code data-trim data-noescape>
+        <code data-trim class='shell'>
           create-react-app react-chat
         </code>
       </pre>
@@ -154,7 +153,7 @@ title: React
         Run a project named react-chat
       </p>
       <pre>
-        <code data-trim data-noescape>
+        <code data-trim class='shell'>
           cd react-chat
           yarn start
 
@@ -174,8 +173,8 @@ title: React
   </section>
 
   <section>
-    <pre style='font-size: 0.45em'>
-      <code data-trim data-noescape style='max-height: 470px'>
+    <pre>
+      <code data-trim class='js' style='max-height: none'>
         import React, { Component } from 'react';
         import logo from './logo.svg';
         import './App.css';
@@ -183,15 +182,15 @@ title: React
         class App extends Component {
           render() {
             return (
-              &lt;div className='App'>
-                &lt;header className='App-header'>
+              <div className='App'>
+                <header className='App-header'>
                   &lt;img src={logo} className='App-logo' alt='logo' />
-                  &lt;h1 className='App-title'>Welcome to React&lt;/h1>
-                &lt;/header>
-                &lt;p className='App-intro'>
+                  <h1 className='App-title'>Welcome to React</h1>
+                </header>
+                <p className='App-intro'>
                   To get started, edit &lt;code>src/App.js&lt;/code> and save to reload.
-                &lt;/p>
-              &lt;/div>
+                </p>
+              </div>
             );
           }
         }
@@ -206,7 +205,7 @@ title: React
 
   <section>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         import React from 'react';
         import ReactDOM from 'react-dom';
         import './index.css';
@@ -224,7 +223,7 @@ title: React
       Other Things
     </h2>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='shell'>
         public/
         src/
           App.css
@@ -281,29 +280,29 @@ title: React
   </section>
 
   <section>
-    <pre style='font-size: 0.45em'>
-      <code data-trim data-noescape>
+    <pre>
+      <code data-trim class='js'>
         const ComponentName = () => {
           return (
-            &lt;div a={1}>
+            <div a={1}>
               Some text
-            &lt;/div>
+            </div>
           );
         };
 
         class ComponentName extends React.Component {
           render() {
             return (
-              &lt;div a={1}>
+              <div a={1}>
                 Some text
-              &lt;/div>
+              </div>
             );
           }
         }
       </code>
     </pre>
     <pre class='fragment'>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         React.createElement('div', {a: 1}, 'Some text')
       </code>
     </pre>
@@ -331,48 +330,48 @@ title: React
 
   <section>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         class Title extends React.Component {
           render() {
             return (
-              &lt;h1>
+              <h1>
                 Some title
-              &lt;/h1>
+              </h1>
             );
           }
         }
       </code>
     </pre>
     <pre class='fragment'>
-      <code data-trim data-noescape>
-        &lt;h1>
+      <code data-trim class='html'>
+        <h1>
           Some title
-        &lt;/h1>
+        </h1>
       </code>
     </pre>
   </section>
 
   <section>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         class Header extends React.Component {
           render() {
             return (
-              &lt;header>
+              <header>
                 &lt;Title />
-              &lt;/header>
+              </header>
             );
           }
         }
       </code>
     </pre>
     <pre class='fragment'>
-      <code data-trim data-noescape>
-        &lt;header>
-          &lt;h1>
+      <code data-trim class='html'>
+        <header>
+          <h1>
             Some Text
-          &lt;/h1>
-        &lt;/header>
+          </h1>
+        </header>
       </code>
     </pre>
   </section>
@@ -395,7 +394,7 @@ title: React
       </li>
     </ul>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         import './App.css';
 
         const Message = () => {
@@ -414,12 +413,12 @@ title: React
       Possible Solution
     </h2>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         const Message = () => {
           return (
-            &lt;div>
+            <div>
               Some text
-            &lt;/div>
+            </div>
           );
         };
       </code>
@@ -431,15 +430,16 @@ title: React
       Use the Component
     </h2>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         class App extends Component {
           render() {
             return (
-              &lt;div className='App'>
-                // previous code
-                &lt;/header>
-                // insert code here
-              &lt;div>
+              <div className='App'>
+                <header>
+                {/* previous code */ }
+                </header>
+                {/* insert code here */ }
+              </div>
             );
           }
         }
@@ -452,15 +452,16 @@ title: React
       Possible Solution
     </h2>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         class App extends Component {
           render() {
             return (
-              &lt;div className='App'>
-                // previous code
-                &lt;/header>
+              <div className='App'>
+                <header>
+                {/* previous code */ }
+                </header>
                 &lt;Message />
-              &lt;div>
+              </div>
             );
           }
         }
@@ -483,7 +484,7 @@ title: React
 
   <section>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         import React from 'react'; // node_modules
 
         import App from './App'; // project
@@ -507,7 +508,7 @@ title: React
   <section>
     <ol>
       <li>
-        Create a new file called Message.jsx
+        Create a new file called Message.js
       </li>
       <li>
         Import React
@@ -528,16 +529,16 @@ title: React
     <h2>
       Solution
     </h2>
-    <pre style='font-size: .45em'>
-      <code data-trim data-noescape>
+    <pre>
+      <code data-trim class='shell'>
         src/
           App.js
           ...
-          Message.jsx
+          Message.js
       </code>
     </pre>
-    <pre style='font-size: .45em'>
-      <code data-trim data-noescape>
+    <pre>
+      <code data-trim class='js'>
         import React from 'react';
 
         const Message = () => {
@@ -547,8 +548,8 @@ title: React
         export default Message;
       </code>
     </pre>
-    <pre style='font-size: .45em'>
-      <code data-trim data-noescape>
+    <pre>
+      <code data-trim class='js'>
         import React, { Component } from 'react';
         import Message from './Message'
         import logo from './logo.svg';
@@ -571,23 +572,23 @@ title: React
 
   <section>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         &lt;Title text='The Cat' isMedium={true} />
       </code>
     </pre>
     <pre class='fragment'>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         React.createElement(Title, {text: 'The Cat', isMedium: true});
       </code>
     </pre>
-    <pre class='fragment' style='font-size: .45em'>
-      <code data-trim data-noescape>
+    <pre class='fragment'>
+      <code data-trim class='js'>
         const Title = ({text, isMedium}) => {
           const sizeText = isMedium ? '(Medium)' : '(Not Medium)';
           return (
-            &lt;h1>
+            <h1>
               {text} {sizeText}
-            &lt;/h1>
+            </h1>
           );
         }
       </code>
@@ -599,13 +600,13 @@ title: React
   <h1>
     Aside: Destructuring
   </h1>
-  <pre style='font-size: .45em'>
-    <code data-trim data-noescape>
+  <pre>
+    <code data-trim  class='js'>
       const Title = ({text, isMedium}) => {
     </code>
   </pre>
-  <pre class='fragment' style='font-size: .45em'>
-    <code data-trim data-noescape>
+  <pre class='fragment'>
+    <code data-trim  class='js'>
       const Title = (props) => {
         const text = props.text;
         const isMedium = props.isMedium;
@@ -629,13 +630,13 @@ title: React
         message text
       </li>
     </ul>
-    <pre style='font-size: .45em'>
-      <code data-trim data-noescape>
+    <pre>
+      <code data-trim  class='js'>
         const Message = (/* insert code here */) => {
           return (
-            &lt;div>
-              // insert code here
-            &lt;/div>
+            <div>
+              {/* insert code here */}
+            </div>
           );
         };
       </code>
@@ -646,13 +647,13 @@ title: React
     <h2>
       Possible Solution
     </h2>
-    <pre style='font-size: .45em'>
-      <code style='max-height: 485px' data-trim data-noescape>
+    <pre>
+      <code data-trim class='js'>
         const Message = ({text}) => {
           return (
-            &lt;div>
+            <div>
               {text}
-            &lt;/div>
+            </div>
           );
         };
       </code>
@@ -667,13 +668,13 @@ title: React
       Define Props for Message
     </h2>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         class App extends Component {
           render() {
             return (
-              &lt;div className='App'>
+              <div className='App'>
                 &lt;Message /* insert code here */ />
-              &lt;div>
+              </div>
             );
           }
         }
@@ -685,14 +686,14 @@ title: React
     <h2>
       Possible Solution
     </h2>
-    <pre style='font-size: .45em'>
-      <code data-trim data-noescape>
+    <pre>
+      <code data-trim class='js'>
         class App extends Component {
           render() {
             return (
-              &lt;div className='App'>
+              <div className='App'>
                 &lt;Message text='Some bit of text' />
-              &lt;div>
+              </div>
             );
           }
         }
@@ -715,21 +716,21 @@ title: React
         timestamp
       </li>
     </ul>
-    <pre style='font-size: .45em'>
-      <code data-trim data-noescape>
+    <pre>
+      <code data-trim class='js'>
         const Message = ({text, /* insert code here */}) => {
           return (
-            &lt;div>
-              &lt;span>
-                // insert timestamp code here
-              &lt;/span>
-              &lt;span>
-                // insert name code here
-              &lt;/span>
-              &lt;p>
+            <div>
+              <span>
+                {/* insert timestamp code here */}
+              </span>
+              <span>
+                {/* insert name code here */}
+              </span>
+              <p>
                 {text}
-              &lt;/p>
-            &lt;/div>
+              </p>
+            </div>
           );
         };
       </code>
@@ -740,21 +741,21 @@ title: React
     <h2>
       Possible Solution
     </h2>
-    <pre style='font-size: .45em'>
-      <code style='max-height: 485px' data-trim data-noescape>
+    <pre>
+      <code style='max-height: none' data-trim class='js'>
         const Message = ({name, text, timestamp}) => {
           return (
-            &lt;div>
-              &lt;span>
+            <div>
+              <span>
                 {timestamp}
-              &lt;/span>
-              &lt;span>
+              </span>
+              <span>
                 {name}
-              &lt;/span>
-              &lt;p>
+              </span>
+              <p>
                 {text}
-              &lt;/p>
-            &lt;/div>
+              </p>
+            </div>
           );
         };
       </code>
@@ -769,13 +770,13 @@ title: React
       Define New Props for Message
     </h2>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         class App extends Component {
           render() {
             return (
-              &lt;div className='App'>
+              <div className='App'>
                 &lt;Message text='Some bit of text' /* insert code here */ />
-              &lt;div>
+              </div>
             );
           }
         }
@@ -787,14 +788,14 @@ title: React
     <h2>
       Possible Solution
     </h2>
-    <pre style='font-size: .45em'>
-      <code data-trim data-noescape>
+    <pre>
+      <code data-trim class='js'>
         class App extends Component {
           render() {
             return (
-              &lt;div className='App'>
+              <div className='App'>
                 &lt;Message name='Rando' text='Some bit of text' timestamp='11:10pm'/>
-              &lt;div>
+              </div>
             );
           }
         }
@@ -857,7 +858,7 @@ title: React
       Install PropTypes
     </h1>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='shell'>
         npm install --save prop-types
       </code>
     </pre>
@@ -876,7 +877,7 @@ title: React
       </li>
     </ul>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         import React from 'react';
         // insert code here
 
@@ -897,8 +898,8 @@ title: React
     <h2>
       Possible Solution
     </h2>
-    <pre style='font-size: .45em'>
-      <code data-trim data-noescape>
+    <pre>
+      <code data-trim class='js'>
         import React from 'react';
         import PropTypes from 'prop-types';
 
@@ -929,8 +930,8 @@ title: React
     <h2>
       Change timestamp to expect a Date
     </h2>
-    <pre style='font-size: .45em'>
-      <code data-trim data-noescape>
+    <pre>
+      <code data-trim class='js'>
         Message.propTypes = {
           name: PropTypes.string.isRequired,
           text: PropTypes.string.isRequired,
@@ -947,14 +948,14 @@ title: React
     <h2>
       Pass in a Date
     </h2>
-    <pre style='font-size: .45em'>
-      <code data-trim data-noescape>
+    <pre>
+      <code data-trim class='js'>
         class App extends Component {
           render() {
             return (
-              &lt;div className='App'>
+              <div className='App'>
                 &lt;Message name='Rando' text='Some bit of text' timestamp={new Date()} />
-              &lt;div>
+              </div>
             );
           }
         }
@@ -969,18 +970,18 @@ title: React
     <h2>
       Fixing the Date problem
     </h2>
-    <pre style='font-size: .45em'>
-      <code data-trim data-noescape>
+    <pre>
+      <code data-trim class='js'>
         const Message = ({name, text, timestamp}) => {
           const time = timestamp.toTimeString();
           return (
-            &lt;div>
-              // existing code
-              &lt;span>
+            <div>
+              {/* existing code */}
+              <span>
                 {time}
-              &lt;/span>
-              // existing code
-            &lt;/div>
+              </span>
+              {/* existing code */}
+            </div>
           )
         }
       </code>
@@ -1031,18 +1032,18 @@ title: React
     <h2>
       Add Message without a name
     </h2>
-    <pre style='font-size: .45em'>
-      <code data-trim data-noescape>
+    <pre>
+      <code data-trim class='js'>
         class App extends Component {
           render() {
             return (
-              &lt;div style={styles.app}>
-                // existing code
-                &lt;div style={styles.messages}>
+              <div style={styles.app}>
+                {/* existing code */}
+                <div style={styles.messages}>
                   &lt;Message // existing code />
                   &lt;Message // insert code here />
-                &lt;/div>
-              &lt;/div>
+                </div>
+              </div>
             );
           }
         }
@@ -1054,16 +1055,16 @@ title: React
     <h2>
       Possible Solution
     </h2>
-    <pre style='font-size: .45em'>
-      <code data-trim data-noescape>
+    <pre>
+      <code data-trim class='js'>
         class App extends Component {
           render() {
             return (
-              &lt;div style={styles.app}>
-                // existing code
+              <div style={styles.app}>
+                {/* existing code */}
                 &lt;Message // existing code />
                 &lt;Message text='A message with no name' timestamp={new Date()} />
-              &lt;/div>
+              </div>
             );
           }
         }
@@ -1072,9 +1073,9 @@ title: React
   </section>
 
   <section>
-    <h1>
+    <h2>
       Add defaultProps to Message
-    </h1>
+    </h2>
     <ul>
       <li>
         remove isRequired from name
@@ -1084,7 +1085,7 @@ title: React
       </li>
     </ul>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         import React from 'react';
 
         // existing code
@@ -1103,7 +1104,7 @@ title: React
       Possible Solution
     </h2>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         import React from 'react';
 
         // existing code
@@ -1148,14 +1149,14 @@ title: React
       CSS in JS
     </h2>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         class Title extends React.Component {
           render() {
             const style = {fontSize: '20rem', padding: 10};
             return (
-              &lt;h1 style={style}>
+              <h1 style={style}>
                 Some text
-              &lt;/h1>
+              </h1>
             );
           }
         }
@@ -1164,14 +1165,14 @@ title: React
   </section>
 
   <section>
-    <pre style='font-size: .45em'>
-      <code data-trim data-noescape>
+    <pre>
+      <code data-trim class='js'>
         class Title extends React.Component {
           render() {
             return (
-              &lt;h1 style={styles.h1}>
+              <h1 style={styles.h1}>
                 Some text
-              &lt;/h1>
+              </h1>
             );
           }
         }
@@ -1203,18 +1204,18 @@ title: React
         Make it bold
       </li>
     </ul>
-    <pre style='font-size: .45em'>
-      <code data-trim data-noescape>
+    <pre>
+      <code data-trim class='js'>
         const Message = ({name, text, timestamp}) => {
           // existing code
           return (
-            &lt;div>
-              /* existing code */
+            <div>
+              {/* existing code */}
               &lt;span /* insert code here */ >
                 {name}
               &lt;/span>
-              /* existing code */
-            &lt;/div>
+              {/* existing code */}
+            </div>
           );
         };
 
@@ -1229,22 +1230,22 @@ title: React
     <h2>
       Message Styling
     </h2>
-    <pre style='font-size: .45em'>
-      <code data-trim data-noescape>
+    <pre>
+      <code data-trim class='js' style='max-height: 470px;'>
         const Message = ({compact, name, text, timestamp}) => {
           const time = timestamp.toTimeString().split(' ')[0];
           return (
-            &lt;div style={styles.container}>
-              &lt;span style={styles.name}>
+            <div style={styles.container}>
+              <span style={styles.name}>
                 {name}
-              &lt;/span>
-              &lt;span style={styles.time}>
+              </span>
+              <span style={styles.time}>
                 {time}
-              &lt;/span>
-              &lt;p style={styles.text}>
+              </span>
+              <p style={styles.text}>
                 {text}
-              &lt;/p>
-            &lt;/div>
+              </p>
+            </div>
           );
         };
 
@@ -1269,18 +1270,18 @@ title: React
     <h2>
       App Styling
     </h2>
-    <pre style='font-size: .45em'>
-      <code data-trim data-noescape>
+    <pre>
+      <code data-trim class='js' style='max-height: 470px;'>
         class App extends Component {
           render() {
             return (
-              &lt;div>
-                // existing code
-                &lt;div style={styles.messages}>
+              <div>
+                {/* existing code */}
+                <div style={styles.messages}>
                   &lt;Message // existing code />
                   &lt;Message // existing code />
-                &lt;/div>
-              &lt;/div>
+                </div>
+              </div>
             );
           }
         }
@@ -1305,7 +1306,7 @@ title: React
 
   <section>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         // input
         [1, 3, 5, 7]
 
@@ -1334,7 +1335,7 @@ title: React
     </ul>
 
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         function multiplyBy10(numbers) {
           // insert code here
         }
@@ -1353,14 +1354,14 @@ title: React
   <section>
     A Simpler Solution
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         function multiplyBy10(numbers) {
           return numbers.map(number => 10 * number);
         }
       </code>
     </pre>
     <pre class='fragment'>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         function multiplyBy10(numbers) {
           return numbers.map(function (number) { return 10 * number; });
         }
@@ -1397,14 +1398,14 @@ title: React
     </ul>
 
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         render() {
           return (
-            &lt;div>
-              &lt;img />
+            <div>
+              <img />
               Some text
               {someFunction()}
-            &lt;/div>
+            </div>
           );
         }
       </code>
@@ -1417,29 +1418,29 @@ title: React
 
   <section>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         render() {
           return (
-            &lt;div>
+            <div>
               &lt;Character name='Arya' />
               &lt;Character name='Jon' />
               &lt;Character name='Dany' />
-            &lt;/div>
+            </div>
           );
         }
       </code>
     </pre>
 
     <pre class='fragment'>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         render() {
           const profiles = [{name: 'Arya'}, {name: 'Jon'}, {name: 'Dany'}];
           return (
-            &lt;div>
+            <div>
               {profiles.map(profile =>
                 &lt;Character name={profile.name} />
               )}
-            &lt;/div>
+            </div>
           );
         }
       </code>
@@ -1460,7 +1461,7 @@ title: React
     </h2>
     <ul>
       <li>
-        A new file called MessagesList.jsx
+        A new file called MessagesList.js
       </li>
       <li>
         A component that gets messages as a prop
@@ -1471,7 +1472,7 @@ title: React
     </ul>
 
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         const MessagesList = (/* insert code here */) => {
           return (
             // insert code here
@@ -1488,17 +1489,17 @@ title: React
     <h2>
       Possible Solution
     </h2>
-    <pre style='font-size: .45em'>
-      <code data-trim data-noescape>
+    <pre>
+      <code data-trim class='js'>
         class MessagesList extends React.Component {
           render() {
             const {messages} = this.props;
             return (
-              &lt;div>
+              <div>
                 {messages.map(message =>
                   &lt;Message key={message.timestamp.toString() + message.name} avatarUrl={message.avatarUrl} name={message.name} timestamp={message.timestamp} text={message.text} />
                 )}
-              &lt;/div>
+              </div>
             );
           }
         }
@@ -1510,7 +1511,7 @@ title: React
     <h2>
       Use MessagesList in App.js
     </h2>
-    <ul>
+    <ul class='small'>
       <li>
         Import MessagesList
       </li>
@@ -1522,13 +1523,12 @@ title: React
       </li>
     </ul>
 
-    <pre>
-      <code data-trim data-noescape>
+    <pre class='small'>
+      <code data-trim class='js'>
         import React from 'react';
         // insert code here
 
         const messages = [
-          {/* insert message content */},
           {/* insert message content */},
           {/* insert message content */},
         ];
@@ -1536,11 +1536,11 @@ title: React
         class App extends Component {
           render() {
             return (
-              &lt;div className='App'>
-                &lt;div style={styles.message}>
-                  // insert code here
-                &lt;/div>
-              &lt;/div>
+              <div className='App'>
+                <div style={styles.message}>
+                  {/* insert code here */}
+                </div>
+              </div>
             );
           }
         }
@@ -1552,8 +1552,8 @@ title: React
     <h2>
       Possible Solution
     </h2>
-    <pre style='font-size: .45em'>
-      <code data-trim data-noescape>
+    <pre class='small'>
+      <code data-trim class='js'>
         import MessagesList from './MessagesList';
 
         const messages = [
@@ -1565,11 +1565,11 @@ title: React
         class App extends Component {
           render() {
             return (
-              &lt;div className='App'>
-                &lt;div style={styles.message}>
+              <div className='App'>
+                <div style={styles.message}>
                   &lt;MessagesList messages={messages} />
-                &lt;/div>
-              &lt;/div>
+                </div>
+              </div>
             );
           }
         }
@@ -1591,17 +1591,17 @@ title: React
       Ternary (?)
     </h1>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         const message = loggedIn ? 'Welcome' : 'Please log in';
       </code>
     </pre>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         render() {
           return (
-            &lt;div>
+            <div>
               {loggedIn ? &lt;App /> : &lt;LoginScreen />}
-            &lt;/div>
+            </div>
           );
         }
       </code>
@@ -1613,14 +1613,14 @@ title: React
       And Operator (&&)
     </h1>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         render() {
           return (
-            &lt;div>
+            <div>
               {loggedIn &&
                 &lt;Profile />
               }
-            &lt;/div>
+            </div>
           );
         }
       </code>
@@ -1639,7 +1639,7 @@ title: React
     <h2>
       Move Message text inline
     </h2>
-    <ul>
+    <ul class='small'>
       <li>
         Add styles (given below)
       </li>
@@ -1650,16 +1650,16 @@ title: React
         If compact is true, make the text appear inline
       </li>
     </ul>
-    <pre style='font-size: .45em'>
-      <code data-trim data-noescape>
+    <pre class='small'>
+      <code data-trim class='js'>
         const Message = ({name, text, timestamp, /* insert code here */}) => {
           return (
-            &lt;div>
-              // existing code
+            <div>
+              {/* existing code */}
               &lt;p style={/* insert code here */}>
                 {text}
               &lt;/p>
-            &lt;/div>
+            </div>
           );
         }
 
@@ -1679,8 +1679,8 @@ title: React
       Possible Solution
     </h2>
 
-    <pre style='font-size: .45em'>
-      <code data-trim data-noescape>
+    <pre>
+      <code data-trim class='js'>
         const Message = ({name, text, timestamp, compact}) => {
           return (
             &lt;div style={compact ? styles.textCompact : styles.text}>
@@ -1742,7 +1742,7 @@ title: React
 
   <section>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         class Dog extends React.Component {
           constructor(props) {
             super(props);
@@ -1760,7 +1760,7 @@ title: React
       Add boolean 'compact' to App state
     </h2>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         class App extends React.Component {
           constructor(props) {
             // insert code here
@@ -1776,7 +1776,7 @@ title: React
       Possible Solution
     </h2>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         class App extends React.Component {
           constructor(props) {
             super(props);
@@ -1801,17 +1801,17 @@ title: React
       </li>
     </ul>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         class App extends React.Component {
           // existing code
           render() {
             // insert code here
             return (
-              &lt;div className='App'>
-                &lt;div style={styles.message}>
+              <div className='App'>
+                <div style={styles.message}>
                   &lt;MessagesList /* insert code here */ messages={messages} />
-                &lt;/div>
-              &lt;/div>
+                </div>
+              </div>
             );
           }
         }
@@ -1824,17 +1824,17 @@ title: React
       Possible Solution
     </h2>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         class App extends React.Component {
           // existing code
           render() {
             const {compact} = this.state;
             return (
-              &lt;div className='App'>
-                &lt;div style={styles.message}>
+              <div className='App'>
+                <div style={styles.message}>
                   &lt;MessagesList compact={compact} messages={messages} />
-                &lt;/div>
-              &lt;/div>
+                </div>
+              </div>
             );
           }
         }
@@ -1847,10 +1847,10 @@ title: React
       Pass 'compact' into Message in MessagesList
     </h2>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         const MessagesList = ({messages, /* insert code here */}) => {
           return (
-            &lt;div>
+            <div>
               {messages.map(({name, text, timestamp}, index) =>
                 &lt;Message
                   key={index + timestamp.getTime()}
@@ -1860,7 +1860,7 @@ title: React
                   timestamp={timestamp}
                 />
               )}
-            &lt;/div>
+            </div>
           );
         };
       </code>
@@ -1872,10 +1872,10 @@ title: React
       Possible Solution
     </h2>
     <pre>
-      <code data-trim data-noescape>
+      <code data-trim class='js'>
         const MessagesList = ({messages, compact}) => {
           return (
-            &lt;div>
+            <div>
               {messages.map(({name, text, timestamp}, index) =>
                 &lt;Message
                   key={index + timestamp.getTime()}
@@ -1885,7 +1885,7 @@ title: React
                   timestamp={timestamp}
                 />
               )}
-            &lt;/div>
+            </div>
           );
         };
       </code>
@@ -1906,20 +1906,20 @@ title: React
 
   <section>
     <pre>
-      <code data-trim data-noescape>
-        &lt;form onSubmit={createCat}>
-          &lt;input name='catName' type='text' onChange={logChanges} />
-        &lt;/form>
+      <code data-trim class='js'>
+        <form onSubmit={createCat}>
+          <input name='catName' type='text' onChange={logChanges} />
+        </form>
       </code>
     </pre>
   </section>
 
   <section>
-    <a href='https://reactjs.org/docs/events.html'>
-      <h1>
-        More on Events
-      </h1>
-    </a>
+    <h1>
+      <a href='https://reactjs.org/docs/events.html'>
+        Click for More on Events
+      </a>
+    </h1>
   </section>
 </section> <!-- /learn: an overview of inputs and form events (10) -->
 
