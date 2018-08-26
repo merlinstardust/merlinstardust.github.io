@@ -440,13 +440,153 @@ title: React 2
   </section>
 
   <section>
+    <ul>
+      <li>
+        Create FakeLoginScreen.js
+      </li>
+      <li>
+        Create a form with an input for a name with a log in button and takes in a login prop
+      </li>
+      <li>
+        In App.js, add name and loggedIn to state
+      </li>
+      <li>
+        In App.js, render FakeLoginScreen if not logged in
+      </li>
+      <li>
+        In App.js, pass name into Editor when logged in
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>
+      Possible Solution
+    </h2>
     <pre>
       <code data-trim>
+        const FakeLoginScreen = ({login}) => {
+          return (
+            <form style={styles.form} onSubmit={login}>
+              <h1>
+                Login Screen
+              </h1>
+              <input style={styles.input} placeholder='name' name='name' type='text' />
+              <button style={styles.button} type='submit'>
+                Log In
+              </button>
+            </form>
+          );
+        };
 
+        const styles = {
+          form: {
+            width: '230px',
+            margin: 'auto',
+          },
+          input: {
+            width: '100%',
+            fontSize: '20px',
+          },
+          button: {
+            display: 'block',
+            width: '100%',
+            fontSize: '20px',
+          },
+        };
       </code>
     </pre>
   </section>
 </section> <!-- /do: create fakelogin component (10) -->
+
+<section> <!-- learn: higher order functions (5) -->
+  <section>
+    <h1>
+      Higher Order Functions
+    </h1>
+  </section>
+
+  <section>
+    <ul>
+      <li>
+        Takes in a function
+      </li>
+      <li>
+        Or outputs another function as a result
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>
+      Map
+    </h2>
+    <pre>
+      <code data-trim>
+        const multiplyBy10 = (number) => number * 10;
+        array.map(multiplyBy10);
+      </code>
+    </pre>
+  </section>
+</section> <!-- /learn: higher order functions (5) -->
+
+<section> <!-- do: create logging function (5) -->
+  <section>
+    <h1>
+      Create Logging Wrapper
+    </h1>
+  </section>
+
+  <section>
+    <h2>
+      Possible Solution
+    </h2>
+    <pre>
+      <code data-trim>
+        function logArguments(innerFunction) {
+          return (...args) => {
+            console.log("calling with", args);
+            return innerFunction(...args);
+          };
+        }
+      </code>
+    </pre>
+    <pre>
+      <code data-trim>
+        const add = (a, b) => a + b;
+        const addWithLogging = logArguments(add);
+        addWithLogging(7, 9);
+        logArguments(add)(7, 9)
+      </code>
+    </pre>
+  </section>
+</section> <!-- /do: create logging function (5) -->
+
+<section> <!-- learn: containers vs components (10) -->
+  <section>
+    <h1>
+      Containers vs Components
+    </h1>
+  </section>
+</section> <!-- /learn: containers vs components (10) -->
+
+<section> <!-- do: create fake containers (5) -->
+  <section>
+    do: create fake containers (5)
+  </section>
+</section> <!-- /do: create fake containers (5) -->
+
+<section> <!-- learn: final task, add messages to database (5) -->
+  <section>
+    learn: final task, add messages to database (5)
+  </section>
+</section> <!-- /learn: final task, add messages to database (5) -->
+
+<section> <!-- do: add messages to database (15) -->
+  <section>
+    do: add messages to database (15)
+  </section>
+</section> <!-- /do: add messages to database (15) -->
 <!-- /hour 5 to 6 -->
 
 <!-- hour 6 to 7 -->
@@ -519,18 +659,6 @@ title: React 2
     </h1>
   </section>
 </section> <!-- /break (30) -->
-
-<section> <!-- learn: containers vs components (10) -->
-  <section>
-    learn: containers vs components (10)
-  </section>
-</section> <!-- /learn: containers vs components (10) -->
-
-<section> <!-- do: create fake containers (5) -->
-  <section>
-    do: create fake containers (5)
-  </section>
-</section> <!-- /do: create fake containers (5) -->
 <!-- /hour 7 to 8 -->
 
 <!-- hour 8 to 9 -->
@@ -558,18 +686,6 @@ title: React 2
   </section>
 </section> <!-- /do: create messageslist.container (10) -->
 
-<section> <!-- learn: higher order functions (5) -->
-  <section>
-    learn: higher order functions (5)
-  </section>
-</section> <!-- /learn: higher order functions (5) -->
-
-<section> <!-- do: create logging function (5) -->
-  <section>
-    do: create logging function (5)
-  </section>
-</section> <!-- /do: create logging function (5) -->
-
 <section> <!-- learn: higher order components (10) -->
   <section>
     learn: higher order components (10)
@@ -596,15 +712,4 @@ title: React 2
   </section>
 </section> <!-- /do: get database code and create hoc containers (15) -->
 
-<section> <!-- learn: final task, add messages to database (5) -->
-  <section>
-    learn: final task, add messages to database (5)
-  </section>
-</section> <!-- /learn: final task, add messages to database (5) -->
-
-<section> <!-- do: add messages to database (15) -->
-  <section>
-    do: add messages to database (15)
-  </section>
-</section> <!-- /do: add messages to database (15) -->
 <!-- /hour 9 to 10 -->

@@ -1,0 +1,20 @@
+{
+  "name": "merlinpatt.com",
+  "version": "0.5.0",
+  "description": "My portfolio website",
+  "main": "index.html",
+  "scripts": {
+    "start": "bundle exec jekyll serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/merlinpatt/merlinpatt.github.io.git"
+  },
+  "keywords": [
+    "product",
+    "wizard"
+  ],
+  "author": "Merlin Patterson",
+  "license": "ISC",
+  "homepage": "https://merlinpatt.com"
+}
