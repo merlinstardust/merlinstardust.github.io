@@ -12,14 +12,28 @@
       (Under Construction)
     </h2>
     <form action="https://YOUR-APP.herokuapp.com/" method="POST">
+      <input name="amount" placeholder="Amount" value="">
+      <input name="description" placeholder="Description" value="">
       <script
         src="https://checkout.stripe.com/checkout.js"
         class="stripe-button"
         data-key="pk_live_aEU3c4O6gb4mgQMzsY8K0XB1"
         data-name="Merlin Patterson"
       ></script>
+    </form>
+
+    <h3>
+      Test
+    </h3>
+    <form action="https://pay-test-product-wizardry.herokuapp.com/" method="POST">
       <input name="amount" placeholder="Amount" value="">
       <input name="description" placeholder="Description" value="">
+      <script
+        src="https://checkout.stripe.com/checkout.js"
+        class="stripe-button"
+        data-key="pk_test_0OsfHRsLfcxNI4s14kndJVBk"
+        data-name="Merlin Patterson"
+      ></script>
     </form>
   </body>
 </html>
