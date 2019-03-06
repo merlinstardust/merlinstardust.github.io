@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <title>
+     Payments - Product Wizardry - Merlin Patterson
+    </title>
+  </head>
+  <body>
+    <h1>
+      Product Wizardry - Merlin Patterson
+    </h1>
+    <h2>
+      (Under Construction)
+    </h2>
+    <div id="payment-request-button">
+      <!-- A Stripe Element will be inserted here. -->
+    </div>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+      const stripe = Stripe('pk_test_0OsfHRsLfcxNI4s14kndJVBk');
+      const paymentRequest = stripe.paymentRequest({
+        country: 'US',
+        currency: 'usd',
+        total: {
+          label: 'Demo total',
+          amount: 1000,
+        },
+        requestPayerName: true,
+        requestPayerEmail: true,
+      });
+      
+      const elements = stripe.elements();
+      const prButton = elements.create('paymentRequestButton', {
+        paymentRequest,
+      });
+
+      (async () => {
+        // Check the availability of the Payment Request API first.
+        const result = await paymentRequest.canMakePayment();
+        if (result) {
+          prButton.mount('#payment-request-button');
+        } else {
+          document.getElementById('payment-request-button').style.display = 'none';
+        }
+      })();
+
+      paymentRequest.on('source', async (ev) => {
+        const {
+          error: confirmError,
+          paymentIntent,
+        } = await stripe.confirmPaymentIntent(clientSecret, {
+          source: ev.source.id,
+          use_stripe_sdk: true,
+        });
+
+        if (confirmError) {
+          // Report to the browser that the payment failed, prompting it to
+          // re-show the payment interface, or show an error message and close
+          // the payment interface.
+          ev.complete('fail');
+        } else {
+          // Report to the browser that the confirmation was successful, prompting
+          // it to close the browser payment method collection interface.
+          ev.complete('success');
+          // Let Stripe.js handle the rest of the payment flow.
+          const {error} = await stripe.handleCardPayment(clientSecret);
+          if (error) {
+            // The payment failed -- ask your customer for a new payment method.
+          } else {
+            // The payment has succeeded.
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
