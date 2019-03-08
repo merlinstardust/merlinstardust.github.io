@@ -10,10 +10,11 @@ const url = isLocal ? TEST_URL : LIVE_URL;
 const paymentForm = document.getElementById('paymentForm');
 paymentForm.setAttribute('action', url);
 
-const getAmountWithFee = ({amount, flatFeeInCents = true}) => {
+const getAmountWithFee = (amount) => {
   const PERCENT_FEE = .029;
-  const FLAT_FEE = flatFeeInCents ? 30 : 0.30;
-  const amountWithFee = 1 / (1 - PERCENT_FEE) * (amount + FLAT_FEE);
+  const FLAT_FEE = 0.30;
+  const FLAT_FEE_IN_CENTS = FLAT_FEE * 100;
+  const amountWithFee = 1 / (1 - PERCENT_FEE) * (amount + FLAT_FEE_IN_CENTS);
   const roundedAmountWithFee = Number(amountWithFee.toFixed(2));
   return roundedAmountWithFee;
 };
@@ -30,14 +31,11 @@ const getAmountAndDescription = () => {
   const isCoveringFee = coverFeeInput.checked;
 
   const amount = Math.floor(isCoveringFee
-    ? getAmountWithFee({amount: amountInCents, flatFeeInCents: true})
+    ? getAmountWithFee(amountInCents)
     : amountInCents
   );
 
-  const amountInDollars = (isCoveringFee
-    ? getAmountWithFee({amount: originalAmount, flatFeeInCents: false})
-    : originalAmount
-  );
+  const amountInDollars = Number(amount / 100).toFixed(2);
 
   return {
     amount,
