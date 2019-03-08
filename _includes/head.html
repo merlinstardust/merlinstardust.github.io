@@ -17,7 +17,10 @@
 
   <link rel='stylesheet' href='/css/grid.css'>
   <link rel='stylesheet' href='/css/main.css'>
-  
+  {% for stylesheetPath in page.stylesheetPaths %}
+    <link rel='stylesheet' href='/css/{{ stylesheetPath }}.css'>
+  {% endfor %}
+
   <link
     rel='canonical'
     href='{{ page.url | replace:'index.html','' | prepend: site.url }}'

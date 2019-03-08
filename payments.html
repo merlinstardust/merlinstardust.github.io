@@ -1,39 +1,70 @@
-<html>
-  <head>
-    <title>
-     Payments - Product Wizardry - Merlin Patterson
-    </title>
-  </head>
-  <body>
-    <h1>
-      Product Wizardry - Merlin Patterson
-    </h1>
-    <h2>
-      (Under Construction)
-    </h2>
-    <form action="https://YOUR-APP.herokuapp.com/" method="POST">
-      <input name="amount" placeholder="Amount" value="">
-      <input name="description" placeholder="Description" value="">
-      <script
-        src="https://checkout.stripe.com/checkout.js"
-        class="stripe-button"
-        data-key="pk_live_aEU3c4O6gb4mgQMzsY8K0XB1"
-        data-name="Merlin Patterson"
-      ></script>
-    </form>
+---
+stylesheetPaths: ['payments']
+---
 
-    <h3>
-      Test
-    </h3>
-    <form action="https://pay-test-product-wizardry.herokuapp.com/" method="POST">
-      <input name="amount" placeholder="Amount" value="">
-      <input name="description" placeholder="Description" value="">
-      <script
-        src="https://checkout.stripe.com/checkout.js"
-        class="stripe-button"
-        data-key="pk_test_0OsfHRsLfcxNI4s14kndJVBk"
-        data-name="Merlin Patterson"
-      ></script>
-    </form>
-  </body>
-</html>
+<style>
+  label, input {
+    display: block;
+  }
+  fieldset {
+    border: none;
+  }
+</style>
+
+<h1>
+  Product Wizardry - Merlin Patterson
+</h1>
+<h2>
+  (Under Construction) 12
+</h2>
+
+<div id='inputs'>
+  <fieldset>
+    <label>
+      Amount in Dollars
+    </label>
+    <input
+      autocomplete='off'
+      name='amount'
+      placeholder='Amount in Dollars'
+      type='number'
+    />
+  </fieldset>
+  <fieldset>
+    <label>
+      Description
+    </label>
+    <input
+      autocomplete='off'
+      name='description'
+      placeholder='Description'
+    >
+  </fieldset>
+  <fieldset>
+    <label>
+      Check this box to cover Stripe's fee of 2.9% + $0.30 (
+      <a href='https://stripe.com/us/pricing#pricing-details' target='_blank'>
+        See details here
+      </a>
+      )
+    </label>
+    <input
+      name='coverStripeFee'
+      type='checkbox'
+    />
+  </fieldset>
+</div>
+
+<form id='paymentForm' action='' method='POST'>
+  <input name='amount' type='hidden' value='' />
+  <input name='description' type='hidden' value='' />
+  <div>
+    <button id='createScript' type='button'>
+      Create Payment Button
+    </button>
+  </div>
+  <div id='stripeScriptContainer'>
+  </div>
+</form>
+
+<script src='/payments.js'></script>
