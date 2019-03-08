@@ -4,7 +4,7 @@
   overflow: hidden;
   display: inline-block;
   visibility: visible !important;
-  background-image: linear-gradient(#28a0e5,#015e94);
+  background-image: linear-gradient(#28a0e5, #015e94);
   -webkit-font-smoothing: antialiased;
   border: 0;
   padding: 1px;
@@ -14,53 +14,51 @@
   -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
-  cursor: pointer
-}
+  cursor: pointer;
 
-.stripe-button-el::-moz-focus-inner {
-  border: 0;
-  padding: 0
-}
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
 
-.stripe-button-el span {
-  display: block;
-  position: relative;
-  padding: 0 12px;
-  height: 30px;
-  line-height: 30px;
-  background: #1275ff;
-  background-image: linear-gradient(#7dc5ee,#008cdd 85%,#30a2e4);
-  font-size: 14px;
-  color: #fff;
-  font-weight: bold;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
-  border-radius: 4px
+  & span {
+    display: block;
+    position: relative;
+    padding: 0 12px;
+    height: 30px;
+    line-height: 30px;
+    background: #1275ff;
+    background-image: linear-gradient(#7dc5ee, #008cdd 85%, #30a2e4);
+    font-size: 14px;
+    color: #fff;
+    font-weight: bold;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+  }
 }
 
 .stripe-button-el:not(:disabled):active,
 .stripe-button-el.active {
-  background: #005d93
-}
+  background: #005d93;
 
-.stripe-button-el:not(:disabled):active span,
-.stripe-button-el.active span {
-  color: #eee;
-  background: #008cdd;
-  background-image: linear-gradient(#008cdd,#008cdd 85%,#239adf);
-  box-shadow: inset 0 1px 0 rgba(0,0,0,0.1)
+  & span {
+    color: #eee;
+    background: #008cdd;
+    background-image: linear-gradient(#008cdd, #008cdd 85%, #239adf);
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
+  }
 }
 
 .stripe-button-el:disabled,
 .stripe-button-el.disabled {
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.2);
   box-shadow: none;
-}
 
-.stripe-button-el:disabled span,
-.stripe-button-el.disabled span {
-  color: #999;
-  background: #f8f9fa;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.5)
+  & span {
+    color: #999;
+    background: #f8f9fa;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
 }
