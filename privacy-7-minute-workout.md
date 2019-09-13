@@ -1,3 +1,6 @@
+---
+---
+
 ## Privacy Notice for Google Action Seven Minute Workout
 
 This privacy notice discloses the privacy practices for Seven Minute Workout. This privacy notice applies solely to information collected by this action. It will notify you of the following:
