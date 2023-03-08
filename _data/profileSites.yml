@@ -8,10 +8,5 @@
     name: 'LinkedIn',
     url: 'https://linkedin.com/in',
     username: 'merlinpatt',
-  },
-  {
-    name: 'Twitter',
-    url: 'https://twitter.com/',
-    username: 'merlinpatt77',
-  },
+  }
 ]
