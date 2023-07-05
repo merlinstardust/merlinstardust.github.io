@@ -1,1 +1,3 @@
-# merlinpatt.github.io
+# merlin.fyi
+
+[merlin.fyi](https://merlin.fyi)

@@ -1,5 +1,5 @@
 {
-  "name": "merlinpatt.com",
+  "name": "merlin.fyi",
   "version": "0.5.0",
   "description": "My portfolio website",
   "main": "index.html",
@@ -8,13 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/merlinpatt/merlinpatt.github.io.git"
+    "url": "git+https://github.com/merlinstardust/merlinstardust.github.io.git"
   },
   "keywords": [
-    "product",
-    "wizard"
+    "software",
+    "witchcraft"
   ],
-  "author": "Merlin Patterson",
+  "author": "Merlin Stardust",
   "license": "ISC",
-  "homepage": "https://merlinpatt.com"
+  "homepage": "https://merlin.fyi"
 }
